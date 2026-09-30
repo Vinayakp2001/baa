@@ -1,0 +1,873 @@
+{
+  "probe": "VR19_ENRICHMENT_METHODS",
+  "generated": "2026-09-26T18:39:50.059805+00:00",
+  "summary": {
+    "businesses_tested": 15,
+    "total_pages_crawled": 15,
+    "biz_with_mailto_email": 0,
+    "biz_with_jsonld_email": 0,
+    "biz_with_any_email": 0,
+    "biz_with_jsonld_person": 0,
+    "biz_with_regex_person": 0,
+    "biz_with_any_person": 0,
+    "biz_with_phone": 4
+  },
+  "results": [
+    {
+      "id": "B01",
+      "name": "RepologiX",
+      "domain": "https://www.repologix.com",
+      "pages_attempted": [
+        "/",
+        "/contact",
+        "/contact-us",
+        "/about",
+        "/about-us",
+        "/team",
+        "/leadership",
+        "/management",
+        "/staff"
+      ],
+      "pages_crawled": [
+        "/",
+        "/contact",
+        "/about"
+      ],
+      "robots_blocked": [],
+      "emails_mailto": [],
+      "emails_jsonld": [],
+      "persons_jsonld": [],
+      "persons_regex": [],
+      "phones": [
+        "416-248-1229",
+        "416-248-9484"
+      ],
+      "errors": [
+        {
+          "path": "/contact-us",
+          "error": "HTTP Error 404: Not Found"
+        },
+        {
+          "path": "/about-us",
+          "error": "HTTP Error 404: Not Found"
+        },
+        {
+          "path": "/team",
+          "error": "HTTP Error 404: Not Found"
+        },
+        {
+          "path": "/leadership",
+          "error": "HTTP Error 404: Not Found"
+        },
+        {
+          "path": "/management",
+          "error": "HTTP Error 404: Not Found"
+        },
+        {
+          "path": "/staff",
+          "error": "HTTP Error 404: Not Found"
+        }
+      ]
+    },
+    {
+      "id": "B02",
+      "name": "Mindangler Capital",
+      "domain": "https://www.mindangler.com",
+      "pages_attempted": [
+        "/",
+        "/contact",
+        "/contact-us",
+        "/about",
+        "/about-us",
+        "/team",
+        "/leadership",
+        "/management",
+        "/staff"
+      ],
+      "pages_crawled": [
+        "/"
+      ],
+      "robots_blocked": [],
+      "emails_mailto": [],
+      "emails_jsonld": [],
+      "persons_jsonld": [],
+      "persons_regex": [],
+      "phones": [
+        "220-345-1291"
+      ],
+      "errors": [
+        {
+          "path": "/contact",
+          "error": "HTTP Error 404: Not Found"
+        },
+        {
+          "path": "/contact-us",
+          "error": "HTTP Error 404: Not Found"
+        },
+        {
+          "path": "/about",
+          "error": "HTTP Error 404: Not Found"
+        },
+        {
+          "path": "/about-us",
+          "error": "HTTP Error 404: Not Found"
+        },
+        {
+          "path": "/team",
+          "error": "HTTP Error 404: Not Found"
+        },
+        {
+          "path": "/leadership",
+          "error": "HTTP Error 404: Not Found"
+        },
+        {
+          "path": "/management",
+          "error": "HTTP Error 404: Not Found"
+        },
+        {
+          "path": "/staff",
+          "error": "HTTP Error 404: Not Found"
+        }
+      ]
+    },
+    {
+      "id": "B03",
+      "name": "Airmec Climatisation",
+      "domain": "https://www.airmec.ca",
+      "pages_attempted": [
+        "/",
+        "/contact",
+        "/contact-us",
+        "/about",
+        "/about-us",
+        "/team",
+        "/leadership",
+        "/management",
+        "/staff"
+      ],
+      "pages_crawled": [],
+      "robots_blocked": [
+        "/",
+        "/contact",
+        "/contact-us",
+        "/about",
+        "/about-us",
+        "/team",
+        "/leadership",
+        "/management",
+        "/staff"
+      ],
+      "emails_mailto": [],
+      "emails_jsonld": [],
+      "persons_jsonld": [],
+      "persons_regex": [],
+      "phones": [],
+      "errors": []
+    },
+    {
+      "id": "B04",
+      "name": "Thrive Wellness Ottawa",
+      "domain": "https://www.thrivewellnessottawa.ca",
+      "pages_attempted": [
+        "/",
+        "/contact",
+        "/contact-us",
+        "/about",
+        "/about-us",
+        "/team",
+        "/leadership",
+        "/management",
+        "/staff"
+      ],
+      "pages_crawled": [],
+      "robots_blocked": [],
+      "emails_mailto": [],
+      "emails_jsonld": [],
+      "persons_jsonld": [],
+      "persons_regex": [],
+      "phones": [],
+      "errors": [
+        {
+          "path": "/",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/contact",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/contact-us",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/about",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/about-us",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/team",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/leadership",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/management",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/staff",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        }
+      ]
+    },
+    {
+      "id": "B05",
+      "name": "Sherwood Florist",
+      "domain": "https://www.sherwoodflorist.ca",
+      "pages_attempted": [
+        "/",
+        "/contact",
+        "/contact-us",
+        "/about",
+        "/about-us",
+        "/team",
+        "/leadership",
+        "/management",
+        "/staff"
+      ],
+      "pages_crawled": [],
+      "robots_blocked": [],
+      "emails_mailto": [],
+      "emails_jsonld": [],
+      "persons_jsonld": [],
+      "persons_regex": [],
+      "phones": [],
+      "errors": [
+        {
+          "path": "/",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/contact",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/contact-us",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/about",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/about-us",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/team",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/leadership",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/management",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/staff",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        }
+      ]
+    },
+    {
+      "id": "B06",
+      "name": "Prairie Sky Chiropractic",
+      "domain": "https://www.prairieskychiro.ca",
+      "pages_attempted": [
+        "/",
+        "/contact",
+        "/contact-us",
+        "/about",
+        "/about-us",
+        "/team",
+        "/leadership",
+        "/management",
+        "/staff"
+      ],
+      "pages_crawled": [],
+      "robots_blocked": [],
+      "emails_mailto": [],
+      "emails_jsonld": [],
+      "persons_jsonld": [],
+      "persons_regex": [],
+      "phones": [],
+      "errors": [
+        {
+          "path": "/",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/contact",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/contact-us",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/about",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/about-us",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/team",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/leadership",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/management",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/staff",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        }
+      ]
+    },
+    {
+      "id": "B07",
+      "name": "Northern Lights Dental",
+      "domain": "https://www.northernlightsdental.ca",
+      "pages_attempted": [
+        "/",
+        "/contact",
+        "/contact-us",
+        "/about",
+        "/about-us",
+        "/team",
+        "/leadership",
+        "/management",
+        "/staff"
+      ],
+      "pages_crawled": [
+        "/"
+      ],
+      "robots_blocked": [],
+      "emails_mailto": [],
+      "emails_jsonld": [],
+      "persons_jsonld": [],
+      "persons_regex": [],
+      "phones": [
+        "780-380-9228"
+      ],
+      "errors": [
+        {
+          "path": "/contact",
+          "error": "HTTP Error 404: Not Found"
+        },
+        {
+          "path": "/contact-us",
+          "error": "HTTP Error 404: Not Found"
+        },
+        {
+          "path": "/about",
+          "error": "HTTP Error 404: Not Found"
+        },
+        {
+          "path": "/about-us",
+          "error": "HTTP Error 404: Not Found"
+        },
+        {
+          "path": "/team",
+          "error": "HTTP Error 404: Not Found"
+        },
+        {
+          "path": "/leadership",
+          "error": "HTTP Error 404: Not Found"
+        },
+        {
+          "path": "/management",
+          "error": "HTTP Error 404: Not Found"
+        },
+        {
+          "path": "/staff",
+          "error": "HTTP Error 404: Not Found"
+        }
+      ]
+    },
+    {
+      "id": "B08",
+      "name": "Coastal Pacific Plumbing",
+      "domain": "https://www.coastalpacificplumbing.ca",
+      "pages_attempted": [
+        "/",
+        "/contact",
+        "/contact-us",
+        "/about",
+        "/about-us",
+        "/team",
+        "/leadership",
+        "/management",
+        "/staff"
+      ],
+      "pages_crawled": [],
+      "robots_blocked": [],
+      "emails_mailto": [],
+      "emails_jsonld": [],
+      "persons_jsonld": [],
+      "persons_regex": [],
+      "phones": [],
+      "errors": [
+        {
+          "path": "/",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/contact",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/contact-us",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/about",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/about-us",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/team",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/leadership",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/management",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/staff",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        }
+      ]
+    },
+    {
+      "id": "B09",
+      "name": "Lakeside Auto Repair",
+      "domain": "https://www.lakesideautorepair.ca",
+      "pages_attempted": [
+        "/",
+        "/contact",
+        "/contact-us",
+        "/about",
+        "/about-us",
+        "/team",
+        "/leadership",
+        "/management",
+        "/staff"
+      ],
+      "pages_crawled": [],
+      "robots_blocked": [],
+      "emails_mailto": [],
+      "emails_jsonld": [],
+      "persons_jsonld": [],
+      "persons_regex": [],
+      "phones": [],
+      "errors": [
+        {
+          "path": "/",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/contact",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/contact-us",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/about",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/about-us",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/team",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/leadership",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/management",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/staff",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        }
+      ]
+    },
+    {
+      "id": "B10",
+      "name": "Summit Business Advisors",
+      "domain": "https://www.summitbusinessadvisors.ca",
+      "pages_attempted": [
+        "/",
+        "/contact",
+        "/contact-us",
+        "/about",
+        "/about-us",
+        "/team",
+        "/leadership",
+        "/management",
+        "/staff"
+      ],
+      "pages_crawled": [],
+      "robots_blocked": [],
+      "emails_mailto": [],
+      "emails_jsonld": [],
+      "persons_jsonld": [],
+      "persons_regex": [],
+      "phones": [],
+      "errors": [
+        {
+          "path": "/",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/contact",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/contact-us",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/about",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/about-us",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/team",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/leadership",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/management",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/staff",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        }
+      ]
+    },
+    {
+      "id": "B11",
+      "name": "Valley Veterinary Clinic",
+      "domain": "https://www.valleyvetclinic.ca",
+      "pages_attempted": [
+        "/",
+        "/contact",
+        "/contact-us",
+        "/about",
+        "/about-us",
+        "/team",
+        "/leadership",
+        "/management",
+        "/staff"
+      ],
+      "pages_crawled": [
+        "/",
+        "/contact",
+        "/contact-us",
+        "/about",
+        "/about-us",
+        "/team",
+        "/leadership",
+        "/management",
+        "/staff"
+      ],
+      "robots_blocked": [],
+      "emails_mailto": [],
+      "emails_jsonld": [],
+      "persons_jsonld": [],
+      "persons_regex": [],
+      "phones": [],
+      "errors": []
+    },
+    {
+      "id": "B12",
+      "name": "Maple Ridge Accounting",
+      "domain": "https://www.mapleridgeaccounting.ca",
+      "pages_attempted": [
+        "/",
+        "/contact",
+        "/contact-us",
+        "/about",
+        "/about-us",
+        "/team",
+        "/leadership",
+        "/management",
+        "/staff"
+      ],
+      "pages_crawled": [
+        "/"
+      ],
+      "robots_blocked": [],
+      "emails_mailto": [],
+      "emails_jsonld": [],
+      "persons_jsonld": [],
+      "persons_regex": [],
+      "phones": [
+        "674-363-4772"
+      ],
+      "errors": [
+        {
+          "path": "/contact",
+          "error": "HTTP Error 404: Not Found"
+        },
+        {
+          "path": "/contact-us",
+          "error": "HTTP Error 404: Not Found"
+        },
+        {
+          "path": "/about",
+          "error": "HTTP Error 404: Not Found"
+        },
+        {
+          "path": "/about-us",
+          "error": "HTTP Error 404: Not Found"
+        },
+        {
+          "path": "/team",
+          "error": "HTTP Error 404: Not Found"
+        },
+        {
+          "path": "/leadership",
+          "error": "HTTP Error 404: Not Found"
+        },
+        {
+          "path": "/management",
+          "error": "HTTP Error 404: Not Found"
+        },
+        {
+          "path": "/staff",
+          "error": "HTTP Error 404: Not Found"
+        }
+      ]
+    },
+    {
+      "id": "B13",
+      "name": "Harbour View Restaurant",
+      "domain": "https://www.harbourviewrestaurant.ca",
+      "pages_attempted": [
+        "/",
+        "/contact",
+        "/contact-us",
+        "/about",
+        "/about-us",
+        "/team",
+        "/leadership",
+        "/management",
+        "/staff"
+      ],
+      "pages_crawled": [],
+      "robots_blocked": [],
+      "emails_mailto": [],
+      "emails_jsonld": [],
+      "persons_jsonld": [],
+      "persons_regex": [],
+      "phones": [],
+      "errors": [
+        {
+          "path": "/",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/contact",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/contact-us",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/about",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/about-us",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/team",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/leadership",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/management",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/staff",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        }
+      ]
+    },
+    {
+      "id": "B14",
+      "name": "Clearwater Consulting",
+      "domain": "https://www.clearwaterconsulting.ca",
+      "pages_attempted": [
+        "/",
+        "/contact",
+        "/contact-us",
+        "/about",
+        "/about-us",
+        "/team",
+        "/leadership",
+        "/management",
+        "/staff"
+      ],
+      "pages_crawled": [],
+      "robots_blocked": [],
+      "emails_mailto": [],
+      "emails_jsonld": [],
+      "persons_jsonld": [],
+      "persons_regex": [],
+      "phones": [],
+      "errors": [
+        {
+          "path": "/",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/contact",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/contact-us",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/about",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/about-us",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/team",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/leadership",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/management",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/staff",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        }
+      ]
+    },
+    {
+      "id": "B15",
+      "name": "Westside Gym & Fitness",
+      "domain": "https://www.westsidegym.ca",
+      "pages_attempted": [
+        "/",
+        "/contact",
+        "/contact-us",
+        "/about",
+        "/about-us",
+        "/team",
+        "/leadership",
+        "/management",
+        "/staff"
+      ],
+      "pages_crawled": [],
+      "robots_blocked": [],
+      "emails_mailto": [],
+      "emails_jsonld": [],
+      "persons_jsonld": [],
+      "persons_regex": [],
+      "phones": [],
+      "errors": [
+        {
+          "path": "/",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/contact",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/contact-us",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/about",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/about-us",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/team",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/leadership",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/management",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        },
+        {
+          "path": "/staff",
+          "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+        }
+      ]
+    }
+  ]
+}

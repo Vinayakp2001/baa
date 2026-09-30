@@ -1,0 +1,28 @@
+{
+  "vr": "VR15.2.2",
+  "mode": "SINGLE TEST (1 corp × 1 endpoint)",
+  "generated": "2026-09-26T10:15:35.870811+00:00",
+  "base_url": "https://api.ised-isde.canada.ca/federal-corporations",
+  "auth_mechanism": "X-API-Key header",
+  "status_summary": {
+    "404": 1
+  },
+  "results": [
+    {
+      "corp_num": "8660115",
+      "endpoints": [
+        {
+          "endpoint": "corporation_lookup",
+          "url": "https://api.ised-isde.canada.ca/federal-corporations/api/v1/corporations/8660115",
+          "status": 404,
+          "content_type": null,
+          "body_bytes": null,
+          "body_sample": "{\"status\":\"Not found\"}",
+          "json_keys": null,
+          "error": "HTTPError 404: Not Found",
+          "timestamp": "2026-09-26T10:15:33.863786+00:00"
+        }
+      ]
+    }
+  ]
+}

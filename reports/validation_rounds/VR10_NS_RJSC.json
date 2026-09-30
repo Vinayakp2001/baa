@@ -1,0 +1,80 @@
+{
+  "generated": "2026-09-25T19:16:41.964916+00:00",
+  "source": "Nova Scotia RJSC",
+  "base_url": "https://rjsc.novascotia.ca",
+  "homepage_probe": {
+    "url": "https://rjsc.novascotia.ca/",
+    "status": 403,
+    "content_type": "text/html; charset=UTF-8",
+    "body_length": 5516,
+    "appears_html": true,
+    "appears_json": false,
+    "api_hints_in_html": []
+  },
+  "api_endpoint_discovery": [
+    {
+      "path": "/api/search",
+      "url": "https://rjsc.novascotia.ca/api/search",
+      "status": 403,
+      "content_type": "text/html; charset=UTF-8",
+      "is_json": false,
+      "body_length": 5609,
+      "body_preview": "<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scal"
+    },
+    {
+      "path": "/api/v1/search",
+      "url": "https://rjsc.novascotia.ca/api/v1/search",
+      "status": 403,
+      "content_type": "text/html; charset=UTF-8",
+      "is_json": false,
+      "body_length": 5639,
+      "body_preview": "<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scal"
+    },
+    {
+      "path": "/RegistrySearch/api/search",
+      "url": "https://rjsc.novascotia.ca/RegistrySearch/api/search",
+      "status": 403,
+      "content_type": "text/html; charset=UTF-8",
+      "is_json": false,
+      "body_length": 5675,
+      "body_preview": "<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scal"
+    },
+    {
+      "path": "/api/business/search",
+      "url": "https://rjsc.novascotia.ca/api/business/search",
+      "status": 403,
+      "content_type": "text/html; charset=UTF-8",
+      "is_json": false,
+      "body_length": 5657,
+      "body_preview": "<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scal"
+    },
+    {
+      "path": "/search/api",
+      "url": "https://rjsc.novascotia.ca/search/api",
+      "status": 403,
+      "content_type": "text/html; charset=UTF-8",
+      "is_json": false,
+      "body_length": 5609,
+      "body_preview": "<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scal"
+    }
+  ],
+  "search_results": [],
+  "field_inventory": {},
+  "pagination": {},
+  "auth_required": true,
+  "rate_limit_headers": {},
+  "terms_signals": [
+    "robot"
+  ],
+  "summary": {
+    "homepage_reachable": false,
+    "json_api_endpoints_found": [],
+    "search_results_captured": 0,
+    "field_keys_captured": [],
+    "auth_required": true,
+    "rate_limit_headers_found": false,
+    "terms_signals_found": [
+      "robot"
+    ]
+  }
+}

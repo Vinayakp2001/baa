@@ -1,0 +1,456 @@
+{
+  "vr": "VR18",
+  "title": "New Business Detection + Employee-Size Consistency + Source Complementarity",
+  "generated": "2026-09-26T11:18:38Z",
+  "script": "scripts/probe_vr18_newbiz_employee_complementarity.py",
+  "part_a_newbiz_signals": [
+    {
+      "source": "Calgary",
+      "province": "AB",
+      "date_field": "first_iss_dt",
+      "event_semantics": "first licence issuance date — new business entering the municipal system",
+      "sample_size": 5000,
+      "date_buckets": {
+        "total_with_date": 4970,
+        "last_30d": 227,
+        "last_90d": 774,
+        "last_365d": 3249
+      },
+      "active_in_sample": 0,
+      "new_biz_usability": "HIGH — first_iss_dt directly identifies first-ever licence for this business entity",
+      "observation": "Sample 5000 most-recent rows. Last30d=227, Last90d=774, Last365d=3249."
+    },
+    {
+      "source": "Edmonton",
+      "province": "AB",
+      "date_field": "originalissuedate + most_recent_issue_date",
+      "event_semantics": "originalissuedate = first ever licence; most_recent_issue_date = latest renewal/amendment",
+      "sample_size": 5000,
+      "original_issue_date_buckets": {
+        "total_with_date": 4975,
+        "last_30d": 757,
+        "last_90d": 1332,
+        "last_365d": 1558
+      },
+      "most_recent_issue_date_buckets": {
+        "total_with_date": 4999,
+        "last_30d": 2906,
+        "last_90d": 4999,
+        "last_365d": 4999
+      },
+      "new_biz_usability": "HIGH — originalissuedate is the correct new-business signal; most_recent_issue_date tracks activity",
+      "observation": "Sample 5000 most-recent rows. OrigIssue Last365d=1558. MostRecent Last30d=2906."
+    },
+    {
+      "source": "Vancouver",
+      "province": "BC",
+      "date_field": "issueddate",
+      "event_semantics": "issueddate = licence issue/renewal date; folderyear = year of licence folder (proxy for licence year). Not strictly first-ever issuance — can be renewal.",
+      "sample_size": 100,
+      "date_buckets": {
+        "total_with_date": 100,
+        "last_30d": 100,
+        "last_90d": 100,
+        "last_365d": 100
+      },
+      "status_distribution_in_sample": {
+        "Issued": 100
+      },
+      "new_biz_usability": "MEDIUM — issueddate alone doesn't distinguish first licence from renewal; combine with folderyear min to approximate new-business signal",
+      "observation": "Sample 100 most-recent rows. Last30d=100. Statuses: {'Issued': 100}."
+    },
+    {
+      "source": "Winnipeg",
+      "province": "MB",
+      "date_field": "issue_date",
+      "event_semantics": "issue_date = licence issuance or renewal date. Dataset includes historical/closed records — active filtering on status required.",
+      "sample_size": 5000,
+      "date_buckets": {
+        "total_with_date": 5000,
+        "last_30d": 2,
+        "last_90d": 81,
+        "last_365d": 662
+      },
+      "status_distribution_in_sample": {
+        "Issued": 605,
+        "Approved - New (L)": 1,
+        "Closed (L)": 4237,
+        "Ceased Operation": 137,
+        "Vacant": 3,
+        "Cancelled": 15,
+        "New Application": 1,
+        "Converted to Duplex": 1
+      },
+      "new_biz_usability": "LOW-MEDIUM — issue_date is ambiguous (first vs renewal); only 275 unique business names in 13,757 rows. Grain is licence-event.",
+      "observation": "Sample 5000 most-recent rows. Last30d=2. Statuses sample: {'Issued': 605, 'Approved - New (L)': 1, 'Closed (L)': 4237, 'Ceased Operation': 137, 'Vacant': 3}."
+    },
+    {
+      "source": "Corporations Canada active CBCA CSV",
+      "province": "Federal",
+      "observation": "File not found in data/raw/ — skipped. Use CBCA monthly incorporations HTML (VR03) for new-business signal."
+    },
+    {
+      "source": "NNI Nunavut",
+      "province": "NU",
+      "status": 0,
+      "observation": "HTTP 0"
+    },
+    {
+      "source": "Saskatoon New Businesses XLSX",
+      "province": "SK",
+      "date_field": null,
+      "event_semantics": "New business licence issuances in Saskatoon — municipal licence grain",
+      "sample_size": 51,
+      "date_buckets": {},
+      "new_biz_usability": "HIGH — this file is explicitly scoped to new businesses in the period. Small volume (51 rows) but clean signal.",
+      "observation": "51 rows. Date fields: []. Buckets: {}."
+    }
+  ],
+  "part_b_employee_consistency": {
+    "vancouver": {
+      "source": "Vancouver",
+      "province": "BC",
+      "employee_field": "numberofemployees",
+      "definition": "Number of staff employed with the business (source-documented)",
+      "sample_size": 100,
+      "values_parsed": 100,
+      "distribution": {
+        "0 (no employees)": 3,
+        "1-4": 38,
+        "5-9": 36,
+        "10-19": 17,
+        "20-49": 6,
+        "50-99": 0,
+        "100-199": 0,
+        "200-499": 0,
+        "500-999": 0,
+        "1000+": 0,
+        "null/unparseable": 0
+      },
+      "observation": "Sample 100 Issued-status records. 100 employee values parsed."
+    },
+    "bc_indigenous": {
+      "source": "BC Indigenous Business Listings",
+      "province": "BC",
+      "employee_field": "Number of Employees",
+      "definition": "Not source-documented. Mix of integer counts and range strings observed.",
+      "sample_size": 500,
+      "integer_values_parsed": 0,
+      "range_or_text_values_sample": [
+        "55 to 99",
+        "50 to 99",
+        "10 to 19",
+        "1 to 4",
+        "500 plus",
+        "5 to 9",
+        "200 to 499",
+        "100 to 199",
+        "20 to 49"
+      ],
+      "integer_distribution": {
+        "0 (no employees)": 0,
+        "1-4": 0,
+        "5-9": 0,
+        "10-19": 0,
+        "20-49": 0,
+        "50-99": 0,
+        "100-199": 0,
+        "200-499": 0,
+        "500-999": 0,
+        "1000+": 0,
+        "null/unparseable": 0
+      },
+      "fill_rate_pct": 52.6,
+      "observation": "500-row sample. 0 integer values. 263 range/text values. Sample range values: ['55 to 99', '50 to 99', '10 to 19', '1 to 4', '500 plus']."
+    },
+    "nni": {
+      "source": "NNI",
+      "status": 0,
+      "observation": "HTTP 0"
+    },
+    "statscan_benchmark": {
+      "source": "StatsCan Table A (33-10-1174-01, Jun 2026)",
+      "note": "Canada-wide employer businesses by size bucket (from VR05). Individual-business data is confidential — these are aggregate counts only.",
+      "buckets_available": [
+        "1-4",
+        "5-9",
+        "10-19",
+        "20-49",
+        "50-99",
+        "100-199",
+        "200-499",
+        "500 plus"
+      ],
+      "limitation": "500 plus is a combined bucket — cannot split into 500-999 / 1000+ from StatsCan",
+      "comparison_note": "Pipeline sources (Vancouver, BC Indigenous, NNI) can provide 500-999 vs 1000+ split at the individual-record level"
+    }
+  },
+  "part_c_complementarity": {
+    "province_coverage_matrix": {
+      "Federal": [
+        "Corporations Canada active CBCA CSV",
+        "Corporations Canada API"
+      ],
+      "BC": [
+        "Corporations Canada API",
+        "BC OrgBook API",
+        "Vancouver business licences",
+        "BC Indigenous Business Listings"
+      ],
+      "AB": [
+        "Calgary business licences",
+        "Edmonton business licences"
+      ],
+      "MB": [
+        "Winnipeg business licences",
+        "Manitoba Companies Office weekly PDF"
+      ],
+      "SK": [
+        "Saskatoon all businesses",
+        "Saskatoon new businesses"
+      ],
+      "ON": [
+        "Ontario Select Licence"
+      ],
+      "QC": [],
+      "NS": [],
+      "NB": [],
+      "PE": [],
+      "NL": [],
+      "YT": [],
+      "NT": [],
+      "NU": [
+        "NNI Nunavut"
+      ]
+    },
+    "field_coverage_matrix": {
+      "employee_count": [
+        "Vancouver (100% licence-grain)",
+        "NNI (integer, conditional)",
+        "BC Indigenous (52.6%, mixed int/range)"
+      ],
+      "phone": [
+        "Ontario Select Licence (99%)",
+        "NNI (conditional)",
+        "BC Indigenous (93.4%)"
+      ],
+      "email": [
+        "Ontario Select Licence (81.2%)",
+        "NNI (present)",
+        "BC Indigenous (89.4%)"
+      ],
+      "website": [
+        "Ontario Select Licence (10%)",
+        "BC Indigenous (52.4%)"
+      ],
+      "contact_name": [
+        "NNI (contact_name field)",
+        "BC Indigenous (Primary Contact 87.8%)"
+      ],
+      "director_name": [
+        "Corporations Canada API (_embedded.directors[])"
+      ],
+      "address": [
+        "All municipal licence sources",
+        "Corporations Canada CSV",
+        "BC Indigenous",
+        "NNI"
+      ],
+      "postal_code": [
+        "Vancouver (53.4%)",
+        "BC Indigenous (93.4%)",
+        "NNI (present)",
+        "Corporations Canada CSV"
+      ],
+      "naics_industry": [
+        "Saskatoon (NAICS present)",
+        "BC Indigenous (Industry Sector 97%)",
+        "NNI (Sectors/Goods/Services)"
+      ],
+      "new_business_event": [
+        "Calgary first_iss_dt",
+        "Edmonton originalissuedate",
+        "Manitoba weekly PDFs (Incorporations category)",
+        "CBCA monthly incorporations HTML (VR03)",
+        "Saskatoon new-businesses file"
+      ]
+    },
+    "unique_coverage_observations": [
+      "QC: No confirmed free source. REQ blocked (non-commercial licence). Largest unresolved gap.",
+      "NS: RJSC WAF-blocked. Halifax HRM ArcGIS URL 404. Remains unresolved.",
+      "PE: OCBR auth required. Not suitable.",
+      "NL: CADO explicitly prohibited for value-added use.",
+      "NT: NWT CROS confirmed (targeted verification only, basic info free). Yellowknife directory 404.",
+      "YT: Supplier directory 403 (OGL confirmed, browser manual download deferred).",
+      "NB: Moncton timed out. Fredericton portal alive (2025-03-13 date signal) — dataset URL unresolved. ODBus had only sector-specific sources (grocery/pharmacy).",
+      "BC: Best-covered province. Vancouver (206k), BC OrgBook (verification), BC Indigenous (enrichment), Calgary/Edmonton cover adjacent AB. Burnaby/Kelowna portals alive but dataset URLs unresolved.",
+      "ON: Ontario Select Licence is sector-specific (regulated businesses). Toronto WAF-blocked. Hamilton/Ottawa/Mississauga ArcGIS URLs returned 400 — likely resource ID rotation, not dead portals.",
+      "Employee count sources: only 3 confirmed — Vancouver (licence-grain), NNI (small Nunavut population), BC Indigenous (sector-specific). No municipal employee count for Calgary/Edmonton/Winnipeg/Saskatoon."
+    ],
+    "confirmed_sources": [
+      {
+        "source": "Corporations Canada active CBCA CSV",
+        "provinces": [
+          "Federal — all provinces"
+        ],
+        "grain": "corporation",
+        "rows": 645005,
+        "new_biz_signal": "CBCA monthly incorporations (VR03)",
+        "contact_fields": "none",
+        "employee": "no"
+      },
+      {
+        "source": "Corporations Canada API",
+        "provinces": [
+          "Federal — CBCA corps"
+        ],
+        "grain": "corporation",
+        "rows": "API — query by corp number",
+        "new_biz_signal": "activities[] endpoint",
+        "contact_fields": "director name+address",
+        "employee": "no"
+      },
+      {
+        "source": "BC OrgBook API",
+        "provinces": [
+          "BC"
+        ],
+        "grain": "entity",
+        "rows": "API only — bulk prohibited",
+        "new_biz_signal": "registration date + credential history",
+        "contact_fields": "none (legislatively restricted)",
+        "employee": "no"
+      },
+      {
+        "source": "Calgary business licences",
+        "provinces": [
+          "AB"
+        ],
+        "grain": "licence",
+        "rows": 23178,
+        "new_biz_signal": "first_iss_dt (HIGH)",
+        "contact_fields": "none",
+        "employee": "no"
+      },
+      {
+        "source": "Edmonton business licences",
+        "provinces": [
+          "AB"
+        ],
+        "grain": "licence",
+        "rows": 43719,
+        "new_biz_signal": "originalissuedate (HIGH)",
+        "contact_fields": "none",
+        "employee": "no"
+      },
+      {
+        "source": "Vancouver business licences",
+        "provinces": [
+          "BC"
+        ],
+        "grain": "licence",
+        "rows": 206024,
+        "new_biz_signal": "issueddate + folderyear (MEDIUM)",
+        "contact_fields": "none",
+        "employee": "numberofemployees (100%)"
+      },
+      {
+        "source": "Winnipeg business licences",
+        "provinces": [
+          "MB"
+        ],
+        "grain": "licence-event",
+        "rows": 13757,
+        "new_biz_signal": "issue_date — ambiguous (LOW)",
+        "contact_fields": "none",
+        "employee": "no"
+      },
+      {
+        "source": "Saskatoon all businesses",
+        "provinces": [
+          "SK"
+        ],
+        "grain": "licence",
+        "rows": 7472,
+        "new_biz_signal": "no date field in all-biz file",
+        "contact_fields": "none",
+        "employee": "no"
+      },
+      {
+        "source": "Saskatoon new businesses",
+        "provinces": [
+          "SK"
+        ],
+        "grain": "licence",
+        "rows": 51,
+        "new_biz_signal": "explicit new-licence file (HIGH — small volume)",
+        "contact_fields": "none",
+        "employee": "no"
+      },
+      {
+        "source": "Ontario Select Licence",
+        "provinces": [
+          "ON"
+        ],
+        "grain": "licence",
+        "rows": 674,
+        "new_biz_signal": "no event date field",
+        "contact_fields": "phone(99%) email(81%) website(10%)",
+        "employee": "no"
+      },
+      {
+        "source": "Manitoba Companies Office weekly PDF",
+        "provinces": [
+          "MB"
+        ],
+        "grain": "filing-event",
+        "rows": "~100-200/week",
+        "new_biz_signal": "Incorporations category (HIGH)",
+        "contact_fields": "registered office (~40%)",
+        "employee": "no"
+      },
+      {
+        "source": "NNI Nunavut",
+        "provinces": [
+          "NU"
+        ],
+        "grain": "registration",
+        "rows": 187,
+        "new_biz_signal": "effective_date — renewal signal (MEDIUM)",
+        "contact_fields": "phone email contact_name address",
+        "employee": "employee_count (integer, ~conditional)"
+      },
+      {
+        "source": "BC Indigenous Business Listings",
+        "provinces": [
+          "BC — Indigenous-owned"
+        ],
+        "grain": "business",
+        "rows": "~783KB CSV, ~est. 3k+ records",
+        "new_biz_signal": "When Updated — ambiguous (dataset-level Jan 2026)",
+        "contact_fields": "phone(93%) email(89%) website(52%) contact(88%)",
+        "employee": "Number of Employees (52.6%, mixed int/range)"
+      },
+      {
+        "source": "StatsCan Business Counts",
+        "provinces": [
+          "All provinces"
+        ],
+        "grain": "aggregate-only",
+        "rows": "85,793 aggregate",
+        "new_biz_signal": "Entrants category (CLASS D benchmark only)",
+        "contact_fields": "none",
+        "employee": "aggregate size buckets only"
+      }
+    ],
+    "province_gaps_no_confirmed_source": [
+      "QC",
+      "NS",
+      "NB",
+      "PE",
+      "NL",
+      "YT",
+      "NT"
+    ]
+  }
+}

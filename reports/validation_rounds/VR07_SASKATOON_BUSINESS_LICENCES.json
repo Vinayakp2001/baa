@@ -1,0 +1,501 @@
+{
+  "generated": "2026-09-25T14:19:08.501288+00:00",
+  "access": {
+    "timestamp": "2026-09-25T14:19:08.501288+00:00",
+    "portal_page": "https://www.saskatoon.ca/business-development/economic-profile/business-statistics-publications",
+    "platform_note": "Old CKAN portal retired Aug 26 2024 \u2014 files now served as XLSX from City website",
+    "saskatoon_all_businesses_status": 200,
+    "saskatoon_all_businesses_url": "https://www.saskatoon.ca/sites/default/files/documents/community-services/planning-development/business-license-mapping-research/business-license/Dec_31_2025_%20All_Commercial_and_Home_Based_Businesses.xlsx",
+    "saskatoon_all_businesses_bytes": 831244,
+    "saskatoon_all_businesses_saved": "C:\\Users\\LENOVO\\Desktop\\baa\\data\\raw\\saskatoon_all_businesses_20260925.xlsx",
+    "saskatoon_new_businesses_status": 200,
+    "saskatoon_new_businesses_url": "https://www.saskatoon.ca/sites/default/files/media/documents/New%20Businesses%20as%20of%20August%2031%2C%202026.xlsx",
+    "saskatoon_new_businesses_bytes": 128716,
+    "saskatoon_new_businesses_saved": "C:\\Users\\LENOVO\\Desktop\\baa\\data\\raw\\saskatoon_new_businesses_20260925.xlsx"
+  },
+  "profiles": [
+    {
+      "label": "All Commercial and Home-Based Businesses \u2014 Dec 31 2025",
+      "role": "all_businesses",
+      "total_rows": 7472,
+      "fields": [
+        "Bus_Lic_Acct_Id",
+        "Business_Type",
+        "Business_Name",
+        "Struc_U_Addr_Unit",
+        "Struc_U_Addr_St_Num",
+        "Struc_U_Addr_St_Name",
+        "Struc_U_Addr_St_Suff",
+        "Struc_U_Addr_St_Post_Dir",
+        "NAICS_Sub_Sector_Code",
+        "NAICS_Sub_Sector"
+      ],
+      "field_stats": {
+        "Bus_Lic_Acct_Id": {
+          "non_null_pct": "97.5%",
+          "null_pct": "2.5%",
+          "distinct_count": 7281,
+          "examples": [
+            "2394988",
+            "2466527",
+            "2435163",
+            "2435905",
+            "2406791"
+          ]
+        },
+        "Business_Type": {
+          "non_null_pct": "100.0%",
+          "null_pct": "0.0%",
+          "distinct_count": 1,
+          "examples": [
+            "COMM"
+          ]
+        },
+        "Business_Name": {
+          "non_null_pct": "100.0%",
+          "null_pct": "0.0%",
+          "distinct_count": 7141,
+          "examples": [
+            "J&R HALL TRANSPORT INC.",
+            "SAFARI MARKET",
+            "LIFTED EARTH GARDEN SUPPLY CO",
+            "STYLE ENCORE",
+            "WHAT A MESS PET GROOMING"
+          ]
+        },
+        "Struc_U_Addr_Unit": {
+          "non_null_pct": "61.6%",
+          "null_pct": "38.4%",
+          "distinct_count": 624,
+          "examples": [
+            "M4",
+            "414",
+            "T012",
+            "E1",
+            "FC16"
+          ]
+        },
+        "Struc_U_Addr_St_Num": {
+          "non_null_pct": "100.0%",
+          "null_pct": "0.0%",
+          "distinct_count": 1314,
+          "examples": [
+            "3626",
+            "254",
+            "2203",
+            "3066",
+            "215B"
+          ]
+        },
+        "Struc_U_Addr_St_Name": {
+          "non_null_pct": "100.0%",
+          "null_pct": "0.0%",
+          "distinct_count": 361,
+          "examples": [
+            "5th",
+            "Coy",
+            "Langlois",
+            "Lowe",
+            "Cornish"
+          ]
+        },
+        "Struc_U_Addr_St_Suff": {
+          "non_null_pct": "95.1%",
+          "null_pct": "4.9%",
+          "distinct_count": 26,
+          "examples": [
+            "Turn",
+            "Pl",
+            "Gate",
+            "Dr",
+            "Green"
+          ]
+        },
+        "Struc_U_Addr_St_Post_Dir": {
+          "non_null_pct": "52.1%",
+          "null_pct": "47.9%",
+          "distinct_count": 4,
+          "examples": [
+            "W",
+            "E",
+            "S",
+            "N"
+          ]
+        },
+        "NAICS_Sub_Sector_Code": {
+          "non_null_pct": "100.0%",
+          "null_pct": "0.0%",
+          "distinct_count": 86,
+          "examples": [
+            "337",
+            "414",
+            "443",
+            "515",
+            "492"
+          ]
+        },
+        "NAICS_Sub_Sector": {
+          "non_null_pct": "100.0%",
+          "null_pct": "0.0%",
+          "distinct_count": 86,
+          "examples": [
+            "Air Transportation",
+            "Nursing and Residential Care Facilities",
+            "Mining and Quarrying (except Oil and Gas)",
+            "Food Services and Drinking Places",
+            "Furniture and Related Product Manufacturing"
+          ]
+        }
+      },
+      "field_map": {
+        "business_name": "Business_Name",
+        "address": null,
+        "city": null,
+        "postal": null,
+        "phone": null,
+        "email": null,
+        "website": null,
+        "business_type": "Business_Type",
+        "status": null,
+        "issue_date": null,
+        "expiry_date": null,
+        "licence_number": null,
+        "owner": null
+      },
+      "record_grain": {
+        "duplicate_names": 331,
+        "unique_licence_numbers": 0,
+        "duplicate_licence_numbers": null
+      },
+      "type_counts": {
+        "COMM": 7472
+      },
+      "status_counts": {},
+      "geography": {
+        "unique_cities": 0,
+        "top_cities": [],
+        "postal_present_pct": "0.0%",
+        "postal_valid_pct": "0.0%"
+      },
+      "contact": {
+        "phone_present_pct": "0.0%",
+        "phone_valid_pct": "0.0%",
+        "email_present_pct": "0.0%",
+        "email_valid_pct": "0.0%",
+        "website_present_pct": "0.0%",
+        "website_valid_pct": "0.0%"
+      },
+      "dates": {
+        "min": null,
+        "max": null
+      }
+    },
+    {
+      "label": "New Businesses \u2014 Aug 31 2026",
+      "role": "new_businesses",
+      "total_rows": 51,
+      "fields": [
+        "Business_License_Id",
+        "Business_Name",
+        "Business_Desc",
+        "Struc_U_Addr_Unit",
+        "Struc_U_Addr_St_Num",
+        "Struc_U_Addr_St_Name",
+        "Struc_U_Addr_St_Suff",
+        "Struc_U_Addr_St_Post_Dir",
+        "NAICS_National",
+        "NAICS_National_Code",
+        "col_10",
+        "col_11",
+        "col_12",
+        "col_13",
+        "col_14",
+        "col_15",
+        "col_16",
+        "col_17",
+        "col_18",
+        "col_19",
+        "col_20",
+        "col_21",
+        "col_22",
+        "col_23",
+        "col_24",
+        "col_25",
+        "col_26"
+      ],
+      "field_stats": {
+        "Business_License_Id": {
+          "non_null_pct": "100.0%",
+          "null_pct": "0.0%",
+          "distinct_count": 51,
+          "examples": [
+            "3495183",
+            "3497894",
+            "3491752",
+            "3493563",
+            "3491166"
+          ]
+        },
+        "Business_Name": {
+          "non_null_pct": "100.0%",
+          "null_pct": "0.0%",
+          "distinct_count": 51,
+          "examples": [
+            "JAY WALKER, CPA P.C. LTD.",
+            "HEARTWOOD COUNSELLING AND THERAPY",
+            "COMPASSIONATE CONNECTIONS PSYCHOLOGICAL SERVICES",
+            "MEDICINE SHOPPE 443",
+            "CHAIIWALA OF LONDON"
+          ]
+        },
+        "Business_Desc": {
+          "non_null_pct": "100.0%",
+          "null_pct": "0.0%",
+          "distinct_count": 47,
+          "examples": [
+            "INDIAN STREET FOOD AND DRINKS , HOT COFFEE AND CHAI AND COLD DRINKS AND SHAKES",
+            "MEDITERRANEAN AND MIDDLE EASTERN CUISINE",
+            "CANNABIS RETAIL STORE",
+            "RESALE OF VINTAGE FURNITURE AND HOUSEWARES",
+            "VAPE SHOP"
+          ]
+        },
+        "Struc_U_Addr_Unit": {
+          "non_null_pct": "72.5%",
+          "null_pct": "27.5%",
+          "distinct_count": 20,
+          "examples": [
+            "6",
+            "131",
+            "4",
+            "206",
+            "A"
+          ]
+        },
+        "Struc_U_Addr_St_Num": {
+          "non_null_pct": "100.0%",
+          "null_pct": "0.0%",
+          "distinct_count": 47,
+          "examples": [
+            "415",
+            "139",
+            "1515",
+            "501",
+            "2811"
+          ]
+        },
+        "Struc_U_Addr_St_Name": {
+          "non_null_pct": "100.0%",
+          "null_pct": "0.0%",
+          "distinct_count": 39,
+          "examples": [
+            "Katz",
+            "45th",
+            "Fairlight",
+            "Millar",
+            "College"
+          ]
+        },
+        "Struc_U_Addr_St_Suff": {
+          "non_null_pct": "98.0%",
+          "null_pct": "2.0%",
+          "distinct_count": 10,
+          "examples": [
+            "Blvd",
+            "Cres",
+            "Ave",
+            "Rd",
+            "Bend"
+          ]
+        },
+        "Struc_U_Addr_St_Post_Dir": {
+          "non_null_pct": "37.3%",
+          "null_pct": "62.7%",
+          "distinct_count": 4,
+          "examples": [
+            "W",
+            "E",
+            "N",
+            "S"
+          ]
+        },
+        "NAICS_National": {
+          "non_null_pct": "100.0%",
+          "null_pct": "0.0%",
+          "distinct_count": 28,
+          "examples": [
+            "Other Personal Care Services",
+            "Other Building Finishing Contractors",
+            "All Other Miscellaneous Store Retailers (except Beer and Wine-Making Supplies Stores)",
+            "Other Plate Work and Fabricated Structural Product Manufacturing",
+            "Limited-service eating places"
+          ]
+        },
+        "NAICS_National_Code": {
+          "non_null_pct": "100.0%",
+          "null_pct": "0.0%",
+          "distinct_count": 28,
+          "examples": [
+            "541430",
+            "332319",
+            "722512",
+            "811192",
+            "238210"
+          ]
+        },
+        "col_10": {
+          "non_null_pct": "0.0%",
+          "null_pct": "100.0%",
+          "distinct_count": 0,
+          "examples": []
+        },
+        "col_11": {
+          "non_null_pct": "0.0%",
+          "null_pct": "100.0%",
+          "distinct_count": 0,
+          "examples": []
+        },
+        "col_12": {
+          "non_null_pct": "0.0%",
+          "null_pct": "100.0%",
+          "distinct_count": 0,
+          "examples": []
+        },
+        "col_13": {
+          "non_null_pct": "0.0%",
+          "null_pct": "100.0%",
+          "distinct_count": 0,
+          "examples": []
+        },
+        "col_14": {
+          "non_null_pct": "0.0%",
+          "null_pct": "100.0%",
+          "distinct_count": 0,
+          "examples": []
+        },
+        "col_15": {
+          "non_null_pct": "0.0%",
+          "null_pct": "100.0%",
+          "distinct_count": 0,
+          "examples": []
+        },
+        "col_16": {
+          "non_null_pct": "0.0%",
+          "null_pct": "100.0%",
+          "distinct_count": 0,
+          "examples": []
+        },
+        "col_17": {
+          "non_null_pct": "0.0%",
+          "null_pct": "100.0%",
+          "distinct_count": 0,
+          "examples": []
+        },
+        "col_18": {
+          "non_null_pct": "0.0%",
+          "null_pct": "100.0%",
+          "distinct_count": 0,
+          "examples": []
+        },
+        "col_19": {
+          "non_null_pct": "0.0%",
+          "null_pct": "100.0%",
+          "distinct_count": 0,
+          "examples": []
+        },
+        "col_20": {
+          "non_null_pct": "0.0%",
+          "null_pct": "100.0%",
+          "distinct_count": 0,
+          "examples": []
+        },
+        "col_21": {
+          "non_null_pct": "0.0%",
+          "null_pct": "100.0%",
+          "distinct_count": 0,
+          "examples": []
+        },
+        "col_22": {
+          "non_null_pct": "0.0%",
+          "null_pct": "100.0%",
+          "distinct_count": 0,
+          "examples": []
+        },
+        "col_23": {
+          "non_null_pct": "0.0%",
+          "null_pct": "100.0%",
+          "distinct_count": 0,
+          "examples": []
+        },
+        "col_24": {
+          "non_null_pct": "0.0%",
+          "null_pct": "100.0%",
+          "distinct_count": 0,
+          "examples": []
+        },
+        "col_25": {
+          "non_null_pct": "0.0%",
+          "null_pct": "100.0%",
+          "distinct_count": 0,
+          "examples": []
+        },
+        "col_26": {
+          "non_null_pct": "0.0%",
+          "null_pct": "100.0%",
+          "distinct_count": 0,
+          "examples": []
+        }
+      },
+      "field_map": {
+        "business_name": "Business_Name",
+        "address": null,
+        "city": null,
+        "postal": null,
+        "phone": null,
+        "email": null,
+        "website": null,
+        "business_type": null,
+        "status": null,
+        "issue_date": null,
+        "expiry_date": null,
+        "licence_number": null,
+        "owner": null
+      },
+      "record_grain": {
+        "duplicate_names": 0,
+        "unique_licence_numbers": 0,
+        "duplicate_licence_numbers": null
+      },
+      "type_counts": {},
+      "status_counts": {},
+      "geography": {
+        "unique_cities": 0,
+        "top_cities": [],
+        "postal_present_pct": "0.0%",
+        "postal_valid_pct": "0.0%"
+      },
+      "contact": {
+        "phone_present_pct": "0.0%",
+        "phone_valid_pct": "0.0%",
+        "email_present_pct": "0.0%",
+        "email_valid_pct": "0.0%",
+        "website_present_pct": "0.0%",
+        "website_valid_pct": "0.0%"
+      },
+      "dates": {
+        "min": null,
+        "max": null
+      }
+    }
+  ],
+  "comparison": {
+    "skipped": false,
+    "all_businesses_unique_names": 7101,
+    "new_businesses_names_checked": 51,
+    "matched_in_all": 3,
+    "matched_pct": "5.9%",
+    "not_in_all": 48,
+    "not_in_all_pct": "94.1%",
+    "interpretation": "High match % = new-businesses is a subset of all-businesses (expected). Low match % = different population, or name mismatch between files."
+  }
+}

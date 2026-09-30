@@ -1,0 +1,75 @@
+{
+  "vr": "VR15.2.1",
+  "generated_at": "2026-09-26T09:06:38.964480+00:00",
+  "results": [
+    {
+      "corp_num": "8660115",
+      "name": "MINDANGLER CAPITAL INC.",
+      "province": "ON",
+      "http_status": 200,
+      "page_accessible": true,
+      "directors_section_present": false,
+      "directors_section_heading": null,
+      "director_extraction_succeeded": false,
+      "directors": [],
+      "isc_section_present": false,
+      "isc_section_heading": null,
+      "isc_extraction_succeeded": false,
+      "isc_persons": [],
+      "all_section_headings": [
+        "preamble",
+        "Federal corporation information",
+        "Date Modified:"
+      ],
+      "notes": [],
+      "source_url": "https://ised-isde.canada.ca/cc/lgcy/fdrlCrpDtls.html?corpId=8660115",
+      "retrieved_at": "2026-09-26T09:06:28.970480+00:00"
+    },
+    {
+      "corp_num": "821080",
+      "name": "AIRMEC CLIMATISATION LTEE",
+      "province": "QC",
+      "http_status": 200,
+      "page_accessible": true,
+      "directors_section_present": false,
+      "directors_section_heading": null,
+      "director_extraction_succeeded": false,
+      "directors": [],
+      "isc_section_present": false,
+      "isc_section_heading": null,
+      "isc_extraction_succeeded": false,
+      "isc_persons": [],
+      "all_section_headings": [
+        "preamble",
+        "Federal corporation information",
+        "Date Modified:"
+      ],
+      "notes": [],
+      "source_url": "https://ised-isde.canada.ca/cc/lgcy/fdrlCrpDtls.html?corpId=821080",
+      "retrieved_at": "2026-09-26T09:06:33.605720+00:00"
+    },
+    {
+      "corp_num": "4396626",
+      "name": "AIR CANADA corrected",
+      "province": "QC",
+      "http_status": 200,
+      "page_accessible": true,
+      "directors_section_present": false,
+      "directors_section_heading": null,
+      "director_extraction_succeeded": false,
+      "directors": [],
+      "isc_section_present": false,
+      "isc_section_heading": null,
+      "isc_extraction_succeeded": false,
+      "isc_persons": [],
+      "all_section_headings": [
+        "preamble",
+        "Federal corporation information",
+        "Date Modified:"
+      ],
+      "notes": [],
+      "source_url": "https://ised-isde.canada.ca/cc/lgcy/fdrlCrpDtls.html?corpId=4396626",
+      "retrieved_at": "2026-09-26T09:06:38.941591+00:00"
+    }
+  ]
+}

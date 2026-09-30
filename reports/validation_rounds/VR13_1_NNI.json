@@ -1,0 +1,175 @@
+{
+  "vr": "VR13.1",
+  "source": "NNI Business Registry",
+  "url": "https://nni.gov.nu.ca",
+  "generated": "2026-09-26",
+  "scripts": [
+    "scripts/probe_nni_vr13_1.py",
+    "scripts/probe_nni_vr13_2.py",
+    "scripts/probe_nni_vr13_3.py",
+    "scripts/probe_nni_vr13_4.py"
+  ],
+
+  "portal": {
+    "cms": "Drupal 10",
+    "authentication_required": false,
+    "json_api": false,
+    "json_api_note": "_format=json returns HTTP 406 Not acceptable format",
+    "robots_txt": {
+      "status": 200,
+      "business_paths_restricted": false,
+      "disallowed": ["/search/", "/admin/", "/user/login", "/user/register", "/user/password"]
+    }
+  },
+
+  "endpoints": {
+    "list_all": "/business/list",
+    "search_community": "/business/search/community",
+    "search_name": "/business/search/name",
+    "search_suppliers": "/business/search/suppliers",
+    "search_active_date": "/business/search/active",
+    "search_number": "/business/search/number",
+    "profile": "/business/profile/{id}"
+  },
+
+  "business_list": {
+    "url": "https://nni.gov.nu.ca/business/list",
+    "status": 200,
+    "bytes": 55142,
+    "total_records": 187,
+    "pagination": "none",
+    "fields_in_list": ["company_name", "effective_date", "community"],
+    "effective_date_range": {
+      "earliest_observed": "2024-10-23",
+      "latest_observed": "2026-09-21"
+    },
+    "profile_id_range_observed": {"min": 1569, "max": 2441},
+    "note": "Active registrations only — no historical/expired records in this view"
+  },
+
+  "community_search": {
+    "url": "https://nni.gov.nu.ca/business/search/community",
+    "status": 200,
+    "all_nunavut_param": "edit%5Bcommunity%5D=all%3ANunavut",
+    "location_options": 30,
+    "communities": [
+      "Arctic Bay", "Arviat", "Baker Lake", "Bathurst Inlet", "Cambridge Bay",
+      "Chesterfield Inlet", "Clyde River", "Coral Harbour", "Gjoa Haven", "Grise Fiord",
+      "Hall Beach", "Igloolik", "Iqaluit", "Kimmirut", "Kinngait", "Kugaaruk",
+      "Kugluktuk", "Pangnirtung", "Pond Inlet", "Qikiqtarjuaq", "Rankin Inlet",
+      "Repulse Bay", "Resolute Bay", "Sanikiluaq", "Taloyoak", "Whale Cove"
+    ],
+    "regions": ["Kitikmeot", "Kivalliq", "Qikiqtaaluk"],
+    "sectors": [
+      "WILDLIFE", "AGRICULTURE", "MANUFACTURING", "ARTS & CRAFTS", "TRAVEL & TOURISM",
+      "TRANSPORTATION, COMMUNICATIONS & UTILITIES", "TRADE & SERVICES",
+      "CONSTRUCTION", "FISHERIES", "FORESTRY", "MINERALS, OIL & GAS"
+    ],
+    "goods_options": 74,
+    "services_options": 211
+  },
+
+  "profile_pages": {
+    "url_pattern": "https://nni.gov.nu.ca/business/profile/{id}",
+    "authentication_required": false,
+    "html_structure": "plain <table> with <td> label/value pairs",
+    "confirmed_fields": [
+      "business_name",
+      "business_number",
+      "business_type",
+      "street_address",
+      "city_community",
+      "phone",
+      "contact_name",
+      "no_of_employees",
+      "sectors",
+      "goods",
+      "services",
+      "territory_province",
+      "business_status",
+      "effective_date",
+      "email",
+      "postal_code"
+    ],
+    "field_notes": {
+      "phone": "conditional — present on some records (e.g. incorporations), absent on others",
+      "no_of_employees": "integer — preserve raw value, derive size bucket in pipeline",
+      "effective_date": "ISO timestamp in <time datetime> attribute — NNI registration/renewal date, NOT incorporation or opening date",
+      "nti_certificate_number": "referenced by GPT but NOT observed in two scraped profiles — unconfirmed"
+    },
+    "sample_profiles": [
+      {
+        "id": 2367,
+        "business_name": "237 TOV Construction & Supply Ltd.",
+        "business_type": "Incorporations",
+        "street_address": "588 Atungauyait Dr.",
+        "community": "Iqaluit",
+        "postal_code": "X0A 0H0",
+        "phone": "(867) 222-8455",
+        "contact_name": "Christine Bissou Bilong",
+        "employees": 2,
+        "status": "Active",
+        "effective_date": "2026-03-03",
+        "email": "237tovconstructionandservices@gmail.com",
+        "sectors": ["CONSTRUCTION", "TRADE & SERVICES"],
+        "goods_count": 18,
+        "services_count": 45
+      },
+      {
+        "id": 2210,
+        "business_name": "Beland, Patrick o/a Le Grand Elan",
+        "business_type": "Sole Proprietor / Partnership",
+        "street_address": "2539 Paurngaq Crescent",
+        "community": "Iqaluit",
+        "postal_code": "X0A 2H0",
+        "phone": null,
+        "contact_name": "Patrick Beland",
+        "employees": 1,
+        "status": "Active",
+        "effective_date": "2026-09-21",
+        "email": "patrick@legrandelan.ca",
+        "sectors": ["ARTS & CRAFTS", "TRADE & SERVICES", "TRANSPORTATION, COMMUNICATIONS & UTILITIES"],
+        "goods_count": 4,
+        "services_count": 16
+      }
+    ]
+  },
+
+  "licensing": {
+    "status": "UNRESOLVED",
+    "robots_txt_restriction": false,
+    "privacy_page_restriction": false,
+    "privacy_page_note": "ATIPPA scope only — covers visitor personal data submitted to site, not reuse of business directory",
+    "ogl_grant": false,
+    "regulations_pdf_retrieved": true,
+    "regulations_pdf_url": "https://nni.gov.nu.ca/sites/nni.gov.nu.ca/files/NNI-Regs-amendment_2.pdf",
+    "regulations_pdf_bytes": 306260,
+    "regulations_pdf_parsed": false,
+    "regulations_pdf_action": "MANUAL REVIEW REQUIRED — check for: copying, automated extraction, redistribution, commercial use, or value-added database restrictions",
+    "note": "'No explicit restriction found' != 'commercial use permitted' — do not mark as commercially cleared until PDF review complete"
+  },
+
+  "classification": {
+    "status": "PARTIALLY VALIDATED — HIGH-VALUE CANDIDATE",
+    "classes": ["A", "B", "C"],
+    "class_notes": {
+      "A": "187 active NNI-registered Nunavut businesses enumerable at /business/list. Caveat: NNI subset only, not complete Nunavut business population",
+      "B": "Effective date on list + profile enables new-registration detection via snapshot diff. Effective date = renewal date not founding date",
+      "C": "Profile pages: phone, email, contact name, employee count (integer), postal code, address, sector+goods+services classification. First source in this research with individual employee count + full contact info"
+    }
+  },
+
+  "ingestion_pattern": {
+    "step_1": "GET /business/list — returns 187 rows: name, effective_date, community, profile_id",
+    "step_2": "GET /business/profile/{id} for each — returns full structured field set",
+    "step_3": "Store raw employee_count integer, derive size bucket in pipeline",
+    "step_4": "Snapshot diff on effective_date for new-registration detection"
+  },
+
+  "open_items": [
+    "NNI Regulations PDF manual review for data-use restrictions",
+    "Phone field coverage rate across all 187 profiles",
+    "Whether effective_date on renewal records shows original registration date or renewal date",
+    "Multi-location deduplication strategy (e.g. EPLS stores appear as separate rows per location)"
+  ]
+}

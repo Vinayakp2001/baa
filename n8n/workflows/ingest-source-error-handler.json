@@ -1,0 +1,235 @@
+{
+  "name": "ingest-source-error-handler",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "error-trigger",
+      "name": "Error Trigger",
+      "type": "n8n-nodes-base.errorTrigger",
+      "typeVersion": 1,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Extract run_id and retry_count from the failed execution context.\n// Implements exponential backoff: 1min → 5min → 30min → 1h (then give up).\n\nconst execData = $input.first().json;\nconst workflowData = execData.execution?.workflowData ?? {};\nconst lastNode = execData.execution?.lastNodeExecuted ?? 'unknown';\n\n// Try to find run_id from any node output in the failed execution\nconst nodeData = execData.execution?.data?.resultData?.runData ?? {};\nlet runId = null;\nlet sourceKey = null;\n\n// Walk node outputs looking for run_id (set by POST /ingestion/start)\nfor (const [nodeName, nodeRuns] of Object.entries(nodeData)) {\n  for (const run of nodeRuns) {\n    const output = run?.data?.main?.[0]?.[0]?.json;\n    if (output?.run_id) { runId = output.run_id; }\n    if (output?.source_key) { sourceKey = output.source_key; }\n  }\n}\n\n// Determine retry count from error message pattern if available\nlet retryCount = 0;\nconst errorMsg = execData.execution?.error?.message ?? '';\nconst retryMatch = errorMsg.match(/retry_count[\":]+\\s*(\\d+)/);\nif (retryMatch) retryCount = parseInt(retryMatch[1]);\n\n// Backoff schedule: attempt 0→1min, 1→5min, 2→30min, 3→1h, 4+→abandon\nconst backoffMs = [60000, 300000, 1800000, 3600000];\nconst waitMs = backoffMs[Math.min(retryCount, backoffMs.length - 1)];\nconst shouldRetry = retryCount < 4;\n\nreturn [{\n  json: {\n    run_id: runId,\n    source_key: sourceKey,\n    retry_count: retryCount,\n    should_retry: shouldRetry,\n    wait_ms: waitMs,\n    wait_seconds: Math.floor(waitMs / 1000),\n    error_message: execData.execution?.error?.message ?? 'Unknown error',\n    failed_node: lastNode,\n    workflow_id: workflowData.id,\n    workflow_name: workflowData.name\n  }\n}];"
+      },
+      "id": "extract-retry-context",
+      "name": "Extract Retry Context",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "has-run-id",
+              "leftValue": "={{ $json.run_id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "has-run-id",
+      "name": "Has run_id?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $env.API_BASE_URL }}/ingestion/fail",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "run_id",
+              "value": "={{ $('Extract Retry Context').item.json.run_id }}"
+            },
+            {
+              "name": "error_message",
+              "value": "={{ $('Extract Retry Context').item.json.error_message }} (failed_node: {{ $('Extract Retry Context').item.json.failed_node }})"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "mark-run-failed",
+      "name": "POST /ingestion/fail",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [900, 220]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "should-retry",
+              "leftValue": "={{ $('Extract Retry Context').item.json.should_retry }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "should-retry-check",
+      "name": "Should Retry?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [1120, 220]
+    },
+    {
+      "parameters": {
+        "amount": "={{ $('Extract Retry Context').item.json.wait_seconds }}",
+        "unit": "seconds"
+      },
+      "id": "backoff-wait",
+      "name": "Exponential Backoff Wait",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [1340, 160],
+      "webhookId": "backoff-wait-webhook"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "={{ $('Extract Retry Context').item.json.workflow_id }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "id": "retry-trigger",
+      "name": "Re-trigger Ingest Workflow",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.1,
+      "position": [1560, 160]
+    },
+    {
+      "parameters": {
+        "content": "## Retry Limit Reached\n\nSource: **{{ $('Extract Retry Context').item.json.source_key }}**\n\nRun ID: `{{ $('Extract Retry Context').item.json.run_id }}`\n\nRetry count: {{ $('Extract Retry Context').item.json.retry_count }}\n\nError: {{ $('Extract Retry Context').item.json.error_message }}\n\nThis source will not be retried automatically. Investigate and re-enable manually.",
+        "height": 200,
+        "width": 400
+      },
+      "id": "retry-limit-note",
+      "name": "Retry Limit Reached — Log Only",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [1340, 320]
+    }
+  ],
+  "connections": {
+    "Error Trigger": {
+      "main": [
+        [
+          {
+            "node": "Extract Retry Context",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Retry Context": {
+      "main": [
+        [
+          {
+            "node": "Has run_id?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Has run_id?": {
+      "main": [
+        [
+          {
+            "node": "POST /ingestion/fail",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "POST /ingestion/fail": {
+      "main": [
+        [
+          {
+            "node": "Should Retry?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Should Retry?": {
+      "main": [
+        [
+          {
+            "node": "Exponential Backoff Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Exponential Backoff Wait": {
+      "main": [
+        [
+          {
+            "node": "Re-trigger Ingest Workflow",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "saveDataErrorExecution": "all",
+    "saveDataSuccessExecution": "all",
+    "saveExecutionProgress": true
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {},
+  "versionId": "1",
+  "triggerCount": 0,
+  "tags": [
+    {
+      "createdAt": "2026-09-28T00:00:00.000Z",
+      "updatedAt": "2026-09-28T00:00:00.000Z",
+      "id": "ingestion",
+      "name": "ingestion"
+    }
+  ]
+}

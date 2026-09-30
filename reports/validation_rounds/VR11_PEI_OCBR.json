@@ -1,0 +1,168 @@
+{
+  "round": "VR11",
+  "source": "PEI Online Corporate and Business Names Registry (OCBR)",
+  "generated": "2026-09-26",
+  "status": "PARTIALLY_VALIDATED",
+
+  "vr11_initial_probe": {
+    "generated": "2026-09-26",
+    "script": "scripts/vr11_pei_probe.py",
+    "ocbr_host": "https://ocbr.princeedwardisland.ca",
+    "pei_gov_host": "https://www.princeedwardisland.ca",
+
+    "pei_gov_registry_pages": {
+      "new_registry": {
+        "url": "https://www.princeedwardisland.ca/en/feature/pei-business-corporate-registry",
+        "status": 200,
+        "bytes": 125534,
+        "notes": "Drupal CMS informational page — no registry-specific XHR endpoint found"
+      },
+      "original_registry": {
+        "url": "https://www.princeedwardisland.ca/en/feature/pei-business-corporate-registry-original",
+        "status": 200,
+        "bytes": 125534,
+        "notes": "Same Drupal CMS template"
+      }
+    },
+
+    "ocbr_path_probes": [
+      { "path": "/ocbr/", "status": 200, "bytes": 10703, "notes": "SPA shell" },
+      { "path": "/ocbr/search", "status": 200, "bytes": 10703, "notes": "Same SPA shell" },
+      { "path": "/ocbr/api/search", "status": 200, "bytes": 10703, "notes": "Same SPA shell" },
+      { "path": "/ocbr/api/v1/search", "status": 200, "bytes": 10703, "notes": "Same SPA shell" },
+      { "path": "/ocbr/public/search", "status": 200, "bytes": 10703, "notes": "Same SPA shell" },
+      { "path": "/ocbr/businesses", "status": 200, "bytes": 10703, "notes": "Same SPA shell" },
+      { "path": "/api/search", "status": 404, "notes": "Outside /ocbr/ path" },
+      { "path": "/search", "status": 404, "notes": "Outside /ocbr/ path" }
+    ],
+
+    "key_finding": "All /ocbr/* paths return identical 10,703-byte SPA shell — all routing is client-side",
+
+    "js_files_identified_in_spa_shell": [
+      "/ocbr/resources/js/search/BasicBusinessSearch.js",
+      "/ocbr/resources/js/search/basicSearch.js",
+      "/ocbr/resources/js/search/SearchCommon.js",
+      "/ocbr/resources/js/login.js"
+    ],
+
+    "csrf_hint_in_html": true,
+    "form_action": "login/authenticate",
+    "json_response_captured": false
+  },
+
+  "vr11_1_js_inspection": {
+    "generated": "2026-09-26",
+    "script": "scripts/probe_pei_ocbr_vr11_1.py",
+
+    "js_assets": [
+      {
+        "path": "/ocbr/resources/js/search/BasicBusinessSearch.js",
+        "url": "https://ocbr.princeedwardisland.ca/ocbr/resources/js/search/BasicBusinessSearch.js",
+        "http_status": 200,
+        "content_type": "application/javascript;charset=UTF-8",
+        "size_bytes": 14348,
+        "url_candidates_found": [
+          "/ocbr/search/results?",
+          "/ocbr/search/results/facet?",
+          "/ocbr/search/results/more",
+          "/ocbr/entityHome/"
+        ],
+        "ajax_method": "$.ajax GET",
+        "key_excerpt": "$.ajax({ url: '/ocbr/search/results/facet?' + $.param(data), type: 'GET', }).success(function (result) { if (result.success) { BasicBusinessSearch..."
+      },
+      {
+        "path": "/ocbr/resources/js/search/basicSearch.js",
+        "url": "https://ocbr.princeedwardisland.ca/ocbr/resources/js/search/basicSearch.js",
+        "http_status": 200,
+        "content_type": "application/javascript;charset=UTF-8",
+        "size_bytes": 252,
+        "notes": "Thin entry-point only — initialises BasicBusinessSearch on DOM ready, no endpoint URLs"
+      },
+      {
+        "path": "/ocbr/resources/js/search/SearchCommon.js",
+        "url": "https://ocbr.princeedwardisland.ca/ocbr/resources/js/search/SearchCommon.js",
+        "http_status": 200,
+        "content_type": "application/javascript;charset=UTF-8",
+        "size_bytes": 23810,
+        "url_candidates_found": [
+          "/ocbr/search/advanced/results/more"
+        ],
+        "ajax_method": "$.ajax GET",
+        "key_excerpt": "$.ajax({ url: targetUrl + '?' + $.param(data), type: 'GET', }).success(function (result) { if (result.success) { doSuccess(result); } else {"
+      }
+    ],
+
+    "api_endpoints_confirmed": [
+      { "path": "/ocbr/search/results?", "method": "GET", "purpose": "Primary business search", "source": "BasicBusinessSearch.js" },
+      { "path": "/ocbr/search/results/facet?", "method": "GET", "purpose": "Faceted filter", "source": "BasicBusinessSearch.js" },
+      { "path": "/ocbr/search/results/more", "method": "GET", "purpose": "Pagination — Show More", "source": "BasicBusinessSearch.js" },
+      { "path": "/ocbr/search/advanced/results/more", "method": "GET", "purpose": "Advanced search pagination", "source": "SearchCommon.js" },
+      { "path": "/ocbr/entityHome/{id}", "method": "GET", "purpose": "Individual entity detail", "source": "BasicBusinessSearch.js" }
+    ],
+
+    "authentication_probe": {
+      "url": "https://ocbr.princeedwardisland.ca/ocbr/search/results??name=Sobeys&q=Sobeys&search=Sobeys",
+      "http_status": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "response_bytes": 10703,
+      "json_parsed": false,
+      "page_title_in_response": "Login",
+      "csrf_meta_in_response": {
+        "_csrf_parameter": "_csrf",
+        "_csrf_header": "X-CSRF-TOKEN",
+        "_csrf_token_sample": "14aaf470-03a9-4baa-bf93-df2b72ca4607"
+      },
+      "interpretation": "Server returned Login page — unauthenticated requests to search endpoint are redirected to login. Authentication confirmed required."
+    },
+
+    "robots_txt": {
+      "ocbr_host": {
+        "url": "https://ocbr.princeedwardisland.ca/robots.txt",
+        "status": 404,
+        "content": null,
+        "interpretation": "No robots.txt on OCBR host — no bot exclusion rules apply to the OCBR application"
+      },
+      "pei_gov_host": {
+        "url": "https://www.princeedwardisland.ca/robots.txt",
+        "status": 200,
+        "disallow_entries": [
+          "/core/", "/profiles/", "/admin/", "/comment/reply/", "/filter/tips",
+          "/node/add/", "/search/", "/en/search/", "/fr/search/", "/fr/recherche",
+          "/en/user/", "/fr/user/", "/user/", "/user/password", "/user/login",
+          "/user/logout", "/media/oembed"
+        ],
+        "ocbr_path_mentioned": false,
+        "interpretation": "Drupal CMS robots.txt only — does not reference /ocbr/ — irrelevant to OCBR application"
+      }
+    }
+  },
+
+  "conclusions": {
+    "live_application": true,
+    "spa_architecture": true,
+    "js_assets_publicly_accessible": true,
+    "api_endpoint_identified": true,
+    "primary_search_endpoint": "/ocbr/search/results?",
+    "request_method": "GET",
+    "authentication_required": true,
+    "authentication_type": "session-based — login required before search endpoint returns data",
+    "csrf_token_required": true,
+    "csrf_header": "X-CSRF-TOKEN",
+    "anonymous_search_possible": false,
+    "json_response_observed": false,
+    "returned_fields_known": false,
+    "robots_txt_blocks_ocbr": false,
+    "eula_terms_retrieved": false,
+    "commercial_automation_permitted": "UNKNOWN — provincial copyright confirmed, EULA terms not retrieved",
+    "bulk_download_found": false,
+    "production_suitable": false,
+    "production_unsuitable_reasons": [
+      "Search requires authenticated user session",
+      "CSRF token rotation adds operational fragility",
+      "Commercial automation terms unresolved under provincial EULA",
+      "No anonymous public search path exists"
+    ],
+    "recommendation": "No further investment. PEI OCBR is not suitable for unauthenticated pipeline automation. Proceed to VR12 (NL CADO).",
+    "vr11_final_status": "PARTIALLY_VALIDATED — API endpoint and auth requirement confirmed by measurement; fields unknown (login wall); no further PEI work needed for this pipeline."
+  }
+}

@@ -1,0 +1,136 @@
+{
+  "round": "VR12",
+  "source": "Newfoundland & Labrador Companies and Deeds Online (CADO)",
+  "generated": "2026-09-26",
+  "base_url": "https://cado.eservices.gov.nl.ca",
+  "test_search_name": "Muskrat Falls",
+  "steps": {
+    "robots_txt": {
+      "url": "https://cado.eservices.gov.nl.ca/robots.txt",
+      "status": 404,
+      "content": "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\r\n<html xmlns=\"http://www.w3.org/1999/xhtml\">\r\n<head>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=iso-8859-1\"/>\r\n<title>404 - File or directory not found.</title>\r\n<style type=\"text/css\">\r\n<!--\r\nbody{margin:0;font-size:.7em;font-family:Verdana, Arial, Helvetica, sans-serif;background:#EEEEEE;}\r\nfieldset{padding:0 15px 10px 15px;} \r\nh1{font-size:2.4em;margin:0;color:#FFF;}\r\nh2{font-size:1.7em;margin:0;color:#CC0000;} \r\nh3{font-size:1.2em;margin:10px 0 0 0;color:#000000;} \r\n#header{width:96%;margin:0 0 0 0;padding:6px 2% 6px 2%;font-family:\"trebuchet MS\", Verdana, sans-serif;color:#FFF;\r\nbackground-color:#555555;}\r\n#content{margin:0 0 0 2%;position:relative;}\r\n.content-container{background:#FFF;width:96%;margin-top:8px;padding:10px;position:relative;}\r\n-->\r\n</style>\r\n</head>\r\n<body>\r\n<div id=\"header\"><h1>Server Error</h1></div>\r\n<div id=\"content\">\r\n <div class=\"content-container\"><fieldset>\r\n  <h2>404 - File or directory not found.</h2>\r\n  <h3>The resource you are looking for might have been removed, had its name changed, or is temporarily unavailable.</h3>\r\n </fieldset></div>\r\n</div>\r\n</body>\r\n</html>\r\n"
+    },
+    "home_page": {
+      "url": "https://cado.eservices.gov.nl.ca/",
+      "final_url": "https://cado.eservices.gov.nl.ca/",
+      "status": 200,
+      "bytes": 14992,
+      "login_wall_detected": true,
+      "login_signals": [
+        "login"
+      ],
+      "page_text_excerpt": "CADO - Companies and Deeds Online --> Companies and Deeds Online - CADO Government of Newfoundland and Labrador &nbsp; Main Companies Condominiums Co-operatives Deeds Mechanics Liens Lobbyists &nbsp; &nbsp;Welcome to Companies and Deeds Online (CADO)&nbsp; This application provides the general public greater accessibility to some of the services provided by the Registry of Companies and Deeds. Services provided through this application include: The ability to search for Companies, Condominiums, Co-operatives, Deeds, Mechanics Liens, and Lobbyists information. The filing of Articles of Incorporation for Local Companies. The filing of annual returns, changes to directors for local companies, changes to mailing addresses and changes to registered office addresses. The reserving of names and t"
+    },
+    "search_page_get": {
+      "url": "https://cado.eservices.gov.nl.ca/Company/CompanyNameNumberSearch.aspx",
+      "final_url": "https://cado.eservices.gov.nl.ca/Company/CompanyNameNumberSearch.aspx",
+      "status": 200,
+      "bytes": 13186,
+      "login_wall_detected": false,
+      "login_signals": [],
+      "payment_wall_detected": false,
+      "payment_signals": [],
+      "hidden_fields_found": [
+        "__VIEWSTATE",
+        "__VIEWSTATEGENERATOR",
+        "__EVENTVALIDATION"
+      ],
+      "all_input_names": [
+        "__VIEWSTATE",
+        "__VIEWSTATEGENERATOR",
+        "__EVENTVALIDATION",
+        "txtNameKeywords1",
+        "txtNameKeywords2",
+        "txtCompanyNumber",
+        "btnSearch",
+        "btnResetButton"
+      ],
+      "search_input_hints": {
+        "name keyword": "txtNameKeywords1",
+        "keyword": "txtNameKeywords1"
+      },
+      "page_text_excerpt": "CADO - Companies and Deeds Online --> Companies and Deeds Online - CADO Government of Newfoundland and Labrador &nbsp; Main Companies Condominiums Co-operatives Deeds Mechanics Liens Lobbyists &nbsp; &nbsp;Name/Number Search Review Search Hints --> Review Search Hints Enter one or two complete or partial name keywords: Name Keywords: &nbsp;&nbsp;and&nbsp; OR Number: &nbsp;&nbsp; Disclaimer/Privacy --> Disclaimer/Privacy Home Contact --> Contact --> Contact Government Home --> Return This page and all contents are copyright, Government of Newfoundland and Labrador, all rights reserved."
+    },
+    "search_post": {
+      "url": "https://cado.eservices.gov.nl.ca/Company/CompanyNameNumberSearch.aspx",
+      "final_url": "https://cado.eservices.gov.nl.ca/Company/CompanyNameNumberSearch.aspx",
+      "status": 200,
+      "bytes": 13186,
+      "content_type": "text/html; charset=utf-8",
+      "response_is_json": false,
+      "response_is_html": true,
+      "login_wall_detected": false,
+      "login_signals": [],
+      "payment_wall_detected": false,
+      "payment_signals": [],
+      "table_rows_found": 8,
+      "sample_rows": [
+        [
+          "&nbsp;"
+        ],
+        [
+          "&nbsp;Name/Number Search"
+        ],
+        [
+          "Review Search Hints",
+          "Review Search Hints"
+        ],
+        [
+          "Enter one or two complete or partial name keywords:"
+        ],
+        [
+          "Name Keywords:",
+          "&nbsp;&nbsp;and&nbsp;"
+        ]
+      ],
+      "detail_links_found": [],
+      "name_field_used": null,
+      "page_text_excerpt": "CADO - Companies and Deeds Online --> Companies and Deeds Online - CADO Government of Newfoundland and Labrador &nbsp; Main Companies Condominiums Co-operatives Deeds Mechanics Liens Lobbyists &nbsp; &nbsp;Name/Number Search Review Search Hints --> Review Search Hints Enter one or two complete or partial name keywords: Name Keywords: &nbsp;&nbsp;and&nbsp; OR Number: &nbsp;&nbsp; Disclaimer/Privacy --> Disclaimer/Privacy Home Contact --> Contact --> Contact Government Home --> Return This page and all contents are copyright, Government of Newfoundland and Labrador, all rights reserved."
+    },
+    "detail_page": {
+      "skipped": true,
+      "reason": "No detail page links found in search results"
+    },
+    "disclaimer": {
+      "url": "https://cado.eservices.gov.nl.ca/Disclaimer.aspx",
+      "status": 200,
+      "bytes": 17746,
+      "full_text": "CADO - Companies and Deeds Online --> Companies and Deeds Online - CADO Government of Newfoundland and Labrador &nbsp; Main Companies Condominiums Co-operatives Deeds Mechanics Liens Lobbyists &nbsp; The following policies govern the operation and management of this Web site: COPYRIGHT The Government of Newfoundland and Labrador is the owner of copyright in all information that is contained in and accessed directly or indirectly from the CADO system unless otherwise stated. Where the Government of Newfoundland and Labrador is the owner of copyright in information on this website, Government hereby grants permission for the information of this website to be used by the public and non-government organizations. Persons and organizations using this information agree to indemnify and save harmless the Government of Newfoundland and Labrador against any claims or actions of any kind or manner resulting from its use. Where the Government of Newfoundland and Labrador is the owner of copyright, the Government hereby grants permission for the information accessed directly or indirectly from the CADO system to be used provided that the CADO user shall not copy, distribute, loan, lease, sell or use data as part of a value added product or otherwise make the data available to any other party without the prior written approval of Government of Newfoundland and Labrador. The Government of Newfoundland and Labrador uses certain graphics, audio and visual materials on the CADO system with permission of third party copyright holders. Reproduction of all such materials is not permitted without prior written consent of the copyright holder. Persons using information belonging to third party copyright holders shall indemnify and save harmless the Government of Newfoundland and Labrador from any claims resulting from negligence or inability to obtain proper copyright permissions. DISCLAIMER The use of this website site is subject to the following terms and conditions and constitutes the users' agreement to those terms and conditions. Information on this website is provided as a public service by the Government of Newfoundland and Labrador. Government cannot guarantee that all information is current or accurate. Although Government makes every effort to ensure that all information is accurate and complete, Government cannot guarantee its integrity. Users should verify the information before acting on it. Information on this website is provided by Government solely for the users' information and is provided without warranty, guarantee, or responsibility of any kind, either express or implied. The Government of Newfoundland and Labrador and its employees will not be liable for any loss or damages of any nature, either direct or indirect, arising from use of the information provided on this website. The risk of using any e-commerce application is the sole responsibility of the user. The Government of Newfoundland and Labrador and its employees will not be liable for any d",
+      "licensing_flags": {
+        "copyright_government": true,
+        "commercial_use_mentioned": false,
+        "value_added_restricted": false,
+        "distribution_restricted": true,
+        "prior_written_approval": true,
+        "non_commercial_only": false,
+        "ogl_or_open_licence": false,
+        "automated_use_mentioned": false,
+        "sold_prohibited": false,
+        "copied_prohibited": true
+      }
+    }
+  },
+  "conclusions": {
+    "search_page_accessible_anonymously": true,
+    "search_post_executed": false,
+    "search_post_note": "name_field_used was null — script field-name matching did not resolve txtNameKeywords1. POST sent empty payload and server returned the blank search form unchanged (identical 13,186 bytes). Form field names are confirmed: txtNameKeywords1, txtNameKeywords2, txtCompanyNumber. A corrected POST targeting txtNameKeywords1 directly would execute the search. This is a script gap, not a CADO access block.",
+    "aspnet_form_postback_confirmed": true,
+    "aspnet_hidden_fields_confirmed": ["__VIEWSTATE", "__VIEWSTATEGENERATOR", "__EVENTVALIDATION"],
+    "search_input_fields_confirmed": ["txtNameKeywords1", "txtNameKeywords2", "txtCompanyNumber"],
+    "json_api_found": false,
+    "response_format": "HTML",
+    "login_required_for_search": false,
+    "payment_required_for_search": false,
+    "robots_txt_present": false,
+    "copyright_confirmed": true,
+    "value_added_prohibited": true,
+    "value_added_exact_quote": "the CADO user shall not copy, distribute, loan, lease, sell or use data as part of a value added product or otherwise make the data available to any other party without the prior written approval of Government of Newfoundland and Labrador",
+    "distribution_prohibited": true,
+    "prior_written_approval_required": true,
+    "open_government_licence": false,
+    "commercial_automation_permitted": "PROHIBITED — disclaimer explicitly prohibits use as part of a value added product, distribution to another party, copying, leasing, or selling without prior written Government approval",
+    "recommended_classification": "NOT_SUITABLE",
+    "classification_reason": "The CADO disclaimer contains an explicit prohibition on using registry data as part of a value-added product or making it available to another party without prior written NL Government approval. This pipeline is a commercial B2B prospecting product — that use is directly and unambiguously covered by the restriction. Technical accessibility (search page loads, no auth required, fields confirmed) is irrelevant; the licensing gate is closed without a written agreement.",
+    "architectural_note": "CADO could serve as a manual targeted-verification tool for individual NL company lookups (identity confirmation, status, registration number) where those lookups are not feeding a value-added data product. That narrow use would still require legal review of the prior-written-approval clause. For the automated pipeline, NL has no confirmed free/open alternative at this time."
+  }
+}

@@ -1,0 +1,586 @@
+{
+  "vr": "VR15_COMBINED",
+  "generated": "2026-09-26T10:36:58.988522+00:00",
+  "part_a_corps_api": [
+    {
+      "corp_num": "8660115",
+      "endpoints": [
+        {
+          "endpoint": "corporation_lookup",
+          "url": "https://apigateway-passerelledapi.ised-isde.canada.ca/corporations/api/v1/corporations/8660115.json?lang=eng",
+          "status": 200,
+          "content_type": "application/json;charset=utf-8",
+          "json_keys": [
+            "array len=2",
+            "item_keys=['corporationId', 'act', 'status', 'corporationNames', 'adresses', 'directorLimits', 'businessNumbers', 'annualReturns', 'activities']"
+          ],
+          "body_sample": "[{\"corporationId\":\"8660115\",\"act\":\"Canada Business Corporations Act\",\"status\":\"Active\",\"corporationNames\":[{\"CorporationName\":{\"name\":\"MINDANGLER CAPITAL INC.\",\"nameType\":\"Primary\",\"current\":true,\"effectiveDate\":\"2013-10-10\"}}],\"adresses\":[{\"address\":{\"addressLine\":[\"515 Legget Drive\",\"Suite 800\"],\"city\":\"Ottawa\",\"postalCode\":\"K2K 3G4\",\"provinceCode\":\"ON\",\"countryCode\":\"CA\",\"typeCode\":\"2\",\"current\":true}}],\"directorLimits\":{\"minimum\":1,\"maximum\":12},\"businessNumbers\":{\"businessNumber\":\"835752437",
+          "error": null,
+          "timestamp": "2026-09-26T10:34:54.672465+00:00"
+        },
+        {
+          "endpoint": "directors",
+          "url": "https://apigateway-passerelledapi.ised-isde.canada.ca/corporations/api/v2/corporations/8660115/directors",
+          "status": 200,
+          "content_type": "application/json",
+          "json_keys": [
+            "_embedded",
+            "_links"
+          ],
+          "body_sample": "{\"_embedded\":{\"directors\":[{\"firstName\":\"Nigel\",\"lastName\":\"Stokes\",\"serviceAddress\":{\"line1\":\"60 Boswell Avenue\",\"city\":\"Toronto\",\"subdivisionCode\":\"ON\",\"subdivisionNames\":{\"en\":\"Ontario\",\"fr\":\"Ontario\"},\"postalCode\":\"M5R 1M4\",\"countryCode\":\"CA\",\"countryNames\":{\"en\":\"Canada\",\"fr\":\"Canada\"}},\"uuid\":\"c9f57c8a-f0f1-45c4-b82a-c7263c2e74d4\"}]},\"_links\":{\"self\":{\"href\":\"https://ised-isde.canada.ca/cc/api/v2/corporations/8660115/directors\"}}}",
+          "error": null,
+          "timestamp": "2026-09-26T10:34:57.416553+00:00"
+        }
+      ]
+    },
+    {
+      "corp_num": "821080",
+      "endpoints": [
+        {
+          "endpoint": "corporation_lookup",
+          "url": "https://apigateway-passerelledapi.ised-isde.canada.ca/corporations/api/v1/corporations/821080.json?lang=eng",
+          "status": 200,
+          "content_type": "application/json;charset=utf-8",
+          "json_keys": [
+            "array len=2",
+            "item_keys=['corporationId', 'act', 'status', 'corporationNames', 'adresses', 'directorLimits', 'businessNumbers', 'annualReturns', 'activities']"
+          ],
+          "body_sample": "[{\"corporationId\":\"821080\",\"act\":\"Canada Business Corporations Act\",\"status\":\"Active - Dissolution Pending (Non-compliance)\",\"corporationNames\":[{\"CorporationName\":{\"name\":\"AIRMEC CLIMATISATION LTEE\",\"nameType\":\"Primary\",\"current\":true,\"effectiveDate\":\"1979-02-26\"}}],\"adresses\":[{\"address\":{\"addressLine\":[\"7961  RUE VAUBAN\"],\"city\":\"ANJOU\",\"postalCode\":\"H1J2V1\",\"provinceCode\":\"QC\",\"countryCode\":\"CA\",\"typeCode\":\"2\",\"current\":true}}],\"directorLimits\":{\"minimum\":1,\"maximum\":5},\"businessNumbers\":{\"b",
+          "error": null,
+          "timestamp": "2026-09-26T10:35:00.279513+00:00"
+        },
+        {
+          "endpoint": "directors",
+          "url": "https://apigateway-passerelledapi.ised-isde.canada.ca/corporations/api/v2/corporations/821080/directors",
+          "status": 200,
+          "content_type": "application/json",
+          "json_keys": [
+            "_embedded",
+            "_links"
+          ],
+          "body_sample": "{\"_embedded\":{\"directors\":[{\"firstName\":\"MARIO\",\"lastName\":\"TESTA\",\"serviceAddress\":{\"line1\":\"5840 EUGENE ARCHARD\",\"city\":\"MONTREAL\",\"subdivisionCode\":\"QC\",\"subdivisionNames\":{\"en\":\"Quebec\",\"fr\":\"Québec\"},\"postalCode\":\"H1K5A9\",\"countryCode\":\"CA\",\"countryNames\":{\"en\":\"Canada\",\"fr\":\"Canada\"}},\"uuid\":\"817960B49D8AB04AE0438E351AD2B04A\"}]},\"_links\":{\"self\":{\"href\":\"https://ised-isde.canada.ca/cc/api/v2/corporations/821080/directors\"}}}",
+          "error": null,
+          "timestamp": "2026-09-26T10:35:03.150169+00:00"
+        }
+      ]
+    },
+    {
+      "corp_num": "4396626",
+      "endpoints": [
+        {
+          "endpoint": "corporation_lookup",
+          "url": "https://apigateway-passerelledapi.ised-isde.canada.ca/corporations/api/v1/corporations/4396626.json?lang=eng",
+          "status": 200,
+          "content_type": "application/json;charset=utf-8",
+          "json_keys": [
+            "array len=2",
+            "item_keys=['corporationId', 'act', 'status', 'corporationNames', 'adresses', 'directorLimits', 'businessNumbers', 'annualReturns', 'activities']"
+          ],
+          "body_sample": "[{\"corporationId\":\"4396626\",\"act\":\"Canada Business Corporations Act\",\"status\":\"Active\",\"corporationNames\":[{\"CorporationName\":{\"name\":\"AIR CANADA\",\"nameType\":\"Primary\",\"current\":true,\"effectiveDate\":\"2006-11-24\"}}],\"adresses\":[{\"address\":{\"addressLine\":[\"7373 DE LA CôTE VERTU BLVD. WEST\"],\"city\":\"SAINT LAURENT\",\"postalCode\":\"H4S 1Z3\",\"provinceCode\":\"QC\",\"countryCode\":\"CA\",\"typeCode\":\"2\",\"current\":true}}],\"directorLimits\":{\"minimum\":7,\"maximum\":21},\"businessNumbers\":{\"businessNumber\":\"100092287\"}",
+          "error": null,
+          "timestamp": "2026-09-26T10:35:06.018401+00:00"
+        },
+        {
+          "endpoint": "directors",
+          "url": "https://apigateway-passerelledapi.ised-isde.canada.ca/corporations/api/v2/corporations/4396626/directors",
+          "status": 200,
+          "content_type": "application/json",
+          "json_keys": [
+            "_embedded",
+            "_links"
+          ],
+          "body_sample": "{\"_embedded\":{\"directors\":[{\"firstName\":\"KATHLEEN\",\"lastName\":\"TAYLOR\",\"serviceAddress\":{\"line1\":\"7373 Cote Vertu Blvd. West\",\"line2\":\"7th Floor (ZIP 1273)\",\"city\":\"Saint Laurent\",\"subdivisionCode\":\"QC\",\"subdivisionNames\":{\"en\":\"Quebec\",\"fr\":\"Québec\"},\"postalCode\":\"H4S 1Z3\",\"countryCode\":\"CA\",\"countryNames\":{\"en\":\"Canada\",\"fr\":\"Canada\"}},\"uuid\":\"9ff2a671-7dd6-4167-8f47-2271da6b7159\"},{\"firstName\":\"JEAN MARC\",\"lastName\":\"HUOT\",\"serviceAddress\":{\"line1\":\"1155 Rene Levesque Blvd. W.\",\"line2\":\"40th ",
+          "error": null,
+          "timestamp": "2026-09-26T10:35:09.859775+00:00"
+        }
+      ]
+    },
+    {
+      "corp_num": "158072",
+      "endpoints": [
+        {
+          "endpoint": "corporation_lookup",
+          "url": "https://apigateway-passerelledapi.ised-isde.canada.ca/corporations/api/v1/corporations/158072.json?lang=eng",
+          "status": 200,
+          "content_type": "application/json;charset=utf-8",
+          "json_keys": [
+            "array len=2"
+          ],
+          "body_sample": "[\"could not find corporation 158072\",\"Corporation 158072 est inconnu.\"]",
+          "error": null,
+          "timestamp": "2026-09-26T10:35:12.751113+00:00"
+        },
+        {
+          "endpoint": "directors",
+          "url": "https://apigateway-passerelledapi.ised-isde.canada.ca/corporations/api/v2/corporations/158072/directors",
+          "status": 200,
+          "content_type": "application/json",
+          "json_keys": [
+            "_links"
+          ],
+          "body_sample": "{\"_links\":{\"self\":{\"href\":\"https://ised-isde.canada.ca/cc/api/v2/corporations/158072/directors\"}}}",
+          "error": null,
+          "timestamp": "2026-09-26T10:35:15.630533+00:00"
+        }
+      ]
+    },
+    {
+      "corp_num": "271517",
+      "endpoints": [
+        {
+          "endpoint": "corporation_lookup",
+          "url": "https://apigateway-passerelledapi.ised-isde.canada.ca/corporations/api/v1/corporations/271517.json?lang=eng",
+          "status": 200,
+          "content_type": "application/json;charset=utf-8",
+          "json_keys": [
+            "array len=2"
+          ],
+          "body_sample": "[\"could not find corporation 271517\",\"Corporation 271517 est inconnu.\"]",
+          "error": null,
+          "timestamp": "2026-09-26T10:35:18.521092+00:00"
+        },
+        {
+          "endpoint": "directors",
+          "url": "https://apigateway-passerelledapi.ised-isde.canada.ca/corporations/api/v2/corporations/271517/directors",
+          "status": 200,
+          "content_type": "application/json",
+          "json_keys": [
+            "_links"
+          ],
+          "body_sample": "{\"_links\":{\"self\":{\"href\":\"https://ised-isde.canada.ca/cc/api/v2/corporations/271517/directors\"}}}",
+          "error": null,
+          "timestamp": "2026-09-26T10:35:21.235254+00:00"
+        }
+      ]
+    }
+  ],
+  "part_b_directory_discovery": [
+    {
+      "source": "YellowPages.ca",
+      "notes": "HTML search results page — check status, content type, link count, ToS signal",
+      "robots_allowed": false,
+      "test_url": "https://www.yellowpages.ca/search/si/1/Plumber/Toronto+ON",
+      "status": 403,
+      "content_type": "",
+      "body_bytes": 800,
+      "link_count": 0,
+      "phone_count": 0,
+      "email_count": 0,
+      "tos_signal_present": false,
+      "tos_excerpt": "",
+      "error": "HTTPError 403: Forbidden",
+      "body_sample": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">\n<HTML><HEAD><META HTTP-EQUIV=\"Content-Type\" CONTENT=\"text/html; charset=iso-8859-1\">\n<TITLE>ERROR: The request could not be satisfied</TITLE>\n</HEAD><BODY>\n<H1>403 ERROR</H1>\n<H2>The request could not be satisfied.</H2>\n<HR noshade size=\"1px\">\nRequest blocked.\nWe can't connect to the server for this app or website at this time. There might be too much traffic or a configuration error. Try again later, or contact the app or website owner.\n<BR clear=\"all\">\nIf you provide content to customers through CloudFront, you can find steps to troubleshoot and help prevent this error by reviewing the CloudFront documentation.\n<BR clear=\"all\">\n<HR noshade size=\"1px\">\n<PRE>\nGenerated by cloudfront (Clou",
+      "timestamp": "2026-09-26T10:35:25.236296+00:00"
+    },
+    {
+      "source": "Canada411.ca",
+      "notes": "Reverse phone lookup — check status, content type, data presence",
+      "robots_allowed": false,
+      "test_url": "https://www.canada411.ca/search/reverse/1/4162481229/",
+      "status": 403,
+      "content_type": "",
+      "body_bytes": 800,
+      "link_count": 0,
+      "phone_count": 0,
+      "email_count": 0,
+      "tos_signal_present": false,
+      "tos_excerpt": "",
+      "error": "HTTPError 403: Forbidden",
+      "body_sample": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">\n<HTML><HEAD><META HTTP-EQUIV=\"Content-Type\" CONTENT=\"text/html; charset=iso-8859-1\">\n<TITLE>ERROR: The request could not be satisfied</TITLE>\n</HEAD><BODY>\n<H1>403 ERROR</H1>\n<H2>The request could not be satisfied.</H2>\n<HR noshade size=\"1px\">\nRequest blocked.\nWe can't connect to the server for this app or website at this time. There might be too much traffic or a configuration error. Try again later, or contact the app or website owner.\n<BR clear=\"all\">\nIf you provide content to customers through CloudFront, you can find steps to troubleshoot and help prevent this error by reviewing the CloudFront documentation.\n<BR clear=\"all\">\n<HR noshade size=\"1px\">\n<PRE>\nGenerated by cloudfront (Clou",
+      "timestamp": "2026-09-26T10:35:29.231177+00:00"
+    },
+    {
+      "source": "OpenStreetMap Overpass API",
+      "notes": "OSM business nodes in Toronto bbox — open licence (ODbL), no auth",
+      "robots_allowed": null,
+      "test_url": "https://overpass-api.de/api/interpreter?data=[out:json];node[%22shop%22](43.6,-79.5,43.7,-79.3);out+10;",
+      "status": 504,
+      "content_type": "",
+      "body_bytes": 695,
+      "link_count": 0,
+      "phone_count": 0,
+      "email_count": 0,
+      "tos_signal_present": false,
+      "tos_excerpt": "",
+      "error": "HTTPError 504: Gateway Timeout",
+      "body_sample": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\"\n    \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\">\n<head>\n  <meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\" lang=\"en\"/>\n  <title>OSM3S Response</title>\n</head>\n<body>\n\n<p>The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.</p>\n<p><strong style=\"color:#FF0000\">Error</strong>: runtime error: open64: 0 Success /osm3s_osm_base Dispatcher_Client::request_read_and_idx::timeout. The server is probably too busy to handle your request. </p>\n\n</body>\n</html>\n",
+      "timestamp": "2026-09-26T10:35:40.750773+00:00"
+    }
+  ],
+  "part_c_website_enrichment": [
+    {
+      "id": "T04",
+      "name": "RepologiX",
+      "domain": "https://www.repologix.com",
+      "pages": [
+        {
+          "path": "/",
+          "status": 200,
+          "phones": [
+            "17537662512",
+            "19741745350",
+            "12572432761",
+            "17195041742",
+            "16247416551"
+          ],
+          "emails": [],
+          "jsonld": [],
+          "persons": [],
+          "source_url": "https://www.repologix.com/",
+          "retrieved_at": "2026-09-26T10:35:43.795296+00:00"
+        },
+        {
+          "path": "/contact",
+          "status": 200,
+          "phones": [
+            "17537662512",
+            "19741745350",
+            "12572432761",
+            "17195041742",
+            "16247416551"
+          ],
+          "emails": [],
+          "jsonld": [],
+          "persons": [],
+          "source_url": "https://www.repologix.com/contact",
+          "retrieved_at": "2026-09-26T10:35:46.164794+00:00"
+        },
+        {
+          "path": "/contact-us",
+          "status": 404,
+          "error": "HTTPError 404: Not Found"
+        },
+        {
+          "path": "/about",
+          "status": 200,
+          "phones": [
+            "17537662512",
+            "19741745350",
+            "12572432761",
+            "17195041742",
+            "16247416551"
+          ],
+          "emails": [],
+          "jsonld": [],
+          "persons": [],
+          "source_url": "https://www.repologix.com/about",
+          "retrieved_at": "2026-09-26T10:35:50.196499+00:00"
+        },
+        {
+          "path": "/about-us",
+          "status": 404,
+          "error": "HTTPError 404: Not Found"
+        },
+        {
+          "path": "/team",
+          "status": 404,
+          "error": "HTTPError 404: Not Found"
+        },
+        {
+          "path": "/leadership",
+          "status": 404,
+          "error": "HTTPError 404: Not Found"
+        }
+      ],
+      "summary": {
+        "phones_unique": [
+          "17537662512",
+          "19741745350",
+          "12572432761",
+          "17195041742",
+          "16247416551"
+        ],
+        "emails_unique": [],
+        "jsonld_unique": [],
+        "persons_unique": []
+      }
+    },
+    {
+      "id": "C01",
+      "name": "Mindangler Capital Inc.",
+      "domain": "https://www.mindangler.com",
+      "pages": [
+        {
+          "path": "/",
+          "status": 200,
+          "phones": [],
+          "emails": [],
+          "jsonld": [],
+          "persons": [],
+          "source_url": "https://www.mindangler.com/",
+          "retrieved_at": "2026-09-26T10:35:57.982890+00:00"
+        },
+        {
+          "path": "/contact",
+          "status": 404,
+          "error": "HTTPError 404: Not Found"
+        },
+        {
+          "path": "/contact-us",
+          "status": 404,
+          "error": "HTTPError 404: Not Found"
+        },
+        {
+          "path": "/about",
+          "status": 404,
+          "error": "HTTPError 404: Not Found"
+        },
+        {
+          "path": "/about-us",
+          "status": 404,
+          "error": "HTTPError 404: Not Found"
+        },
+        {
+          "path": "/team",
+          "status": 404,
+          "error": "HTTPError 404: Not Found"
+        },
+        {
+          "path": "/leadership",
+          "status": 404,
+          "error": "HTTPError 404: Not Found"
+        }
+      ],
+      "summary": {
+        "phones_unique": [],
+        "emails_unique": [],
+        "jsonld_unique": [],
+        "persons_unique": []
+      }
+    },
+    {
+      "id": "C02",
+      "name": "Sleep Country Canada",
+      "domain": "https://www.sleepcountry.ca",
+      "pages": [
+        {
+          "path": "/",
+          "skipped": "robots_disallowed"
+        },
+        {
+          "path": "/contact",
+          "skipped": "robots_disallowed"
+        },
+        {
+          "path": "/contact-us",
+          "skipped": "robots_disallowed"
+        },
+        {
+          "path": "/about",
+          "skipped": "robots_disallowed"
+        },
+        {
+          "path": "/about-us",
+          "skipped": "robots_disallowed"
+        },
+        {
+          "path": "/team",
+          "skipped": "robots_disallowed"
+        },
+        {
+          "path": "/leadership",
+          "skipped": "robots_disallowed"
+        }
+      ],
+      "summary": {
+        "phones_unique": [],
+        "emails_unique": [],
+        "jsonld_unique": [],
+        "persons_unique": []
+      }
+    },
+    {
+      "id": "C03",
+      "name": "Boston Pizza",
+      "domain": "https://www.bostonpizza.com",
+      "pages": [
+        {
+          "path": "/",
+          "status": 200,
+          "phones": [
+            "+1-604-303-6398",
+            "+1-604-270-1108",
+            "+1-905-848-2700",
+            "17876860200",
+            "17882676000"
+          ],
+          "emails": [],
+          "jsonld": [
+            "+1-604-303-6398",
+            "+1-604-270-1108",
+            "+1-905-848-2700"
+          ],
+          "persons": [
+            "Google Tag",
+            "End Google Tag",
+            "Google Tag",
+            "End Google Tag",
+            "Google Tag"
+          ],
+          "source_url": "https://www.bostonpizza.com/",
+          "retrieved_at": "2026-09-26T10:36:29.369913+00:00"
+        },
+        {
+          "path": "/contact",
+          "status": 200,
+          "phones": [],
+          "emails": [],
+          "jsonld": [],
+          "persons": [
+            "Google Tag",
+            "End Google Tag",
+            "Google Tag",
+            "End Google Tag",
+            "Google Tag"
+          ],
+          "source_url": "https://www.bostonpizza.com/contact",
+          "retrieved_at": "2026-09-26T10:36:34.063646+00:00"
+        },
+        {
+          "path": "/contact-us",
+          "status": 200,
+          "phones": [],
+          "emails": [],
+          "jsonld": [],
+          "persons": [
+            "Google Tag",
+            "End Google Tag",
+            "Google Tag",
+            "End Google Tag",
+            "Google Tag"
+          ],
+          "source_url": "https://www.bostonpizza.com/contact-us",
+          "retrieved_at": "2026-09-26T10:36:37.306434+00:00"
+        },
+        {
+          "path": "/about",
+          "status": 404,
+          "error": "HTTPError 404: Not Found"
+        },
+        {
+          "path": "/about-us",
+          "status": 200,
+          "phones": [],
+          "emails": [],
+          "jsonld": [],
+          "persons": [
+            "Google Tag",
+            "End Google Tag",
+            "Google Tag",
+            "End Google Tag",
+            "Google Tag"
+          ],
+          "source_url": "https://www.bostonpizza.com/about-us",
+          "retrieved_at": "2026-09-26T10:36:44.213063+00:00"
+        },
+        {
+          "path": "/team",
+          "status": 404,
+          "error": "HTTPError 404: Not Found"
+        },
+        {
+          "path": "/leadership",
+          "status": 404,
+          "error": "HTTPError 404: Not Found"
+        }
+      ],
+      "summary": {
+        "phones_unique": [
+          "+1-604-303-6398",
+          "+1-604-270-1108",
+          "+1-905-848-2700",
+          "17876860200",
+          "17882676000"
+        ],
+        "emails_unique": [],
+        "jsonld_unique": [
+          "+1-604-303-6398",
+          "+1-604-270-1108",
+          "+1-905-848-2700"
+        ],
+        "persons_unique": [
+          "Google Tag",
+          "End Google Tag"
+        ]
+      }
+    },
+    {
+      "id": "C04",
+      "name": "MEC",
+      "domain": "https://www.mec.ca",
+      "pages": [
+        {
+          "path": "/",
+          "skipped": "robots_disallowed"
+        },
+        {
+          "path": "/contact",
+          "skipped": "robots_disallowed"
+        },
+        {
+          "path": "/contact-us",
+          "skipped": "robots_disallowed"
+        },
+        {
+          "path": "/about",
+          "skipped": "robots_disallowed"
+        },
+        {
+          "path": "/about-us",
+          "skipped": "robots_disallowed"
+        },
+        {
+          "path": "/team",
+          "skipped": "robots_disallowed"
+        },
+        {
+          "path": "/leadership",
+          "skipped": "robots_disallowed"
+        }
+      ],
+      "summary": {
+        "phones_unique": [],
+        "emails_unique": [],
+        "jsonld_unique": [],
+        "persons_unique": []
+      }
+    }
+  ],
+  "status_summary": {
+    "part_a": {
+      "200": 10
+    },
+    "part_b": {
+      "YellowPages.ca": 403,
+      "Canada411.ca": 403,
+      "OpenStreetMap Overpass API": 504
+    },
+    "part_c": {
+      "RepologiX": {
+        "phones": 5,
+        "emails": 0,
+        "persons": 0
+      },
+      "Mindangler Capital Inc.": {
+        "phones": 0,
+        "emails": 0,
+        "persons": 0
+      },
+      "Sleep Country Canada": {
+        "phones": 0,
+        "emails": 0,
+        "persons": 0
+      },
+      "Boston Pizza": {
+        "phones": 5,
+        "emails": 0,
+        "persons": 2
+      },
+      "MEC": {
+        "phones": 0,
+        "emails": 0,
+        "persons": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,195 @@
+{
+  "vr": "VR14",
+  "title": "ODBus Underlying/Current-Source Expansion",
+  "generated": "2026-09-26",
+  "scripts": [
+    "scripts/probe_odbus_vr14_1.py",
+    "scripts/probe_odbus_vr14_2.py",
+    "scripts/probe_odbus_vr14_3.py"
+  ],
+  "working_files": [
+    "reports/validation_rounds/VR14_1_ODBUS_SOURCE_INVENTORY.json",
+    "reports/validation_rounds/VR14_2_ODBUS_ENDPOINT_TRIAGE.json",
+    "reports/validation_rounds/VR14_2_ODBUS_ENDPOINT_TRIAGE.md",
+    "reports/validation_rounds/VR14_3_ODBUS_HIGH_VALUE_SOURCES.json",
+    "reports/validation_rounds/VR14_3_ODBUS_HIGH_VALUE_SOURCES.md"
+  ],
+
+  "phase_14_1_source_inventory": {
+    "total_sources": 69,
+    "province_distribution": {
+      "ON": 32,
+      "BC": 27,
+      "AB": 5,
+      "NB": 3,
+      "MB": 1,
+      "NT": 1
+    },
+    "provinces_with_zero_coverage": ["SK", "QC", "NS", "PE", "NL", "YT", "NU"],
+    "source_types": {
+      "municipal_business_licence_permit": 38,
+      "business_directory": 15,
+      "hamilton_specialized_licence_categories": 13,
+      "bc_provincial_datasets": 3
+    },
+    "notable_sources": [
+      {"id": 19, "city": "New Westminster BC", "name": "Business Licenses (New this Year)", "note": "Only source explicitly scoped to new businesses"},
+      {"id": 32, "city": "Victoria BC", "name": "Business Licences - Current Year", "note": "Annual current-year freshness signal"},
+      {"id": 66, "city": "Toronto ON", "name": "Business Licences and Permits", "note": "Largest Canadian city"},
+      {"id": 64, "city": "Ontario (provincial)", "name": "Select Licence and Registration Data", "note": "Already validated VR06"},
+      {"id": 28, "city": "Vancouver BC", "name": "Business licences", "note": "Major BC city"},
+      {"id": 2,  "city": "Calgary AB", "name": "Calgary Business Licences", "note": "Major AB city"},
+      {"id": 4,  "city": "Edmonton AB", "name": "City of Edmonton - Business Licenses", "note": "Major AB city"},
+      {"id": 33, "city": "Winnipeg MB", "name": "Business Licenses", "note": "Only MB source in ODBus"}
+    ]
+  },
+
+  "phase_14_2_endpoint_triage": {
+    "classification_summary": {
+      "CURRENT": 56,
+      "DEAD": 7,
+      "RESTRICTED": 3,
+      "MOVED": 2,
+      "UNKNOWN": 1
+    },
+    "dead_sources": [
+      {"id": 1,  "city": "Banff AB",              "reason": "timeout"},
+      {"id": 5,  "city": "Strathcona County AB",   "reason": "timeout"},
+      {"id": 13, "city": "BC (provincial)",        "name": "Licensed Establishments in B.C.", "reason": "404 — hardcoded 2017 CSV URL rotted"},
+      {"id": 14, "city": "BC (provincial)",        "name": "BC Winery Locations", "reason": "404 — hardcoded 2017 CSV URL rotted"},
+      {"id": 15, "city": "Nanaimo BC",             "reason": "404"},
+      {"id": 37, "city": "Yellowknife NT",         "reason": "404"},
+      {"id": 44, "city": "Guelph ON",              "reason": "SSL handshake failure"}
+    ],
+    "restricted_sources": [
+      {"id": 7,  "city": "Chilliwack BC",   "reason": "HTTP 403"},
+      {"id": 59, "city": "Mississauga ON",  "name": "2019 Mississauga Business Directory", "reason": "HTTP 403"},
+      {"id": 66, "city": "Toronto ON",      "name": "Business Licences and Permits", "reason": "WAF bot-protection in response body — NOT a content prohibition, same pattern as NS RJSC"}
+    ],
+    "moved_sources": [
+      {"id": 8,  "city": "Delta BC",  "new_url": "https://www.delta.ca/city-hall/municipal-information/open-data-catalogue"},
+      {"id": 26, "city": "Surrey BC", "new_url": "https://opendata-surrey.hub.arcgis.com/"}
+    ],
+    "unknown_sources": [
+      {"id": 9, "city": "Kelowna BC", "reason": "HTTP 400 on old direct GeoJSON URL — dataset likely exists under different resource ID"}
+    ],
+    "false_positive_note": "login_required flag triggered on Calgary, Edmonton, Vancouver, Winnipeg — Socrata portal JS contains auth strings but portals are publicly accessible without authentication",
+    "direct_csv_confirmed": {
+      "id": 12,
+      "name": "BC Indigenous Business Listings",
+      "url": "https://catalogue.data.gov.bc.ca/dataset/bdc81d33-1ab5-4882-9764-8701e8971bb7/resource/f805f66e-8294-4f8d-bdd9-2400eb3938d0/download/bcindigenousbusinesslistings.csv",
+      "size_bytes": 782954,
+      "licence": "OGL-BC",
+      "current_date_evidence": true
+    }
+  },
+
+  "phase_14_3_deep_validation": {
+    "confirmed_api_sources": [
+      {
+        "source_id": 2,
+        "city": "Calgary",
+        "province": "AB",
+        "api_type": "socrata",
+        "download_url": "https://data.calgary.ca/api/views/vdjc-pybd/rows.csv?accessType=DOWNLOAD",
+        "current_data_confirmed": true,
+        "sample_date": "2026/03/26",
+        "columns": ["getbusid","tradename","homeoccind","address","comdistcd","comdistnm","licencetypes","first_iss_dt","exp_dt","jobstatusdesc","point","globalid"],
+        "has_name": true, "has_address": true, "has_postal": false,
+        "has_phone": false, "has_email": false, "has_naics": false,
+        "has_status": true, "has_licence_number": true,
+        "new_business_signal": "first_iss_dt",
+        "missing_fields": ["postal_code", "phone", "email", "NAICS"],
+        "automation_status": "API_AVAILABLE"
+      },
+      {
+        "source_id": 4,
+        "city": "Edmonton",
+        "province": "AB",
+        "api_type": "socrata",
+        "download_url": "https://data.edmonton.ca/api/views/qhi4-bdpu/rows.csv?accessType=DOWNLOAD",
+        "url_migration_note": "Dataset path migrated from /Sustainable-Development/ to /Urban-Planning-Economy/ — 4x4 ID unchanged",
+        "current_data_confirmed": true,
+        "sample_date": "08/17/2026",
+        "columns": ["business_licence_category","business_name","business_address","externalid","most_recent_issue_date","expiry_date","business_improvement_area","neighbourhood_id","neighbourhood","ward","latitude","longitude","location","count","geometry_point","originalissuedate","licenceduration","licencetype"],
+        "has_name": true, "has_address": true, "has_postal": false,
+        "has_phone": false, "has_email": false, "has_naics": false,
+        "has_status": false, "has_licence_number": true,
+        "new_business_signal": "originalissuedate",
+        "missing_fields": ["postal_code", "phone", "email", "NAICS", "status"],
+        "automation_status": "API_AVAILABLE"
+      },
+      {
+        "source_id": 28,
+        "city": "Vancouver",
+        "province": "BC",
+        "api_type": "opendatasoft",
+        "download_url": "https://opendata.vancouver.ca/explore/dataset/business-licences/export/?format=csv",
+        "row_count": 206024,
+        "last_updated": "2026-09-25T13:51:15+00:00",
+        "current_data_confirmed": true,
+        "columns": ["folderyear","licencersn","licencenumber","licencerevisionnumber","businessname","businesstradename","status","issueddate","expireddate","businesstype","businesssubtype","unit","unittype","house","street","city","province","country","postalcode","localarea","numberofemployees","feepaid","extractdate","geom","geo_point_2d"],
+        "has_name": true, "has_address": true, "has_postal": true,
+        "has_phone": false, "has_email": false, "has_naics": false,
+        "has_status": true, "has_licence_number": true,
+        "has_employee_count": true,
+        "note": "BEST FIELD SET — postal code + employee count + status + 206k rows + updated yesterday. Only second source after NNI with individual employee count.",
+        "new_business_signal": "issueddate + folderyear",
+        "missing_fields": ["phone", "email", "NAICS"],
+        "automation_status": "API_AVAILABLE"
+      },
+      {
+        "source_id": 33,
+        "city": "Winnipeg",
+        "province": "MB",
+        "api_type": "socrata",
+        "download_url": "https://data.winnipeg.ca/api/views/d5k3-sfzx/rows.csv?accessType=DOWNLOAD",
+        "current_data_confirmed": true,
+        "last_updated_unix": 1788260448,
+        "note": "Dataset includes historical/closed records — must filter on status=Active",
+        "columns": ["folder_type","folder_description","subdescription","trade_name","address","issue_date","expiry_date","status","neighbourhood_number","neighbourhood_name","electoral_ward","community_characterization_area","location"],
+        "has_name": true, "has_address": true, "has_postal": false,
+        "has_phone": false, "has_email": false, "has_naics": false,
+        "has_status": true, "has_licence_number": false,
+        "new_business_signal": "issue_date",
+        "missing_fields": ["postal_code", "phone", "email", "NAICS", "licence_number"],
+        "automation_status": "API_AVAILABLE"
+      }
+    ],
+    "blocked_not_prohibited": [
+      {"source_id": 19, "city": "New Westminster BC", "name": "Business Licenses (New this Year)", "reason": "GeoJSON direct download HTTP 403 — portal page accessible, browser download needed"},
+      {"source_id": 32, "city": "Victoria BC", "name": "Business Licences - Current Year", "reason": "GeoJSON direct download HTTP 403 — same"},
+      {"source_id": 30, "city": "Victoria BC", "name": "Business Licences - Past 5 Years", "reason": "GeoJSON HTTP 200 but JSON truncated at 64KB fetch limit"}
+    ],
+    "pending_resolution": [
+      {"source_id": 13, "name": "BC Licensed Establishments", "note": "CKAN confirms 1 resource exists — current download URL needs manual catalogue check"},
+      {"source_id": 14, "name": "BC Winery Locations", "note": "CKAN confirms 1 resource exists — current download URL needs manual catalogue check"},
+      {"source_id": 26, "city": "Surrey BC", "note": "ArcGIS Hub portal live with 2026 content — specific business licence dataset URL not resolved"},
+      {"source_id": 9,  "city": "Kelowna BC", "note": "Open Kelowna portal live with 2026 content — business licence dataset URL not resolved"}
+    ]
+  },
+
+  "phase_14_4_odbus_vs_current": {
+    "generated": "2026-09-26",
+    "script": "scripts/probe_odbus_vr14_4.py",
+    "report": "reports/validation_rounds/VR14_4_ODBUS_VS_CURRENT.json",
+    "sources_profiled": ["Calgary", "Edmonton", "Vancouver", "Winnipeg"],
+    "row_counts_2026": {
+      "calgary": 23178,
+      "edmonton": 43719,
+      "vancouver": 206024,
+      "winnipeg": 13757
+    },
+    "key_findings": {
+      "calgary": "23,178 rows. Name + address + status(7) + licence_id + first_iss_dt all 100% filled. Date range 2001–2026/09/21. No postal/phone/email/NAICS.",
+      "edmonton": "43,719 rows — largest dataset. Name 100%, address 99.9%, licence_id 100%, original_issue_date 94.2%. Latest date 2025/12/31 — not yet showing 2026 in this field. No status field in schema. No postal/phone/email/NAICS.",
+      "vancouver": "206,024 rows updated 2026-10-01. Best field set: name 93.4%, address(street) 53.7%, postal 53.4%, status 100%(5 values: Issued/Pending/Gone Out of Business/Inactive/Cancelled), licence_id 100%, issueddate 86.1%. numberofemployees 100% filled as float-strings (e.g. '385.0') — bucket distribution pending. No phone/email/NAICS.",
+      "winnipeg": "13,757 rows including historical. Name 100% but only 275 unique values (licence-grain). Address only 20.2% filled. No postal/licence_id/NAICS. Status 10 values. Date range 2011–2025/12/31."
+    },
+    "employee_count_finding": "Vancouver numberofemployees: 100% populated, stored as float-strings not integers. Parseable as int(float(v)). Bucket distribution not yet computed. Semantic question open: location-level or company-level employees.",
+    "odbus_direct_comparison": "ODBus_Sources.csv not in data/raw/ — row-count delta not computed. Current source row counts are the production baseline.",
+    "freshness_gain_confirmed": "All four sources have 2025-2026 data vs ODBus 2022 snapshot. Calgary confirmed 2026/09/21. Vancouver confirmed 2026-10-01. Edmonton and Winnipeg latest dates show 2025/12/31 in original_issue_date/issue_date fields but portals confirmed live."
+  }, "ODBus is a source-discovery index, not a production dataset. Its 69 source URLs identified current, moved, dead, restricted, and migrated portals. Production pipeline should ingest directly from current source endpoints. Vancouver is the highest-value confirmed source (206k rows, postal code, employee count, updated daily). Calgary and Edmonton are Tier A discovery sources. Winnipeg is the only confirmed MB municipal source.",
+
+  "status": "VR14 COMPLETE. All phases done (14.1–14.4.1). Vancouver employee field: SOURCE-DEFINED — 'Number of staff employed with the business', 0=no employees (legitimate), grain=licence_record, usable=YES, preserve at licence level and resolve at entity layer. Next: VR15 Contact and Decision-Maker Enrichment."
+}

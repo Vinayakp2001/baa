@@ -1,0 +1,1753 @@
+{
+  "generated": "2026-09-25T14:52:04.656802+00:00",
+  "access": {
+    "timestamp": "2026-09-25T14:52:04.656802+00:00",
+    "listing_page_url": "https://companiesoffice.gov.mb.ca/listings.html",
+    "listing_page_status": 200,
+    "pdf_2026-09-19_status": 200,
+    "pdf_2026-09-19_bytes": 478807,
+    "pdf_2026-09-19_saved": "C:\\Users\\LENOVO\\Desktop\\baa\\data\\raw\\manitoba_filings_2026-09-19.pdf",
+    "pdf_2026-09-12_status": 200,
+    "pdf_2026-09-12_bytes": 372901,
+    "pdf_2026-09-12_saved": "C:\\Users\\LENOVO\\Desktop\\baa\\data\\raw\\manitoba_filings_2026-09-12.pdf"
+  },
+  "listing": {
+    "total_links": 14,
+    "newest": "2026-09-19",
+    "oldest": "2026-06-20",
+    "sample_links": [
+      [
+        "2026-09-19",
+        "https://companiesoffice.gov.mb.ca/comp_off/listings/2026-09-19.en.pdf"
+      ],
+      [
+        "2026-09-12",
+        "https://companiesoffice.gov.mb.ca/comp_off/listings/2026-09-12.en.pdf"
+      ],
+      [
+        "2026-09-05",
+        "https://companiesoffice.gov.mb.ca/comp_off/listings/2026-09-05.en.pdf"
+      ],
+      [
+        "2026-08-29",
+        "https://companiesoffice.gov.mb.ca/comp_off/listings/2026-08-29.en.pdf"
+      ],
+      [
+        "2026-08-22",
+        "https://companiesoffice.gov.mb.ca/comp_off/listings/2026-08-22.en.pdf"
+      ]
+    ]
+  },
+  "pdf_profiles": [
+    {
+      "date": "2026-09-19",
+      "url": "https://companiesoffice.gov.mb.ca/comp_off/listings/2026-09-19.en.pdf",
+      "size_bytes": 478807,
+      "pages": 55,
+      "text_extractable": true,
+      "text_chars": 89471,
+      "sections": {
+        "Filings under The Corporations Act, The Cooperatives Act and The Business Names": {
+          "record_count": 0,
+          "sample_names": [],
+          "records": []
+        },
+        "\u2022 Certificates of Incorporation": {
+          "record_count": 0,
+          "sample_names": [],
+          "records": []
+        },
+        "\u2022 Certificates of Amalgamation": {
+          "record_count": 0,
+          "sample_names": [],
+          "records": []
+        },
+        "\u2022 Certificates of Dissolution": {
+          "record_count": 0,
+          "sample_names": [],
+          "records": []
+        },
+        "\u2022 Certificates of Cancellation of Registration": {
+          "record_count": 0,
+          "sample_names": [],
+          "records": []
+        },
+        "\u2022 Bodies Corporate from other jurisdictions that have requested cancellation of ": {
+          "record_count": 0,
+          "sample_names": [],
+          "records": []
+        },
+        "\u2022 Registrations of Dissolutions": {
+          "record_count": 0,
+          "sample_names": [],
+          "records": []
+        },
+        "Certificates of Incorporation": {
+          "record_count": 214,
+          "sample_names": [
+            "File No.: 10280200",
+            "File No.: 10280227",
+            "File No.: 10280550",
+            "File No.: 10280571",
+            "File No.: 10280568"
+          ],
+          "records": [
+            {
+              "registered_office": "1340 - 220 Registered Office: BOX 1670 Registered Office: 66",
+              "name": "10280200 MANITOBA LTD. 10280227 MANITOBA LTD. 10280550 MANITOBA LTD."
+            },
+            {
+              "file_no": "10280550",
+              "registered_office": "311-1047 Registered Office: BOX 226 Registered Office: 41 SUMMERSCALES",
+              "name": "10280568 MANITOBA LTD. 10280571 MANITOBA LTD. 10280573 MANITOBA INC."
+            },
+            {
+              "file_no": "10280573",
+              "registered_office": "83 TURNSTONE Registered Office: 94 LENNOX AVE Registered Office: 241 NUMERACY",
+              "name": "10280582 MANITOBA LTD. 10280583 MANITOBA LTD. 10280586 MANITOBA LTD."
+            },
+            {
+              "file_no": "10280586",
+              "registered_office": "32 CANTAFIO COVE Registered Office: 99 ALSIP DR Registered Office: 700 - 444 ST. MARY",
+              "name": "10280587 MANITOBA LTD. 10280608 MANITOBA LTD. 10280615 MANITOBA LTD."
+            },
+            {
+              "file_no": "10280615",
+              "registered_office": "1800 - ONE Registered Office: 641 ST. ANNE'S Registered Office: 312 PTARMIGAN",
+              "name": "10280636 MANITOBA LTD. 10280639 MANITOBA LTD. 10280642 MANITOBA LTD."
+            },
+            {
+              "file_no": "10280642",
+              "registered_office": "1000-330 ST. MARY Registered Office: 921 213 JEFFRSON Registered Office: 10 CASTLEROCK",
+              "name": "10280670 MANITOBA LTD. 10280671 MANITOBA LTD. 10280680 MANITOBA INC."
+            },
+            {
+              "file_no": "10280680",
+              "registered_office": "1675 NOTRE DAME Registered Office: 58 CHERRY WY Registered Office: PKF LAWYERS",
+              "name": "10280700 MANITOBA LTD. 10280705 MANITOBA LTD. 10280741 MANITOBA LTD."
+            },
+            {
+              "file_no": "10280741",
+              "registered_office": "46 LACEWING LANE Registered Office: 110-11TH STREET Registered Office: 191 MACBETH",
+              "name": "10280751 MANITOBA LTD. 10280762 MANITOBA LTD. 10280772 MANITOBA LTD."
+            },
+            {
+              "file_no": "10280772",
+              "registered_office": "888 SARGENT AVE Registered Office: 102-1015 WILKES Registered Office: 700 - 330 ST. MARY",
+              "name": "10280779 MANITOBA LTD. 10280781 MANITOBA LTD. 10280785 MANITOBA LTD."
+            },
+            {
+              "file_no": "10280785",
+              "registered_office": "102-1015 WILKES Registered Office: 236 MCKAY ROAD Registered Office: 30 MARSEILLES",
+              "name": "10280786 MANITOBA LTD. 10280790 MANITOBA LTD. 10280806 MANITOBA LTD."
+            },
+            {
+              "file_no": "10280806",
+              "registered_office": "35 OAKBURN PLACE Registered Office: 14 HALLFIELD BAY Registered Office: 110-11TH STREET",
+              "name": "10280809 MANITOBA LTD. 10280813 MANITOBA LTD. 10280826 MANITOBA LTD."
+            },
+            {
+              "file_no": "10280826",
+              "registered_office": "927 DALE BLVD Registered Office: 244 10TH ST Registered Office: 36 IVY ROW",
+              "name": "10280832 MANITOBA LTD. 10280869 MANITOBA LTD. 10280876 MANITOBA INC."
+            },
+            {
+              "file_no": "10280876",
+              "registered_office": "1010 LOGAN Registered Office: AMMETER LAW Registered Office: GREENBERG &",
+              "name": "10280885 MANITOBA LTD. 10280887 MANITOBA LTD. 10280902 MANITOBA LTD."
+            },
+            {
+              "file_no": "10280887",
+              "name": "PORTAGE LA PRAIRIE, MB, R1N3B2"
+            },
+            {
+              "file_no": "10280902",
+              "registered_office": "203-380 YOUNG Registered Office: 70078 BRIERCLIFF Registered Office: 70078 BRIERCLIFF",
+              "name": "10280909 MANITOBA LTD. 10280921 MANITOBA LTD. 10280922 MANITOBA LTD."
+            },
+            {
+              "file_no": "10280922",
+              "registered_office": "32 BALDOCK Registered Office: 360 MAIN STREET Registered Office: 206 ST. MARY'S",
+              "name": "10280929 MANITOBA LTD. 10280942 MANITOBA LTD. 10280947 MANITOBA LTD."
+            },
+            {
+              "file_no": "10280947",
+              "registered_office": "296 WINDFLOWER Registered Office: 102-155 MIRA GATE Registered Office: 170 WYATT ROAD",
+              "name": "10280967 MANITOBA INC. 10280972 MANITOBA LTD. 10280976 MANITOBA INC."
+            },
+            {
+              "file_no": "10280976",
+              "registered_office": "1-1681 MAIN ST Registered Office: BOX 1150 Registered Office: BOX 1150",
+              "name": "10281011 MANITOBA INC. 10281043 MANITOBA LTD. 10281045 MANITOBA LTD."
+            },
+            {
+              "file_no": "10281045",
+              "registered_office": "30TH FLOOR, 360 Registered Office: 476 DE LA Registered Office: 1000-330 ST. MARY",
+              "name": "10281055 MANITOBA LTD. 10281068 MANITOBA LTD. 10281073 MANITOBA LTD."
+            },
+            {
+              "file_no": "10281073",
+              "registered_office": "93 LOMBARD Registered Office: 93 LOMBARD AVE Registered Office: 106 FOXMEADOW",
+              "name": "10281082 MANITOBA LTD. 10281083 MANITOBA LTD. 10281087 MANITOBA LTD."
+            }
+          ]
+        },
+        "Certificates of Amendment with a name change": {
+          "record_count": 0,
+          "sample_names": [],
+          "records": []
+        },
+        "Date of Amendment: 31-Aug-2026 Date of Amendment: 16-Sep-2026": {
+          "record_count": 2,
+          "sample_names": [
+            "File No.: 10051749",
+            "File No.: 10066404"
+          ],
+          "records": []
+        },
+        "Date of Amendment: 06-Aug-2026 Date of Amendment: 18-Sep-2026": {
+          "record_count": 2,
+          "sample_names": [
+            "File No.: 10072711",
+            "File No.: 10112630"
+          ],
+          "records": []
+        },
+        "Date of Amendment: 02-Sep-2026 Date of Amendment: 11-Sep-2026": {
+          "record_count": 2,
+          "sample_names": [
+            "File No.: 10148097",
+            "File No.: 10160732"
+          ],
+          "records": []
+        },
+        "Date of Amendment: 17-Sep-2026 File No.: 10198367": {
+          "record_count": 1,
+          "sample_names": [
+            "File No.: 10182616"
+          ],
+          "records": []
+        },
+        "Date of Amendment: 17-Sep-2026 Date of Amendment: 14-Sep-2026": {
+          "record_count": 2,
+          "sample_names": [
+            "File No.: 10251934",
+            "File No.: 10256339"
+          ],
+          "records": []
+        },
+        "Date of Amendment: 11-Sep-2026 Date of Amendment: 16-Sep-2026": {
+          "record_count": 2,
+          "sample_names": [
+            "File No.: 10259521",
+            "File No.: 10264262"
+          ],
+          "records": []
+        },
+        "File No.: 10267681 Date of Amendment: 08-Sep-2026": {
+          "record_count": 1,
+          "sample_names": [
+            "File No.: 10270354"
+          ],
+          "records": []
+        },
+        "Date of Amendment: 12-Sep-2026 Date of Amendment: 16-Sep-2026": {
+          "record_count": 2,
+          "sample_names": [
+            "File No.: 10270693",
+            "File No.: 10275562"
+          ],
+          "records": []
+        },
+        "Date of Amendment: 17-Sep-2026 Date of Amendment: 15-Sep-2026": {
+          "record_count": 2,
+          "sample_names": [
+            "File No.: 10276117",
+            "File No.: 10276139"
+          ],
+          "records": []
+        },
+        "Date of Amendment: 16-Sep-2026 Date of Amendment: 16-Sep-2026": {
+          "record_count": 2,
+          "sample_names": [
+            "File No.: 10280200",
+            "File No.: 10131428"
+          ],
+          "records": []
+        },
+        "Date of Amendment: 14-Sep-2026 File No.: 3290310": {
+          "record_count": 1,
+          "sample_names": [
+            "File No.: 482439"
+          ],
+          "records": []
+        },
+        "Date of Amendment: 14-Sep-2026 Date of Amendment: 28-Aug-2026": {
+          "record_count": 2,
+          "sample_names": [
+            "File No.: 10102739",
+            "File No.: 4359489"
+          ],
+          "records": []
+        },
+        "Date of Amendment: 18-Sep-2026 Date of Amendment: 14-Sep-2026": {
+          "record_count": 2,
+          "sample_names": [
+            "File No.: 10187408",
+            "File No.: 10223741"
+          ],
+          "records": []
+        },
+        "Date of Amendment: 15-Sep-2026 Date of Amendment: 18-Sep-2026": {
+          "record_count": 2,
+          "sample_names": [
+            "File No.: 10243099",
+            "File No.: 10139660"
+          ],
+          "records": []
+        },
+        "New Name: Order Sons and Daughters of Italy of Date of Amendment: 09-Sep-2026": {
+          "record_count": 1,
+          "sample_names": [
+            "File No.: 10217856"
+          ],
+          "records": []
+        },
+        "Date of Amendment: 11-Sep-2026": {
+          "record_count": 1,
+          "sample_names": [
+            "File No.: 5372811"
+          ],
+          "records": []
+        },
+        "Date of Amendment: 15-Sep-2026 Date of Amendment: 04-Aug-2026": {
+          "record_count": 2,
+          "sample_names": [
+            "File No.: 10168561",
+            "File No.: 6206833"
+          ],
+          "records": []
+        },
+        "Certificates of Amendment without a name change": {
+          "record_count": 1,
+          "sample_names": [
+            "10221645 MANITOBA INC. 4130341 MANITOBA LTD."
+          ],
+          "records": []
+        },
+        "Date of Amendment: 10-Sep-2026 Date of Amendment: 15-Sep-2026": {
+          "record_count": 2,
+          "sample_names": [
+            "File No.: 10221645",
+            "File No.: 10042852"
+          ],
+          "records": []
+        },
+        "Date of Amendment: 08-Sep-2026 Date of Amendment: 10-Sep-2026": {
+          "record_count": 2,
+          "sample_names": [
+            "File No.: 10274861",
+            "File No.: 10149555"
+          ],
+          "records": [
+            {
+              "file_no": "10149555",
+              "name": "LUKE'S MACHINERY CO. LTD. SALEM CARE GROUP INC."
+            }
+          ]
+        },
+        "Date of Amendment: 16-Sep-2026 Date of Amendment: 03-Sep-2026": {
+          "record_count": 2,
+          "sample_names": [
+            "File No.: 7360089",
+            "File No.: 5243883"
+          ],
+          "records": [
+            {
+              "file_no": "5243883",
+              "name": "SHERWOOD DEVELOPMENTS LTD."
+            }
+          ]
+        },
+        "Date of Amendment: 15-Sep-2026": {
+          "record_count": 1,
+          "sample_names": [
+            "File No.: 10239406"
+          ],
+          "records": []
+        },
+        "Certificates of Amalgamation": {
+          "record_count": 2,
+          "sample_names": [
+            "DR. VIETHUNG TRAN DENTAL CORPORATION HALIREWICH FARMS LTD.",
+            "DR. VIETHUNG TRAN DENTAL CORPORATION, 10154623 HALIREWICH FARMS LTD., 6408151 MANITOBA LTD."
+          ],
+          "records": []
+        },
+        "Date of Amalgamation: 01-Sep-2026 Registered Office: BOX 551": {
+          "record_count": 2,
+          "sample_names": [
+            "File No.: 10278787",
+            "File No.: 10279409"
+          ],
+          "records": [
+            {
+              "registered_office": "AMMETER LAW 18-3RD AVENUE N.W.",
+              "name": "117 VICTOR LEWIS DRIVE DAUPHIN, MB, R7N2V4"
+            },
+            {
+              "file_no": "10279409",
+              "name": "M.R.F. HOLDINGS INC."
+            }
+          ]
+        },
+        "Date of Amalgamation: 01-Sep-2026": {
+          "record_count": 2,
+          "sample_names": [
+            "File No.: 10279413",
+            "File No.: 10018478"
+          ],
+          "records": [
+            {
+              "registered_office": "30TH FLOOR, 360 MAIN STREET",
+              "name": "WINNIPEG, MB, R3C4G1"
+            },
+            {
+              "file_no": "10279413",
+              "name": "VARIETY MACHINE AND"
+            }
+          ]
+        },
+        "Certificates of Revival": {
+          "record_count": 1,
+          "sample_names": [
+            "10131826 MANITOBA LTD. 10148097 MANITOBA LTD. 10151237 MANITOBA LTD."
+          ],
+          "records": []
+        },
+        "Date of Revival: 01-Sep-2026 Date of Revival: 02-Sep-2026 Date of Revival: 13-Au": {
+          "record_count": 3,
+          "sample_names": [
+            "File No.: 10131826",
+            "File No.: 10148097",
+            "File No.: 10151237"
+          ],
+          "records": [
+            {
+              "file_no": "10151237",
+              "name": "10174311 MANITOBA LTD. 10177765 MANITOBA LTD. 10181078 MANITOBA INC."
+            }
+          ]
+        },
+        "Date of Revival: 10-Aug-2026 Date of Revival: 11-Aug-2026 Date of Revival: 07-Au": {
+          "record_count": 3,
+          "sample_names": [
+            "File No.: 10174311",
+            "File No.: 10177765",
+            "File No.: 10181078"
+          ],
+          "records": [
+            {
+              "file_no": "10181078",
+              "name": "10182558 MANITOBA LTD. 10182951 MANITOBA LTD. 10196513 MANITOBA LTD."
+            }
+          ]
+        },
+        "Date of Revival: 13-Aug-2026 Date of Revival: 10-Aug-2026 Date of Revival: 31-Au": {
+          "record_count": 3,
+          "sample_names": [
+            "File No.: 10182558",
+            "File No.: 10182951",
+            "File No.: 10196513"
+          ],
+          "records": [
+            {
+              "file_no": "10196513",
+              "name": "5904936 MANITOBA LTD. 6798111 MANITOBA LTD. 6840214 MANITOBA LTD."
+            }
+          ]
+        },
+        "Date of Revival: 01-Sep-2026 Date of Revival: 14-Aug-2026 Date of Revival: 06-Au": {
+          "record_count": 3,
+          "sample_names": [
+            "File No.: 5904936",
+            "File No.: 6798111",
+            "File No.: 6840214"
+          ],
+          "records": []
+        },
+        "Date of Revival: 04-Sep-2026 Date of Revival: 15-Jul-2026 Date of Revival: 03-Se": {
+          "record_count": 3,
+          "sample_names": [
+            "File No.: 6868968",
+            "File No.: 10147105",
+            "File No.: 10181782"
+          ],
+          "records": []
+        },
+        "Date of Revival: 06-Aug-2026 File No.: 10146753 File No.: 604101": {
+          "record_count": 1,
+          "sample_names": [
+            "File No.: 7418516"
+          ],
+          "records": []
+        },
+        "Date of Revival: 11-Sep-2026 Date of Revival: 09-Sep-2026 Date of Revival: 28-Au": {
+          "record_count": 3,
+          "sample_names": [
+            "File No.: 10021688",
+            "File No.: 306282",
+            "File No.: 6954601"
+          ],
+          "records": []
+        },
+        "File No.: 3619835 Date of Revival: 31-Aug-2026 File No.: 5008751": {
+          "record_count": 1,
+          "sample_names": [
+            "File No.: 10145181"
+          ],
+          "records": []
+        },
+        "File No.: 10058211 File No.: 10022013 Date of Revival: 28-Jul-2026": {
+          "record_count": 1,
+          "sample_names": [
+            "File No.: 5496404"
+          ],
+          "records": []
+        },
+        "Date of Revival: 10-Aug-2026 Date of Revival: 15-Sep-2026 Date of Revival: 11-Se": {
+          "record_count": 3,
+          "sample_names": [
+            "File No.: 4047141",
+            "File No.: 6783474",
+            "File No.: 10178601"
+          ],
+          "records": []
+        },
+        "Date of Revival: 24-Aug-2026 File No.: 10143750 Date of Revival: 10-Sep-2026": {
+          "record_count": 2,
+          "sample_names": [
+            "File No.: 380288",
+            "File No.: 10036350"
+          ],
+          "records": []
+        },
+        "Date of Revival: 04-Sep-2026 Date of Revival: 07-Aug-2026 Date of Revival: 11-Au": {
+          "record_count": 3,
+          "sample_names": [
+            "File No.: 10102606",
+            "File No.: 10114646",
+            "File No.: 10108215"
+          ],
+          "records": []
+        },
+        "Certificates of Dissolution": {
+          "record_count": 1,
+          "sample_names": [
+            "10123083 MANITOBA LTD. 10164935 MANITOBA LTD. 10173632 MANITOBA LTD."
+          ],
+          "records": []
+        },
+        "Date of Dissolution: 15-Sep-2026 Date of Dissolution: 26-Aug-2026 Date of Dissol": {
+          "record_count": 3,
+          "sample_names": [
+            "File No.: 10123083",
+            "File No.: 10164935",
+            "File No.: 10173632"
+          ],
+          "records": [
+            {
+              "file_no": "10173632",
+              "name": "10255571 MANITOBA LTD. 2900581 MANITOBA INC. 4723806 MANITOBA LTD."
+            }
+          ]
+        },
+        "Date of Dissolution: 15-Sep-2026 Date of Dissolution: 03-Sep-2026 Date of Dissol": {
+          "record_count": 3,
+          "sample_names": [
+            "File No.: 10255571",
+            "File No.: 2900581",
+            "File No.: 4723806"
+          ],
+          "records": []
+        },
+        "Date of Dissolution: 11-Sep-2026 Date of Dissolution: 04-Aug-2026 Date of Dissol": {
+          "record_count": 3,
+          "sample_names": [
+            "File No.: 10080241",
+            "File No.: 10198792",
+            "File No.: 562883"
+          ],
+          "records": []
+        },
+        "Date of Dissolution: 11-Aug-2026 Date of Dissolution: 07-Aug-2026 Date of Dissol": {
+          "record_count": 3,
+          "sample_names": [
+            "File No.: 5945608",
+            "File No.: 10249397",
+            "File No.: 10198053"
+          ],
+          "records": []
+        },
+        "File No.: 10024015 Date of Dissolution: 10-Sep-2026 File No.: 6996371": {
+          "record_count": 1,
+          "sample_names": [
+            "File No.: 6825720"
+          ],
+          "records": []
+        },
+        "File No.: 10240337 Date of Dissolution: 15-Sep-2026 File No.: 6322140": {
+          "record_count": 1,
+          "sample_names": [
+            "File No.: 3607321"
+          ],
+          "records": []
+        },
+        "Date of Dissolution: 11-Sep-2026 Date of Dissolution: 31-Aug-2026 Date of Dissol": {
+          "record_count": 3,
+          "sample_names": [
+            "File No.: 10031117",
+            "File No.: 6133096",
+            "File No.: 10025343"
+          ],
+          "records": [
+            {
+              "file_no": "10025343",
+              "name": "ST. JOSEPH'S CARPENTRY LTD. VRR HOLDINGS INC. WARAICH FREIGHTLINES INC."
+            }
+          ]
+        },
+        "Date of Dissolution: 31-Aug-2026 Date of Dissolution: 09-Sep-2026 Date of Dissol": {
+          "record_count": 3,
+          "sample_names": [
+            "File No.: 6413995",
+            "File No.: 3640818",
+            "File No.: 7385243"
+          ],
+          "records": [
+            {
+              "file_no": "7385243",
+              "name": "ZAPANTA FINANCIAL INC. 10163162 MANITOBA LTD. 10115026 MANITOBA LTD."
+            }
+          ]
+        },
+        "Date of Dissolution: 04-Aug-2026 Date of Dissolution: 16-Sep-2026 Date of Dissol": {
+          "record_count": 3,
+          "sample_names": [
+            "File No.: 10049589",
+            "File No.: 10163162",
+            "File No.: 10115026"
+          ],
+          "records": []
+        },
+        "Date of Dissolution: 16-Sep-2026 Date of Dissolution: 16-Sep-2026 Date of Dissol": {
+          "record_count": 3,
+          "sample_names": [
+            "File No.: 10152189",
+            "File No.: 4873468",
+            "File No.: 10049069"
+          ],
+          "records": [
+            {
+              "file_no": "10049069",
+              "name": "10265774 MANITOBA LTD."
+            }
+          ]
+        },
+        "Date of Dissolution: 16-Sep-2026": {
+          "record_count": 2,
+          "sample_names": [
+            "File No.: 10265774",
+            "File No.: 6691197"
+          ],
+          "records": [
+            {
+              "file_no": "10265774",
+              "name": "6691197 MANITOBA LTD."
+            }
+          ]
+        },
+        "Certificates of Restoration": {
+          "record_count": 0,
+          "sample_names": [],
+          "records": []
+        },
+        "File No.: 10101011 File No.: 10187192 Date of Restoration: 16-Jun-2026": {
+          "record_count": 1,
+          "sample_names": [
+            "File No.: 6061851"
+          ],
+          "records": [
+            {
+              "file_no": "6061851",
+              "name": "WESTCON EQUIPMENT & RENTALS"
+            }
+          ]
+        },
+        "Date of Restoration: 05-Aug-2026": {
+          "record_count": 1,
+          "sample_names": [
+            "File No.: 4993935"
+          ],
+          "records": []
+        },
+        "Certificates of Cancellation of Registration": {
+          "record_count": 1,
+          "sample_names": [
+            "1910090 ALBERTA LTD. ANOTHER ROUND 1 MB. LTD. BIZERBA CANADA INC."
+          ],
+          "records": []
+        },
+        "Date of Cancellation: 17-Sep-2026 Date of Cancellation: 17-Sep-2026 Date of Canc": {
+          "record_count": 3,
+          "sample_names": [
+            "File No.: 10043789",
+            "File No.: 10113782",
+            "File No.: 7308001"
+          ],
+          "records": []
+        },
+        "File No.: 10155455 Date of Cancellation: 17-Sep-2026 Date of Cancellation: 16-Se": {
+          "record_count": 2,
+          "sample_names": [
+            "File No.: 10079793",
+            "File No.: 5142067"
+          ],
+          "records": [
+            {
+              "file_no": "5142067",
+              "name": "JBERGERON CORP. JEUNESSE GLOBAL MARKETING JIMKIM INSURANCE SERVICES"
+            }
+          ]
+        },
+        "File No.: 10203820 Date of Cancellation: 16-Sep-2026 Date of Cancellation: 17-Se": {
+          "record_count": 2,
+          "sample_names": [
+            "File No.: 6943668",
+            "File No.: 10123168"
+          ],
+          "records": []
+        },
+        "Date of Cancellation: 17-Sep-2026 Date of Cancellation: 16-Sep-2026 Date of Canc": {
+          "record_count": 3,
+          "sample_names": [
+            "File No.: 10069195",
+            "File No.: 10173358",
+            "File No.: 10098964"
+          ],
+          "records": [
+            {
+              "file_no": "10098964",
+              "name": "PRABH DRYWALL LTD. TCH CANADA INC. THINK GOODNESS BRANDS, ULC"
+            }
+          ]
+        },
+        "Date of Cancellation: 17-Sep-2026 Date of Cancellation: 14-Sep-2026 Date of Canc": {
+          "record_count": 3,
+          "sample_names": [
+            "File No.: 10044226",
+            "File No.: 4782551",
+            "File No.: 6971831"
+          ],
+          "records": [
+            {
+              "file_no": "6971831",
+              "name": "TRANSFORMATIVE CEOS 5 MB. TRUVY CANADA INC. VENKAT SOMASUNDARAM"
+            }
+          ]
+        },
+        "Date of Cancellation: 17-Sep-2026 File No.: 10096014 Date of Cancellation: 16-Se": {
+          "record_count": 2,
+          "sample_names": [
+            "File No.: 10114151",
+            "File No.: 10139692"
+          ],
+          "records": []
+        },
+        "Manitoba Corporations that have requested dissolution": {
+          "record_count": 0,
+          "sample_names": [],
+          "records": []
+        },
+        "and have requested dissolution. These corporations will be dissolved pursuant to": {
+          "record_count": 2,
+          "sample_names": [
+            "File No. Corporation",
+            "File No. Corporation"
+          ],
+          "records": [
+            {
+              "file_no": "Corporation",
+              "name": "10175408 10175408 MANITOBA LTD. 10219814 10219814 MANITOBA LTD."
+            }
+          ]
+        },
+        "Bodies Corporate from other jurisdictions that have requested cancellation of th": {
+          "record_count": 0,
+          "sample_names": [],
+          "records": []
+        },
+        "business in Manitoba, and have requested cancellation of their registration in M": {
+          "record_count": 218,
+          "sample_names": [
+            "File No. Corporation",
+            "File No. Corporation",
+            "File No.: 10280819",
+            "File No.: 10280256",
+            "File No.: 10280176"
+          ],
+          "records": [
+            {
+              "file_no": "Corporation",
+              "name": "10205250 SMITH, VINCENT & CO. LTD."
+            },
+            {
+              "file_no": "10280176",
+              "name": "10280272 MANITOBA 10280407 MANITOBA 10280512 MANITOBA"
+            },
+            {
+              "file_no": "10280407",
+              "name": "10280555 MANITOBA 10280557 MANITOBA 10280660 MANITOBA"
+            },
+            {
+              "file_no": "10280557",
+              "name": "10280664 MANITOBA 10280732 MANITOBA 10280736 MANITOBA"
+            },
+            {
+              "file_no": "10280664",
+              "name": "CRES. CHATER, MB, R7A5Y5 HIGHWAY"
+            },
+            {
+              "file_no": "10281049",
+              "name": "HIGHWAY AVENUE WINNIPEG, MB, R2C3W8"
+            },
+            {
+              "file_no": "10278539",
+              "name": "WINNIPEG, MB, R3M3W4 HADASHVILLE, MB, R0E0X0 WEST ST PAUL, MB, R2V4S3"
+            },
+            {
+              "file_no": "10280285",
+              "name": "WINNPEG, MB, R2M2T8 WINNIPEG, MB, R3A0L8 WINNIPEG, MB, R2M2A2"
+            },
+            {
+              "file_no": "10281040",
+              "name": "W WINNIPEG, MB, R3M0L2 AVE"
+            },
+            {
+              "file_no": "10280788",
+              "city": "WINNIPEG",
+              "name": "ILE DES CHENES, MB, R0A0T0 WINNIPEG, MB, R3G0S7 DAME AVENUE"
+            },
+            {
+              "file_no": "10280233",
+              "name": "WINNIPEG, MB, R2H2V9 127 AVENUE"
+            },
+            {
+              "file_no": "10280746",
+              "name": "COMMONWEALTH PATH WINNIPEG, MB, R3K2K2 BOISSEVAIN, MB, R0K0E0"
+            },
+            {
+              "file_no": "10280677",
+              "name": "ROSA, MB, R0A1N0 WINNIPEG, MB, R3L0G6 GATE"
+            },
+            {
+              "file_no": "10281014",
+              "name": "STREET WINNIPEG, MB, R3R2T6 MORDEN, MB, R6M1N4"
+            },
+            {
+              "file_no": "10280102",
+              "name": "MISSISSAUGA, ON, L5T2L1 WINNIPEG, MB, R2R2P4 WINNIPEG, MB, R2N1E4"
+            },
+            {
+              "file_no": "10280577",
+              "name": "STE ANNE, MB, R5H1R1 AVENUE BRANDON, MB, R7A6G2"
+            },
+            {
+              "file_no": "10280222",
+              "name": "KLEEFELD, MB, R0A0V1 CRESCENT PINE FALLS, MB, R0E1M0"
+            },
+            {
+              "file_no": "10280155",
+              "name": "OAKBANK, MB, R5N0N5 OTTERBURNE, MB, R0A1G0 LANDMARK, MB, R0A0X0"
+            },
+            {
+              "file_no": "10279966",
+              "name": "SOUTH WINNIPEG, MB, R2G1B4 STREET N."
+            },
+            {
+              "file_no": "10280910",
+              "name": "WINNIPEG, MB, R2H1L5 ST. MALO, MB, R0A1T0 111 MAIN ST S"
+            }
+          ]
+        },
+        "Registrations of Dissolutions": {
+          "record_count": 0,
+          "sample_names": [],
+          "records": []
+        },
+        "File No.: 10181054 File No.: 10273760 Date of Dissolution: 31-Aug-2026": {
+          "record_count": 1,
+          "sample_names": [
+            "File No.: 3498647"
+          ],
+          "records": []
+        },
+        "Date of Dissolution: 07-Sep-2026 Date of Dissolution: 01-Sep-2026 Date of Dissol": {
+          "record_count": 3,
+          "sample_names": [
+            "File No.: 10143838",
+            "File No.: 10195123",
+            "File No.: 10213288"
+          ],
+          "records": []
+        },
+        "Date of Dissolution: 04-Aug-2026 Date of Dissolution: 30-Aug-2026 Date of Dissol": {
+          "record_count": 3,
+          "sample_names": [
+            "File No.: 10272175",
+            "File No.: 10271168",
+            "File No.: 10231371"
+          ],
+          "records": []
+        },
+        "Date of Dissolution: 20-Jul-2026 Date of Dissolution: 02-Sep-2026 Date of Dissol": {
+          "record_count": 3,
+          "sample_names": [
+            "File No.: 10122367",
+            "File No.: 10018521",
+            "File No.: 10236624"
+          ],
+          "records": []
+        },
+        "Date of Dissolution: 31-Aug-2026 Date of Dissolution: 01-Sep-2026 Date of Dissol": {
+          "record_count": 38,
+          "sample_names": [
+            "File No.: 6985069",
+            "File No.: 10193659",
+            "File No.: 10278986",
+            "File No.: 10248646",
+            "File No.: 10151334"
+          ],
+          "records": [
+            {
+              "file_no": "6383964",
+              "name": "BCIMC REAL ESTATE (MERTON) CHARTWELL MASTER CARE LP EVERGREEN MISSISSAUGA CCRC"
+            },
+            {
+              "file_no": "10241224",
+              "city": "Winnipeg"
+            },
+            {
+              "file_no": "10221688",
+              "name": "ORDER DIRECTING A CHANGE OF BUSINESS NAME PURSUANT TO SECTION 13 OF THE BUSINESS NAMES"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "date": "2026-09-12",
+      "url": "https://companiesoffice.gov.mb.ca/comp_off/listings/2026-09-12.en.pdf",
+      "size_bytes": 372901,
+      "pages": 36,
+      "text_extractable": true,
+      "text_chars": 59096,
+      "sections": {
+        "Filings under The Corporations Act, The Cooperatives Act and The Business Names": {
+          "record_count": 0,
+          "sample_names": [],
+          "records": []
+        },
+        "\u2022 Certificates of Incorporation": {
+          "record_count": 0,
+          "sample_names": [],
+          "records": []
+        },
+        "\u2022 Certificates of Dissolution": {
+          "record_count": 0,
+          "sample_names": [],
+          "records": []
+        },
+        "\u2022 Certificates of Cancellation of Registration": {
+          "record_count": 0,
+          "sample_names": [],
+          "records": []
+        },
+        "\u2022 Registrations of Dissolutions": {
+          "record_count": 0,
+          "sample_names": [],
+          "records": []
+        },
+        "Certificates of Incorporation": {
+          "record_count": 54,
+          "sample_names": [
+            "File No.: 10279682",
+            "File No.: 10279436",
+            "File No.: 10279397",
+            "File No.: 10279980",
+            "File No.: 10280024"
+          ],
+          "records": [
+            {
+              "registered_office": "475 BALLANTRAE Registered Office: 275 OLD Registered Office: 992 ERIN ST",
+              "name": "10279397 MANITOBA CORP. 10279436 MANITOBA LTD. 10279682 MANITOBA LTD."
+            },
+            {
+              "file_no": "10279682",
+              "name": "WINNIPEG, MB, R3T6L1"
+            },
+            {
+              "file_no": "10279397",
+              "registered_office": "200 - 1460 Registered Office: 103-290 FRONTIER Registered Office: 1041 SYCAMORE",
+              "name": "10279980 MANITOBA LTD. 10280024 MANITOBA LTD. 10280046 MANITOBA LTD."
+            },
+            {
+              "file_no": "10280046",
+              "registered_office": "50 PARK SPRINGS Registered Office: 2311 NESS AVE Registered Office: 72 PHIL CHRIS WAY",
+              "name": "10280071 MANITOBA INC. 10280110 MANITOBA LTD. 10280113 MANITOBA LTD."
+            },
+            {
+              "file_no": "10280071",
+              "registered_office": "B01 377 EDISON Registered Office: PO BOX 36 Registered Office: 254 CHEEMA DR",
+              "name": "10280117 MANITOBA INC. 10280149 MANITOBA LTD. 10280150 MANITOBA LTD."
+            },
+            {
+              "file_no": "10280117",
+              "registered_office": "453 GRASSIE BLVD Registered Office: 617 ST CHARLES ST Registered Office: 15 FALCON CREEK",
+              "name": "10280160 MANITOBA INC. 10280162 MANITOBA INC. 10280170 MANITOBA LTD."
+            },
+            {
+              "file_no": "10280170",
+              "registered_office": "74 STARDUST CRES Registered Office: 1700-242 Registered Office: 1700-242",
+              "name": "10280180 MANITOBA LTD. 10280187 MANITOBA INC. 10280188 MANITOBA INC."
+            },
+            {
+              "file_no": "10280188",
+              "registered_office": "1700-242 Registered Office: 1700-242 Registered Office: 141 RAGSDILL ROAD",
+              "name": "10280201 MANITOBA LTD. 10280218 MANITOBA LTD. 10280236 MANITOBA LTD."
+            },
+            {
+              "file_no": "10280218",
+              "registered_office": "330 SAINT MARY Registered Office: 118 PARKVIEW Registered Office: 390 DODDS ROAD",
+              "name": "10280279 MANITOBA INC. 10280283 MANITOBA INC. 10280306 MANITOBA LTD."
+            },
+            {
+              "file_no": "10280283",
+              "registered_office": "700 - 444 ST. MARY Registered Office: UNIT 6 - 1167 Registered Office: 105 - 20",
+              "name": "10280311 MANITOBA LTD. 10280320 MANITOBA LTD. 10280338 MANITOBA LTD."
+            },
+            {
+              "file_no": "10280338",
+              "registered_office": "14 LUZON BAY Registered Office: 64 CANTAFIO COVE Registered Office: 1700-242",
+              "name": "10280370 MANITOBA INC. 10280375 MANITOBA LTD. 10280386 MANITOBA LTD."
+            },
+            {
+              "file_no": "10280386",
+              "registered_office": "EPP LAW OFFICE Registered Office: 99 JUTLAND RD Registered Office: 59 WICKHAM RD",
+              "name": "10280387 MANITOBA LTD. 10280399 MANITOBA LTD. 10280417 MANITOBA LTD."
+            },
+            {
+              "file_no": "10280387",
+              "registered_office": "2 QUAIL RIDGE Registered Office: 2500 - 360 MAIN Registered Office: 169 STE. AGATHE",
+              "name": "10280430 MANITOBA INC. 10280448 MANITOBA LTD. 10280452 MANITOBA LTD."
+            },
+            {
+              "file_no": "10280452",
+              "registered_office": "1477 WELLINGTON Registered Office: BOX 525 Registered Office: 1163 SEILER RD",
+              "name": "10280478 MANITOBA LTD. 10280482 MANITOBA LTD. 10280488 MANITOBA LTD."
+            },
+            {
+              "file_no": "10280482",
+              "registered_office": "1800-1 LOMBARD PL Registered Office: 677 DE LA Registered Office: 35 CRAIGMOHR",
+              "name": "10280496 MANITOBA LTD. 10280500 MANITOBA INC. 10280507 MANITOBA INC."
+            },
+            {
+              "file_no": "10280507",
+              "registered_office": "775 PLESSIS RD Registered Office: 5 WILNOR BAY Registered Office: 28- 900 VAUGHAN",
+              "name": "10280531 MANITOBA INC. 10280534 MANITOBA LTD. 1ANCHOR HOLDINGS INC."
+            },
+            {
+              "file_no": "10279587",
+              "registered_office": "51 SILVER SPRINGS Registered Office: 193 ELM DR Registered Office: 26 LAKEDALE PLACE",
+              "name": "WINNIPEG, MB, R2K4K9 WEST ST PAUL, MB, R4A0H3 WINNIPEG, MB, R3T4L2"
+            },
+            {
+              "file_no": "10279491",
+              "registered_office": "DUBOFF EDWARDS Registered Office: 565 RAVELSTON Registered Office: 651 ST. MATTHEWS",
+              "name": "SCHACHTER LAW CORPORATION AVENUE W. AVE"
+            },
+            {
+              "file_no": "10280125",
+              "registered_office": "1700-242 Registered Office: 19 FALCONER BAY Date of Incorporation: 08-Sep-2026",
+              "name": "WINNIPEG, MB, R3C0V1"
+            }
+          ]
+        },
+        "Date of Incorporation: 04-Sep-2026 Date of Incorporation: 08-Sep-2026 Restoratio": {
+          "record_count": 39,
+          "sample_names": [
+            "File No.: 10280467",
+            "File No.: 10279882",
+            "File No.: 10280498",
+            "File No.: 10280070",
+            "File No.: 10280483"
+          ],
+          "records": [
+            {
+              "registered_office": "732 REGENT AVE Registered Office: 28011 MUN 51 N Date of Incorporation: 11-Sep-2026",
+              "name": "WINNIPEG, MB, R2C1S4"
+            },
+            {
+              "file_no": "10280498",
+              "registered_office": "92 ART MIKI WAY Registered Office: 965 AVE DE LEGLISE Registered Office: 11 PLEASANT DRIVE",
+              "name": "WINNIPEG, MB, R3W0L8 WINNIPEG, MB, R3V1H6 BLUMENORT, MB, R0A0C1"
+            },
+            {
+              "file_no": "10280036",
+              "registered_office": "35 LEANDER CRES Date of Incorporation: 08-Sep-2026 Date of Incorporation: 02-Sep-2026"
+            },
+            {
+              "file_no": "10280325",
+              "name": "WINKLER, MB, R6W0H5 WINNIPEG, MB, R3B3L3"
+            },
+            {
+              "file_no": "10279583",
+              "registered_office": "323 SUTTON Registered Office: 18-3RD AVENUE Registered Office: 6073 RD 29W",
+              "name": "AVENUE N.W. STANLEY, MB, R6T0C8"
+            },
+            {
+              "file_no": "10279485",
+              "registered_office": "626 FLEMING AVE Date of Incorporation: 03-Sep-2026 Date of Incorporation: 09-Sep-2026"
+            },
+            {
+              "file_no": "10280028",
+              "name": "WINNIPEG, MB, R3Y2J2"
+            },
+            {
+              "file_no": "10279789",
+              "registered_office": "718 1ST ST W Registered Office: 2200-201 PORTAGE",
+              "name": "LOMBARD PLACE"
+            },
+            {
+              "file_no": "10280215",
+              "name": "WINNIPEG, MB, R3B2A3"
+            },
+            {
+              "file_no": "10279588",
+              "registered_office": "620 DENNIS STREET",
+              "name": "WINNIPEG, MB, R2L0N6 ROAD"
+            },
+            {
+              "file_no": "10279542",
+              "registered_office": "40139 MUN 47 N Registered Office: 606 HENDERSON Registered Office: SMITH NEUFELD",
+              "name": "P.O BOX 7 GRP 27 RR2 HIGHWAY JODOIN LLP"
+            },
+            {
+              "file_no": "10280111",
+              "registered_office": "182 SOUTHVIEW Registered Office: 30TH FLOOR, 360 Registered Office: 330 SUTTON",
+              "name": "CRES MAIN STREET AVENUE"
+            },
+            {
+              "file_no": "10280267",
+              "registered_office": "1700-242 Registered Office: 310 - 167",
+              "name": "MCPHILLIPS STREET WINNIPEG, MB, R3C0V1 WINNIPEG, MB, R3B0R4"
+            },
+            {
+              "file_no": "10280304",
+              "registered_office": "1200 - 201 Registered Office: P.J. RICHER LAW Registered Office: P.J. RICHER LAW",
+              "name": "PORTAGE AVENUE CORPORATION CORPORATION"
+            },
+            {
+              "file_no": "10280146",
+              "registered_office": "2200 - 201 Date of Incorporation: 06-Aug-2026 Registered Office: 39 WELLSPRINGS",
+              "name": "WINNIPEG, MB, R3B3L3 PORTAGE AVENUE WINNIPEG, MB, R2R1R7"
+            },
+            {
+              "file_no": "10279901",
+              "registered_office": "R.R.#1 Registered Office: 102, TWINTREE WAY Date of Incorporation: 31-Aug-2026"
+            },
+            {
+              "file_no": "10279991",
+              "name": "WINNIPEG, MB, R3B2A3"
+            }
+          ]
+        },
+        "MOBILE HUB LTD. Moose Home Makeovers Ltd. North On 6 Investment Cooperative": {
+          "record_count": 43,
+          "sample_names": [
+            "File No.: 10279448",
+            "File No.: 10280392",
+            "File No.: 10280308",
+            "File No.: 10280208",
+            "File No.: 10280529"
+          ],
+          "records": [
+            {
+              "registered_office": "303-1400 PACIFIC Registered Office: 278 LAKE VILLAGE Date of Incorporation: 30-Jul-2026",
+              "name": "BRANDON, MB, R7A7S2 WINNIPEG, MB, R3T4M8 STREET"
+            },
+            {
+              "file_no": "10280308",
+              "registered_office": "2 - 205 9TH STREET Registered Office: CABRERA LAW FIRM Registered Office: 1700-242",
+              "name": "SOUTH 470 LOGAN AVENUE SUITE B HARGRAVE STREET"
+            },
+            {
+              "file_no": "10279559",
+              "registered_office": "863 DOWNING Registered Office: SMITH NEUFELD Registered Office: 18-3RD AVENUE",
+              "name": "STREET JODOIN LLP N.W."
+            },
+            {
+              "file_no": "10279479",
+              "registered_office": "108 LINACRE ROAD Date of Incorporation: 02-Sep-2026 Registered Office: 3-1783 PLESSIS"
+            },
+            {
+              "file_no": "10279893",
+              "name": "WINNIPEG, MB, R3Y0W1"
+            },
+            {
+              "file_no": "10279547",
+              "registered_office": "SMITH NEUFELD Registered Office: 92 HAMMOND RAOD",
+              "name": "WINNIPEG, MB, R2P1M7 85 PTH 12 NORTH"
+            },
+            {
+              "file_no": "10280460",
+              "registered_office": "216-20 INNSBRUCK Registered Office: 509 SHAFTESBURY Registered Office: 509 SHAFTESBURY",
+              "name": "WAY BOULEVARD BOULEVARD"
+            },
+            {
+              "file_no": "10280034",
+              "registered_office": "23-845 DAKOTA",
+              "name": "DRIVE WINNIPEG, MB, R3C3R6 WINNIPEG, MB, R2M5M3"
+            },
+            {
+              "file_no": "10278968",
+              "registered_office": "433 NEWMAN AVE W Registered Office: 330 ST MARY AVE Registered Office: 115-76 NIAKWA",
+              "name": "WINNIPEG, MB, R2C2H3 SUITE 300 ROAD"
+            },
+            {
+              "file_no": "10280029",
+              "registered_office": "30TH FLOOR, 360 Registered Office: 30TH FLOOR, 360",
+              "name": "HIGHWAY WINNIPEG, MB, R3C4G1 WINNIPEG, MB, R3C4G1"
+            },
+            {
+              "file_no": "10280439",
+              "registered_office": "30TH FLOOR, 360 Registered Office: 1200 - 201 Registered Office: 115 BROADWAY",
+              "name": "MAIN STREET PORTAGE AVENUE STREET"
+            },
+            {
+              "file_no": "10279460",
+              "registered_office": "4621 PORTAGE AVE Registered Office: 300 ASSINIBOINE Registered Office: 2200 - 201",
+              "name": "HEADINGLEY, MB, R4H1C7 AVE., SUITE 802 PORTAGE AVE."
+            },
+            {
+              "file_no": "10280232",
+              "registered_office": "PO BOX 626",
+              "name": "80 BENOIT AVE"
+            },
+            {
+              "file_no": "10280446",
+              "name": "WINNIPEG, MB, R3M2K1 STREET"
+            },
+            {
+              "file_no": "10279897",
+              "name": "WINNIPEG, MB, R2H0W1 WINNIPEG, MB, R3C4G1 WINNIPEG, MB, R3M0B3"
+            },
+            {
+              "file_no": "10279909",
+              "name": "STREET ROAD STREET"
+            }
+          ]
+        },
+        "Certificates of Amendment with a name change": {
+          "record_count": 0,
+          "sample_names": [],
+          "records": []
+        },
+        "Date of Amendment: 30-Jul-2026 Date of Amendment: 08-Sep-2026": {
+          "record_count": 2,
+          "sample_names": [
+            "File No.: 10023904",
+            "File No.: 10026077"
+          ],
+          "records": []
+        },
+        "Date of Amendment: 09-Sep-2026 Date of Amendment: 04-Sep-2026": {
+          "record_count": 2,
+          "sample_names": [
+            "File No.: 10043280",
+            "File No.: 10190515"
+          ],
+          "records": []
+        },
+        "Date of Amendment: 08-Sep-2026 Date of Amendment: 03-Sep-2026": {
+          "record_count": 2,
+          "sample_names": [
+            "File No.: 10235698",
+            "File No.: 10247449"
+          ],
+          "records": []
+        },
+        "Date of Amendment: 04-Sep-2026 Date of Amendment: 01-Sep-2026": {
+          "record_count": 2,
+          "sample_names": [
+            "File No.: 10252866",
+            "File No.: 10253609"
+          ],
+          "records": []
+        },
+        "Date of Amendment: 29-Jun-2026 Date of Amendment: 01-Sep-2026": {
+          "record_count": 2,
+          "sample_names": [
+            "File No.: 10253957",
+            "File No.: 10272075"
+          ],
+          "records": []
+        },
+        "Date of Amendment: 01-Sep-2026 Date of Amendment: 10-Sep-2026": {
+          "record_count": 2,
+          "sample_names": [
+            "File No.: 10272079",
+            "File No.: 10275436"
+          ],
+          "records": []
+        },
+        "Date of Amendment: 08-Sep-2026 Date of Amendment: 08-Sep-2026": {
+          "record_count": 2,
+          "sample_names": [
+            "File No.: 10278041",
+            "File No.: 10276113"
+          ],
+          "records": []
+        },
+        "File No.: 10276453 Date of Amendment: 11-Sep-2026": {
+          "record_count": 1,
+          "sample_names": [
+            "File No.: 10277123"
+          ],
+          "records": []
+        },
+        "Date of Amendment: 04-Sep-2026 Date of Amendment: 04-Sep-2026": {
+          "record_count": 2,
+          "sample_names": [
+            "File No.: 10278790",
+            "File No.: 10278792"
+          ],
+          "records": []
+        },
+        "Date of Amendment: 03-Sep-2026 Date of Amendment: 03-Sep-2026": {
+          "record_count": 2,
+          "sample_names": [
+            "File No.: 5742731",
+            "File No.: 4965231"
+          ],
+          "records": []
+        },
+        "Date of Amendment: 03-Sep-2026 File No.: 10227671": {
+          "record_count": 1,
+          "sample_names": [
+            "File No.: 7289392"
+          ],
+          "records": []
+        },
+        "File No.: 10042624 Date of Amendment: 01-Sep-2026": {
+          "record_count": 1,
+          "sample_names": [
+            "File No.: 10245156"
+          ],
+          "records": []
+        },
+        "Date of Amendment: 22-Jul-2026 Date of Amendment: 03-Sep-2026": {
+          "record_count": 2,
+          "sample_names": [
+            "File No.: 6083766",
+            "File No.: 10232247"
+          ],
+          "records": []
+        },
+        "Certificates of Amendment without a name change": {
+          "record_count": 1,
+          "sample_names": [
+            "0222399 MANITOBA LTD. 10271575 MANITOBA INC."
+          ],
+          "records": []
+        },
+        "Date of Amendment: 03-Sep-2026 Date of Amendment: 08-Sep-2026": {
+          "record_count": 2,
+          "sample_names": [
+            "File No.: 222399",
+            "File No.: 10271575"
+          ],
+          "records": [
+            {
+              "file_no": "10271575",
+              "name": "10278516 MANITOBA LTD. 4314654 MANITOBA LTD."
+            }
+          ]
+        },
+        "Date of Amendment: 04-Sep-2026 Date of Amendment: 03-Sep-2026": {
+          "record_count": 2,
+          "sample_names": [
+            "File No.: 3775250",
+            "File No.: 4354771"
+          ],
+          "records": [
+            {
+              "file_no": "4354771",
+              "name": "J. PEETERMAN ENTERPRISES INC."
+            }
+          ]
+        },
+        "Date of Amendment: 03-Sep-2026 Date of Amendment: 01-Sep-2026": {
+          "record_count": 2,
+          "sample_names": [
+            "File No.: 10166154",
+            "File No.: 7194758"
+          ],
+          "records": [
+            {
+              "file_no": "7194758",
+              "name": "COMPLETE HVAC SERVICE INC. GUNDHU AUTO SALES LTD."
+            }
+          ]
+        },
+        "Date of Amendment: 02-Sep-2026": {
+          "record_count": 1,
+          "sample_names": [
+            "File No.: 5358940"
+          ],
+          "records": []
+        },
+        "Certificates of Amalgamation": {
+          "record_count": 0,
+          "sample_names": [],
+          "records": []
+        },
+        "Date of Amalgamation: 01-Sep-2026 Date of Amalgamation: 04-Sep-2026": {
+          "record_count": 2,
+          "sample_names": [
+            "File No.: 10279437",
+            "File No.: 10279781"
+          ],
+          "records": [
+            {
+              "registered_office": "FILLMORE RILEY LLP Registered Office: 14 MAIN STREET SOUTH",
+              "name": "1800 - ONE LOMBARD PLACE BOX 1670"
+            }
+          ]
+        },
+        "Certificates of Revival": {
+          "record_count": 1,
+          "sample_names": [
+            "10035769 MANITOBA INC. 10136318 MANITOBA INC. 10168263 MANITOBA LIMITED"
+          ],
+          "records": []
+        },
+        "Date of Revival: 04-Aug-2026 Date of Revival: 31-Jul-2026 Date of Revival: 31-Ju": {
+          "record_count": 3,
+          "sample_names": [
+            "File No.: 10035769",
+            "File No.: 10136318",
+            "File No.: 10168263"
+          ],
+          "records": [
+            {
+              "file_no": "10168263",
+              "name": "10193809 MANITOBA LTD. 2851360 MANITOBA LTD. 6904603 MANITOBA ASSOCIATION"
+            }
+          ]
+        },
+        "File No.: 10193809 File No.: 2851360 Date of Revival: 31-Jul-2026": {
+          "record_count": 1,
+          "sample_names": [
+            "File No.: 6904603"
+          ],
+          "records": [
+            {
+              "file_no": "6904603",
+              "name": "7252804 MANITOBA LTD. ANHAD HOMES INC. BRITO YARD SERVICES INC."
+            }
+          ]
+        },
+        "Date of Revival: 05-Aug-2026 Date of Revival: 29-Jul-2026 Date of Revival: 04-Se": {
+          "record_count": 3,
+          "sample_names": [
+            "File No.: 7252804",
+            "File No.: 10117741",
+            "File No.: 7084341"
+          ],
+          "records": []
+        },
+        "Date of Revival: 06-Aug-2026 Date of Revival: 05-Aug-2026 File No.: 10263722": {
+          "record_count": 2,
+          "sample_names": [
+            "File No.: 4387466",
+            "File No.: 7433388"
+          ],
+          "records": []
+        },
+        "Date of Revival: 31-Jul-2026 Date of Revival: 31-Jul-2026 Date of Revival: 05-Au": {
+          "record_count": 3,
+          "sample_names": [
+            "File No.: 10148703",
+            "File No.: 10113703",
+            "File No.: 6825878"
+          ],
+          "records": [
+            {
+              "file_no": "6825878",
+              "name": "IBEX ETHIOPIAN RESTAURANT & INTO AFRICA INC. K AND K HOMES LTD."
+            }
+          ]
+        },
+        "Date of Revival: 03-Sep-2026 File No.: 5677948 File No.: 10053912": {
+          "record_count": 1,
+          "sample_names": [
+            "File No.: 7233124"
+          ],
+          "records": []
+        },
+        "Date of Revival: 05-Aug-2026 File No.: 4707622 File No.: 10035603": {
+          "record_count": 1,
+          "sample_names": [
+            "File No.: 10172289"
+          ],
+          "records": []
+        },
+        "Date of Revival: 04-Sep-2026 File No.: 10156160 Date of Revival: 29-Jul-2026": {
+          "record_count": 2,
+          "sample_names": [
+            "File No.: 10163070",
+            "File No.: 3661246"
+          ],
+          "records": [
+            {
+              "file_no": "3661246",
+              "name": "TIPPING POINT CONSULTING LTD."
+            }
+          ]
+        },
+        "Date of Revival: 22-Jul-2026": {
+          "record_count": 1,
+          "sample_names": [
+            "File No.: 6083766"
+          ],
+          "records": []
+        },
+        "Certificates of Dissolution": {
+          "record_count": 1,
+          "sample_names": [
+            "10035213 MANITOBA INC. 10113852 MANITOBA LTD. 10122702 MANITOBA INC."
+          ],
+          "records": []
+        },
+        "Date of Dissolution: 04-Sep-2026 Date of Dissolution: 08-Sep-2026 Date of Dissol": {
+          "record_count": 3,
+          "sample_names": [
+            "File No.: 10035213",
+            "File No.: 10113852",
+            "File No.: 10122702"
+          ],
+          "records": [
+            {
+              "file_no": "10122702",
+              "name": "10125829 MANITOBA INC. 10159267 MANITOBA LTD. 10212373 MANITOBA LTD."
+            }
+          ]
+        },
+        "Date of Dissolution: 31-Aug-2026 Date of Dissolution: 05-Sep-2026 Date of Dissol": {
+          "record_count": 3,
+          "sample_names": [
+            "File No.: 10125829",
+            "File No.: 10159267",
+            "File No.: 10212373"
+          ],
+          "records": [
+            {
+              "file_no": "10212373",
+              "name": "10253475 MANITOBA INC. 6136380 MANITOBA LTD. 7168650 MANITOBA LTD."
+            }
+          ]
+        },
+        "Date of Dissolution: 04-Aug-2026 Date of Dissolution: 01-Sep-2026 Date of Dissol": {
+          "record_count": 3,
+          "sample_names": [
+            "File No.: 10253475",
+            "File No.: 6136380",
+            "File No.: 7168650"
+          ],
+          "records": []
+        },
+        "Date of Dissolution: 04-Sep-2026 Date of Dissolution: 01-Sep-2026": {
+          "record_count": 3,
+          "sample_names": [
+            "File No.: 10276127",
+            "File No.: 7028823",
+            "File No.: 3354211"
+          ],
+          "records": [
+            {
+              "file_no": "7028823",
+              "name": "QUARTER NOTE INC."
+            }
+          ]
+        },
+        "Certificates of Cancellation of Registration": {
+          "record_count": 1,
+          "sample_names": [
+            "HAVEN IMMIGRATION INCOMM CANADA LLC PREMIERE HOME MORTGAGE LTD."
+          ],
+          "records": []
+        },
+        "Date of Cancellation: 09-Sep-2026 File No.: 5088080 File No.: 5195200": {
+          "record_count": 1,
+          "sample_names": [
+            "File No.: 7465409"
+          ],
+          "records": [
+            {
+              "file_no": "7465409",
+              "name": "WAREHOUSE ONE CLOTHING LTD."
+            }
+          ]
+        },
+        "Date of Cancellation: 09-Sep-2026": {
+          "record_count": 160,
+          "sample_names": [
+            "File No.: 4610652",
+            "File No.: 10279363",
+            "File No.: 10279433",
+            "File No.: 10279504",
+            "File No.: 10279521"
+          ],
+          "records": [
+            {
+              "file_no": "4610652",
+              "name": "10279363 MANITOBA 10279433 MANITOBA 10279504 MANITOBA"
+            },
+            {
+              "file_no": "10279504",
+              "name": "10279521 MANITOBA 10279664 MANITOBA 10279924 MANITOBA"
+            },
+            {
+              "file_no": "10279924",
+              "name": "ST BRANDON, MB, R7B2B1 GENERAL DELIVERY"
+            },
+            {
+              "file_no": "10279464",
+              "name": "WINNIPEG, MB, R3L0G3 AVE WINNIPEG, MB, CA, R2W 1L8 WINNIPEG, MB, R2N3R6"
+            },
+            {
+              "file_no": "10279591",
+              "name": "WINNIPEG, MB, R2G2J4 BLVD, UNIT 4 WINNIPEG, MB, R2M1M4"
+            },
+            {
+              "file_no": "10279651",
+              "name": "CATHERINE FEZA, ISAAC KITSI, ERIC"
+            },
+            {
+              "file_no": "10279410",
+              "name": "MUBEKENO, SIFA MIKEKENO, HUBERT"
+            },
+            {
+              "file_no": "10278430",
+              "name": "AMISSAH, MEAGAN BERMENT, GLORIA INC."
+            },
+            {
+              "file_no": "10280035",
+              "name": "WOODLANDS, MB, R0C3H0 JEFFERSON AVE STREET"
+            },
+            {
+              "file_no": "10279581",
+              "name": "WINNIPEG, MB, R2V2T4 BLVD STREET"
+            },
+            {
+              "file_no": "10279497",
+              "name": "LOWE FARM, MB, R0G1E0 BRANDON, MB, R7A3T9 BRANDON, MB, R7A4E7"
+            },
+            {
+              "file_no": "10279802",
+              "name": "AVENUE DRIVE WINNIPEG, MB, R3N0J3"
+            },
+            {
+              "file_no": "10279370",
+              "name": "CRES WINNIPEG, MB, R3C4G1 BOX 913"
+            },
+            {
+              "file_no": "10279360",
+              "name": "WINNIPEG, MB, R3Y0L1 GILBERT PLAINS, MB, R0L0X0 HOUSE 67"
+            },
+            {
+              "file_no": "10279732",
+              "name": "WINNIPEG, MB, R3H0R7 BOULEVARD CRESCENT"
+            },
+            {
+              "file_no": "10280135",
+              "name": "WINNIPEG, MB, R3X0W7 MEADOW DR MAIN STREET"
+            },
+            {
+              "file_no": "10279786",
+              "name": "WINNIPEG, MB, R2J0H3 SUNNYSIDE, MB, R5R0B4 WINNIPEG, MB, R3E1G1"
+            },
+            {
+              "file_no": "10279283",
+              "name": "ROAD COVE EMERSON, MB, R0A0L0"
+            },
+            {
+              "file_no": "10280351",
+              "name": "ROAD 1 PORTAGE AVENUE"
+            },
+            {
+              "file_no": "10279899",
+              "name": "WINNIPEG, MB, R3N0E2 WINNIPEG, MB, R2R0Y4 WINNIPEG, MB, R2Y0R3"
+            }
+          ]
+        },
+        "Registrations of Dissolutions": {
+          "record_count": 0,
+          "sample_names": [],
+          "records": []
+        },
+        "Date of Dissolution: 02-Sep-2026 Date of Dissolution: 08-Sep-2026 Date of Dissol": {
+          "record_count": 3,
+          "sample_names": [
+            "File No.: 10232693",
+            "File No.: 10274224",
+            "File No.: 10259141"
+          ],
+          "records": []
+        },
+        "Date of Dissolution: 03-Sep-2026 Date of Dissolution: 03-Sep-2026 Date of Dissol": {
+          "record_count": 3,
+          "sample_names": [
+            "File No.: 10208655",
+            "File No.: 10067650",
+            "File No.: 6225251"
+          ],
+          "records": []
+        },
+        "Date of Dissolution: 02-Sep-2026 Date of Dissolution: 03-Sep-2026 Date of Dissol": {
+          "record_count": 21,
+          "sample_names": [
+            "File No.: 10206178",
+            "File No.: 10059727",
+            "File No.: 10229279",
+            "File No.: 7206489",
+            "File No.: 10170440"
+          ],
+          "records": []
+        }
+      }
+    }
+  ],
+  "comparison": {
+    "skipped": false,
+    "week_1": "2026-09-19",
+    "week_2": "2026-09-12",
+    "week_1_file_nos": 58,
+    "week_2_file_nos": 80,
+    "overlap": 0,
+    "only_in_week_1": 58,
+    "only_in_week_2": 80,
+    "interpretation": "Low/zero overlap = weekly files are independent event batches (ideal for incremental ingestion). High overlap = records repeated across weeks."
+  }
+}

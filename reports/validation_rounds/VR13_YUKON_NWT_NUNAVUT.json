@@ -1,0 +1,224 @@
+{
+  "round": "VR13",
+  "territories": [
+    "Yukon",
+    "Northwest Territories",
+    "Nunavut"
+  ],
+  "generated": "2026-09-26",
+  "sources": {
+    "yukon_ycor": {
+      "robots_txt": {
+        "status": 0,
+        "content": ""
+      },
+      "home": {
+        "url": "https://ycor.gov.yk.ca",
+        "final_url": "https://ycor.gov.yk.ca",
+        "status": 0,
+        "bytes": 0,
+        "content_type": "",
+        "login_wall": false,
+        "payment_wall": false,
+        "is_json": false,
+        "hidden_fields": [],
+        "input_names": [],
+        "table_rows": [],
+        "page_text": "",
+        "note": ""
+      },
+      "search_attempts": [
+        {
+          "url": "https://ycor.gov.yk.ca/search",
+          "status": 0,
+          "bytes": 0
+        },
+        {
+          "url": "https://ycor.gov.yk.ca/company/search",
+          "status": 0,
+          "bytes": 0
+        },
+        {
+          "url": "https://ycor.gov.yk.ca/entity/search",
+          "status": 0,
+          "bytes": 0
+        },
+        {
+          "url": "https://ycor.gov.yk.ca/Search",
+          "status": 0,
+          "bytes": 0
+        }
+      ],
+      "search_page": {
+        "note": "No search page found at standard paths — YCOR may use different URL structure"
+      },
+      "terms": {
+        "note": "Terms page not found at standard paths"
+      }
+    },
+    "yukon_supplier_directory": {
+      "portal_page": {
+        "url": "https://open.yukon.ca/data/datasets/yukon-government-supplier-directory",
+        "status": 403,
+        "bytes": 520,
+        "page_text": "403 Forbidden 403 Forbidden",
+        "licensing_flags": {
+          "copyright_government": false,
+          "open_government_licence": false,
+          "value_added_prohibited": false,
+          "distribution_prohibited": false,
+          "prior_written_approval": false,
+          "commercial_prohibited": false,
+          "automated_use_mentioned": false,
+          "free_reuse_permitted": false
+        }
+      }
+    },
+    "nwt_cros": {
+      "robots_txt": {
+        "status": 200,
+        "content": "# MULTISITE # robots.txt # # This file is to prevent the crawling and indexing of certain parts # of your site by web crawlers and spiders run by sites like Yahoo! # and Google. By telling these \"robots\" where not to go on your site, # you save bandwidth and server resources. # # This file will be ignored unless it is at the root of your host: # Used: http://example.com/robots.txt # Ignored: http:"
+      },
+      "home": {
+        "url": "https://www.hss.gov.nt.ca/en/services/corporate-registries",
+        "final_url": "https://www.hss.gov.nt.ca/en/services/corporate-registries",
+        "status": 404,
+        "bytes": 27924,
+        "login_wall": false,
+        "page_text": "Page Not Found | Health and Social Services Jump to navigation www.gov.nt.ca Departments Contact Us Indigenous Languages English Français Enter the terms you wish to search for. Health and Social Services Menu Search Enter the terms you wish to search for. English Français Home About Topics Resources Jobs Newsroom HSS Professionals (Staff Only) www.gov.nt.ca Departments Contact Us Indigenous Languages Home About Budget Public Engagement Corporate Reports Health Care Service Complaints Legislation and Policies Ministerial Directives Mandate 2023-2027 Meet the Minister Privacy Research Patient / Client Relations Contact Us Topics Resources Forms Jobs Newsroom News Releases Drinking Water Advisories Public Health Advisories HSS Professionals (Staff Only) Listen You are here www.gov.nt.ca » HSS Page Not Found Contact Us Communications Health and Social Services P.O. Box 1320 Yellowknife , NT X1A 2L9 Phone 867-767-9052, ext. 49034 hsscommunications@gov.nt.ca Phone Directory Terms of Use Accessibility Using the LISTEN Feature"
+      },
+      "search_page": {
+        "url": "https://www.hss.gov.nt.ca/en/services/corporate-registries/corporate-search",
+        "final_url": "https://www.hss.gov.nt.ca/en/services/corporate-registries/corporate-search",
+        "status": 404,
+        "bytes": 27993,
+        "login_wall": false,
+        "payment_wall": false,
+        "input_names": [
+          "search_keys",
+          "form_build_id",
+          "form_id",
+          "op",
+          "search_keys",
+          "form_build_id",
+          "form_id",
+          "op"
+        ],
+        "hidden_fields": [
+          "form_build_id",
+          "form_id"
+        ],
+        "page_text": "Page Not Found | Health and Social Services Jump to navigation www.gov.nt.ca Departments Contact Us Indigenous Languages English Français Enter the terms you wish to search for. Health and Social Services Menu Search Enter the terms you wish to search for. English Français Home About Topics Resources Jobs Newsroom HSS Professionals (Staff Only) www.gov.nt.ca Departments Contact Us Indigenous Languages Home About Budget Public Engagement Corporate Reports Health Care Service Complaints Legislation and Policies Ministerial Directives Mandate 2023-2027 Meet the Minister Privacy Research Patient / Client Relations Contact Us Topics Resources Forms Jobs Newsroom News Releases Drinking Water Advisories Public Health Advisories HSS Professionals (Staff Only) Listen You are here www.gov.nt.ca » HSS Page Not Found Contact Us Communications Health and Social Services P.O. Box 1320 Yellowknife , NT X1A 2L9 Phone 867-767-9052, ext. 49034 hsscommunications@gov.nt.ca Phone Directory Terms of Use Accessibility Using the LISTEN Feature"
+      },
+      "terms": {
+        "status": 404,
+        "note": "Terms page not found"
+      }
+    },
+    "nwt_bip": {
+      "home": {
+        "url": "https://www.iti.gov.nt.ca/en/services/business-incentive-policy-bip/bip-registry",
+        "final_url": "https://www.iti.gov.nt.ca/en/services/business-incentive-policy-bip/bip-registry",
+        "status": 200,
+        "bytes": 47274,
+        "login_wall": false,
+        "page_text": "Programs and Services | Industry, Tourism and Investment Jump to navigation www.gov.nt.ca Departments Services English Français Enter the terms you wish to search for. Industry, Tourism and Investment Menu Search Enter the terms you wish to search for. English Français English Français Sectors Agriculture Arts, Crafts and Film Business and Economic Development Commercial Fishing Commercial Fishery Revitalization Programs and Services Publications Diamonds Mines and Minerals Northwest Territories Geological Survey Oil &amp; Gas Parks Tourism Traditional Economy Knowledge Economy Home About Programs + Services Publications News Sectors Have Your Say www.gov.nt.ca Departments Services www.gov.nt.ca Departments Services Home About Policies and Legislation Regional Offices Social Media Programs + Services Publications News Sectors Agriculture Arts, Crafts and Film Business and Economic Development Commercial Fishing Diamonds Mines and Minerals Northwest Territories Geological Survey Oil &amp; Gas Parks Tourism Traditional Economy Knowledge Economy Have Your Say You are here www.gov.nt.ca / ITI / Sectors / Commercial Fishing Programs and Services Agri-food Funding A partnership with the ",
+        "licensing_flags": {
+          "copyright_government": false,
+          "open_government_licence": false,
+          "value_added_prohibited": false,
+          "distribution_prohibited": false,
+          "prior_written_approval": false,
+          "commercial_prohibited": false,
+          "automated_use_mentioned": false,
+          "free_reuse_permitted": false
+        }
+      },
+      "search_page": {
+        "url": "https://www.iti.gov.nt.ca/en/services/business-incentive-policy-bip/bip-registry/bip-registry-search",
+        "final_url": "https://www.iti.gov.nt.ca/en/services/business-incentive-policy-bip/bip-registry/bip-registry-search",
+        "status": 200,
+        "bytes": 47612,
+        "login_wall": false,
+        "input_names": [
+          "search_keys",
+          "form_build_id",
+          "form_id",
+          "op",
+          "search_keys",
+          "form_build_id",
+          "form_id",
+          "op"
+        ],
+        "table_rows": [],
+        "page_text": "Programs and Services | Industry, Tourism and Investment Jump to navigation www.gov.nt.ca Departments Services English Français Enter the terms you wish to search for. Industry, Tourism and Investment Menu Search Enter the terms you wish to search for. English Français English Français Sectors Agriculture Arts, Crafts and Film Business and Economic Development Commercial Fishing Commercial Fishery Revitalization Programs and Services Publications Diamonds Mines and Minerals Northwest Territories Geological Survey Oil &amp; Gas Parks Tourism Traditional Economy Knowledge Economy Home About Programs + Services Publications News Sectors Have Your Say www.gov.nt.ca Departments Services www.gov.nt.ca Departments Services Home About Policies and Legislation Regional Offices Social Media Programs + Services Publications News Sectors Agriculture Arts, Crafts and Film Business and Economic Development Commercial Fishing Diamonds Mines and Minerals Northwest Territories Geological Survey Oil &amp; Gas Parks Tourism Traditional Economy Knowledge Economy Have Your Say You are here www.gov.nt.ca / ITI / Sectors / Commercial Fishing Programs and Services Agri-food Funding A partnership with the "
+      },
+      "search_result": {
+        "param": "name",
+        "url": "https://www.iti.gov.nt.ca/en/services/business-incentive-policy-bip/bip-registry/bip-registry-search?name=NWT",
+        "status": 200,
+        "bytes": 47691,
+        "table_rows": [],
+        "page_text": "Programs and Services | Industry, Tourism and Investment Jump to navigation www.gov.nt.ca Departments Services English Français Enter the terms you wish to search for. Industry, Tourism and Investment Menu Search Enter the terms you wish to search for. English Français English Français Sectors Agriculture Arts, Crafts and Film Business and Economic Development Commercial Fishing Commercial Fishery Revitalization Programs and Services Publications Diamonds Mines and Minerals Northwest Territories Geological Survey Oil &amp; Gas Parks Tourism Traditional Economy Knowledge Economy Home About Programs + Services Publications News Sectors Have Your Say www.gov.nt.ca Departments Services www.gov.nt.ca Departments Services Home About Policies and Legislation Regional Offices Social Media Programs + Services Publications News Sectors Agriculture Arts, Crafts and Film Business and Economic Development Commercial Fishing Diamonds Mines and Minerals Northwest Territories Geological Survey Oil &amp; Gas Parks Tourism Traditional Economy Knowledge Economy Have Your Say You are here www.gov.nt.ca / ITI / Sectors / Commercial Fishing Programs and Services Agri-food Funding A partnership with the "
+      },
+      "bulk_download": {
+        "note": "No bulk download found at standard paths"
+      }
+    },
+    "nunavut_corporate": {
+      "home": {
+        "url": "https://www.gov.nu.ca/justice/information-and-services/business-and-corporate",
+        "final_url": "https://www.gov.nu.ca/justice/information-and-services/business-and-corporate",
+        "status": 403,
+        "bytes": 5931,
+        "login_wall": false,
+        "page_text": "Just a moment... Enable JavaScript and cookies to continue"
+      },
+      "registry_page": {
+        "url": "https://www.gov.nu.ca/justice/information-and-services/business-and-corporate/corporate-registry",
+        "final_url": "https://www.gov.nu.ca/justice/information-and-services/business-and-corporate/corporate-registry",
+        "status": 403,
+        "bytes": 6009,
+        "login_wall": false,
+        "page_text": "Just a moment... Enable JavaScript and cookies to continue"
+      }
+    },
+    "nni_registry": {
+      "home": {
+        "url": "https://www.gov.nu.ca/community-and-government-services/information-and-services/nni-business-registry",
+        "final_url": "https://www.gov.nu.ca/community-and-government-services/information-and-services/nni-business-registry",
+        "status": 403,
+        "bytes": 6049,
+        "login_wall": false,
+        "page_text": "Just a moment... Enable JavaScript and cookies to continue",
+        "licensing_flags": {
+          "copyright_government": false,
+          "open_government_licence": false,
+          "value_added_prohibited": false,
+          "distribution_prohibited": false,
+          "prior_written_approval": false,
+          "commercial_prohibited": false,
+          "automated_use_mentioned": false,
+          "free_reuse_permitted": false
+        }
+      },
+      "search_page": {
+        "url": "https://www.gov.nu.ca/community-and-government-services/information-and-services/nni-business-registry/nni-registry-search",
+        "final_url": "https://www.gov.nu.ca/community-and-government-services/information-and-services/nni-business-registry/nni-registry-search",
+        "status": 403,
+        "bytes": 6130,
+        "login_wall": false,
+        "input_names": [],
+        "table_rows": [],
+        "page_text": "Just a moment... Enable JavaScript and cookies to continue"
+      },
+      "directory_page": {
+        "url": "https://nni.gov.nu.ca",
+        "status": 200,
+        "bytes": 13822,
+        "page_text": "Welcome | Nunavummi Nangminiqaqtunik Ikajuuti Skip to main content Nunavummi Nangminiqaqtunik Ikajuuti English French Inuinnaqtun ᐃᓄᒃᑎᑐᑦ Search Main menu NNI Home Page NNI Business Search Register Your Business Tenders and RFPs About NNI Contact Info Document Listing Privacy Bulletins NNI Regulations – Public Consultation Survey User menu Log in April 01, 2017 NNI Regulations ᐃᓄᒃᑎᑐᑦ English Français Inuinnaqtun Welcome The Honourable Criag Simailak ᒥᓂᔅᑕ ᓄᓇᓕᓐᓂ ᐱᔨᑦᓯᕋᖅᑎᒃᑯᓐᓄᑦ Minister of Community Services Minista Ingilrajuliqinirmut Aulapkaidjutikhaniklu Nunavunmi Ministre des Services communautaires To the official site of the Nunavummi Nangminiqaqtunik Ikajuuti. The Department of Community Services (CS) has the obligation and mandate to promote economic development and increase opportunities for Nunavummiut to participate in traditional and growing global economies. CS will meet this obligation by working in partnership with other departments of the Nunavut Government and with agencies concerned with social and economic development. &nbsp; Information Bulletins can be found here The NNI secretariat does not maintain the list of Inuit Firms. Current Inuit Firm status is listed on the",
+        "table_rows": []
+      }
+    }
+  }
+}

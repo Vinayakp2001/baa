@@ -1,0 +1,41 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "baa-backend"
+version = "0.1.0"
+description = "Canada B2B Business Data Pipeline — backend services"
+requires-python = ">=3.11"
+
+dependencies = [
+    "fastapi==0.111.0",
+    "uvicorn[standard]==0.29.0",
+    "sqlalchemy==2.0.30",
+    "alembic==1.13.1",
+    "asyncpg==0.29.0",
+    "pydantic==2.7.1",
+    "pydantic-settings==2.2.1",
+    "httpx==0.27.0",
+    "beautifulsoup4==4.12.3",
+    "lxml==5.2.1",
+    "pdfplumber==0.11.1",
+    "openpyxl==3.1.2",
+    "rapidfuzz==3.9.3",
+    "structlog==24.2.0",
+    "python-dotenv==1.0.1",
+    "phonenumbers==8.13.37",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest==8.2.2",
+    "pytest-asyncio==0.23.7",
+    "httpx==0.27.0",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"

@@ -1,0 +1,121 @@
+{
+  "generated": "2026-09-25T18:53:36.351936+00:00",
+  "vr09_1_generated": "2026-09-25T18:58:10.806337+00:00",
+  "autocomplete": {
+    "name": {
+      "query": "TELUS Communications Inc.",
+      "url": "https://orgbook.gov.bc.ca/api/v4/search/autocomplete?q=TELUS%20Communications%20Inc.",
+      "status": 200,
+      "response_ms": 1177,
+      "result_count": 10,
+      "first_result": {
+        "topic_source_id": "A0091250",
+        "type": "topic",
+        "sub_type": "source_id",
+        "value": "A0091250",
+        "topic_type": "registration.registries.ca",
+        "credential_type": "registration.registries.ca",
+        "credential_id": "f7b33b5f-2f0f-46cc-b29a-8b4587305c35",
+        "score": 97.912,
+        "id": 1354842
+      }
+    },
+    "bc_reg_id": {
+      "query": "BC0616127",
+      "url": "https://orgbook.gov.bc.ca/api/v4/search/autocomplete?q=BC0616127",
+      "status": 200,
+      "response_ms": 1327,
+      "result_count": 1,
+      "first_result": {
+        "topic_source_id": "BC0616127",
+        "type": "topic",
+        "sub_type": "source_id",
+        "value": "BC0616127",
+        "topic_type": "registration.registries.ca",
+        "credential_type": "registration.registries.ca",
+        "credential_id": "1b28c23f-064d-4579-b850-6be0a670a646",
+        "score": 75.3683,
+        "id": 634390
+      }
+    },
+    "cra_bn": {
+      "query": "123456789",
+      "url": "https://orgbook.gov.bc.ca/api/v4/search/autocomplete?q=123456789",
+      "status": 200,
+      "response_ms": 1392,
+      "result_count": 5,
+      "first_result": {
+        "type": "name",
+        "sub_type": "business_number",
+        "value": "123456789",
+        "topic_source_id": "FM1036016",
+        "topic_type": "registration.registries.ca",
+        "credential_type": "business_number.registries.ca",
+        "credential_id": "5e6d3535-14c6-4ae3-89d2-9d8b81f7e2ad",
+        "score": 102.39428
+      }
+    }
+  },
+  "topic_lookup": {
+    "url": "https://orgbook.gov.bc.ca/api/v4/search/topic?q=A0091250",
+    "status": 200,
+    "response_ms": 1452,
+    "total_results": 0,
+    "note": "Returned 0 results. Relationship between topic_source_id and /search/topic query param unresolved. Internal topic id (1354842) from autocomplete used directly for credential-set."
+  },
+  "credential_set": {
+    "url": "https://orgbook.gov.bc.ca/api/v4/topic/1354842/credential-set",
+    "topic_source_id": "A0091250",
+    "topic_id": 1354842,
+    "status": 200,
+    "response_ms": 1177,
+    "credential_set_count": 1,
+    "credentials_in_set": 2,
+    "confirmed_attributes": [
+      "registration_date",
+      "entity_name_effective",
+      "entity_status",
+      "entity_status_effective",
+      "entity_type",
+      "registered_jurisdiction",
+      "home_jurisdiction",
+      "reason_description"
+    ],
+    "names_field_confirmed": true,
+    "history_timeline_confirmed": true,
+    "address_present": false,
+    "phone_present": false,
+    "email_present": false,
+    "directors_present": false,
+    "sample_entity": {
+      "topic_source_id": "A0091250",
+      "legal_name": "TELUS COMMUNICATIONS INC.",
+      "registration_date": "2014-01-21T21:49:01+00:00",
+      "current_status": "HIS",
+      "current_status_effective": "2015-02-17T20:24:41+00:00",
+      "entity_type": "A",
+      "registered_jurisdiction": "BC",
+      "home_jurisdiction": "FD"
+    }
+  },
+  "credential_types": {
+    "url": "https://orgbook.gov.bc.ca/api/v4/credential-type",
+    "status": 200,
+    "count": 6,
+    "types": [
+      {"schema_label": "Registration", "issuer": "BC Corporate Registry"},
+      {"schema_label": "Relationship", "issuer": "BC Corporate Registry"},
+      {"schema_label": "Business number", "issuer": "BC Corporate Registry"},
+      {"schema_label": "?", "issuer": "Chief Permitting Officer"},
+      {"schema_label": "BC Mines Act Permit", "issuer": "Ministry of Energy, Mines and Low-carbon Innovation"},
+      {"schema_label": "Annual GHG Emissions Report", "issuer": "Ministry of Environment and Climate Change Strategy"}
+    ]
+  },
+  "pagination": {
+    "url": "https://orgbook.gov.bc.ca/api/v4/search/autocomplete?q=ltd&page=1&page_size=10",
+    "status": 200,
+    "total": 10,
+    "pagination_fields_present": ["total"],
+    "note": "Only first page fetched. Full enumeration prohibited by BC Terms of Use."
+  }
+}

@@ -1,0 +1,803 @@
+{
+  "generated": "2026-09-25T13:20:38.325320+00:00",
+  "access": {
+    "timestamp": "2026-09-25T13:20:38.325320+00:00",
+    "package_url": "https://data.ontario.ca/dataset/select-licence-and-registration-data",
+    "ckan_api_url": "https://data.ontario.ca/api/3/action/package_show?id=select-licence-and-registration-data",
+    "ckan_api_status": 200,
+    "business_file_size_bytes": 120464,
+    "business_save_path": "C:\\Users\\LENOVO\\Desktop\\baa\\data\\raw\\ontario_select_licence_business_20260925.csv",
+    "individual_file_size_bytes": 65076,
+    "individual_save_path": "C:\\Users\\LENOVO\\Desktop\\baa\\data\\raw\\ontario_select_licence_individual_20260925.csv"
+  },
+  "business": {
+    "label": "business",
+    "total_rows": 674,
+    "fields": [
+      "Legal Name",
+      "Operating name",
+      "Address",
+      "City",
+      "Province",
+      "Postal code",
+      "Country",
+      "Telephone",
+      "Website",
+      "Email",
+      "Licence type",
+      "Licence number",
+      "Licence status",
+      "Expiry date"
+    ],
+    "field_stats": {
+      "Legal Name": {
+        "null_count": 0,
+        "null_pct": "0.0%",
+        "non_null_count": 674,
+        "non_null_pct": "100.0%",
+        "distinct_count": 345,
+        "examples": [
+          "Lumbermen's Credit Group Ltd.",
+          "Family And Credit Counselling Services Serving  York Region",
+          "Sterling Bailiffs Inc.",
+          "2473614 Ontario Inc.",
+          "Shelly Donald Fagen"
+        ]
+      },
+      "Operating name": {
+        "null_count": 0,
+        "null_pct": "0.0%",
+        "non_null_count": 674,
+        "non_null_pct": "100.0%",
+        "distinct_count": 139,
+        "examples": [
+          "N/A",
+          "Lumbermen's Credit Bureau",
+          "Commercial Recovery Canada",
+          "Ca$h $hop",
+          "Ideal Trace Solutions"
+        ]
+      },
+      "Address": {
+        "null_count": 0,
+        "null_pct": "0.0%",
+        "non_null_count": 674,
+        "non_null_pct": "100.0%",
+        "distinct_count": 664,
+        "examples": [
+          "1135-b Markham Road ",
+          "1900 Walkers Line, Unit 5a",
+          "2325 Hurontario Street, Unit 17",
+          "3090 Danforth Avenue  ",
+          "309 Grays  Road "
+        ]
+      },
+      "City": {
+        "null_count": 0,
+        "null_pct": "0.0%",
+        "non_null_count": 674,
+        "non_null_pct": "100.0%",
+        "distinct_count": 119,
+        "examples": [
+          "Wallaceburg",
+          "Ajax",
+          "Woodstock",
+          "Aurora",
+          "Kenora"
+        ]
+      },
+      "Province": {
+        "null_count": 0,
+        "null_pct": "0.0%",
+        "non_null_count": 674,
+        "non_null_pct": "100.0%",
+        "distinct_count": 9,
+        "examples": [
+          "Florida",
+          "Makati",
+          "Arizona",
+          "Pakistan",
+          "Ontario"
+        ]
+      },
+      "Postal code": {
+        "null_count": 0,
+        "null_pct": "0.0%",
+        "non_null_count": 674,
+        "non_null_pct": "100.0%",
+        "distinct_count": 625,
+        "examples": [
+          "N/A",
+          "L3R 5J2",
+          "N3J 3H5",
+          "L5T 1N7",
+          "N8N 2L9"
+        ]
+      },
+      "Country": {
+        "null_count": 0,
+        "null_pct": "0.0%",
+        "non_null_count": 674,
+        "non_null_pct": "100.0%",
+        "distinct_count": 6,
+        "examples": [
+          "N/A",
+          "South Africa 4001",
+          "India",
+          "United States",
+          "Canada"
+        ]
+      },
+      "Telephone": {
+        "null_count": 0,
+        "null_pct": "0.0%",
+        "non_null_count": 674,
+        "non_null_pct": "100.0%",
+        "distinct_count": 650,
+        "examples": [
+          "N/A",
+          "9057942333",
+          "5195396604",
+          "5193715000",
+          "9054762651"
+        ]
+      },
+      "Website": {
+        "null_count": 0,
+        "null_pct": "0.0%",
+        "non_null_count": 674,
+        "non_null_pct": "100.0%",
+        "distinct_count": 77,
+        "examples": [
+          "N/A",
+          "www.repologix.com",
+          "www.goday.ca",
+          "www.appletreetcash.com",
+          "www.paydayloandirect.ca"
+        ]
+      },
+      "Email": {
+        "null_count": 0,
+        "null_pct": "0.0%",
+        "non_null_count": 674,
+        "non_null_pct": "100.0%",
+        "distinct_count": 337,
+        "examples": [
+          "N/A",
+          "paydayloanmart@gmail.com",
+          "stop4cash1000@outlook.com",
+          "iain.coffey@c3can.com",
+          "Llandry@tcclcr.com"
+        ]
+      },
+      "Licence type": {
+        "null_count": 0,
+        "null_pct": "0.0%",
+        "non_null_count": 674,
+        "non_null_pct": "100.0%",
+        "distinct_count": 7,
+        "examples": [
+          "Consumer Reporting Agency",
+          "Bailiff (Owner)",
+          "Loan Broker",
+          "Bailiff",
+          "Collection Agency"
+        ]
+      },
+      "Licence number": {
+        "null_count": 0,
+        "null_pct": "0.0%",
+        "non_null_count": 674,
+        "non_null_pct": "100.0%",
+        "distinct_count": 369,
+        "examples": [
+          "4741473",
+          "4740788",
+          "4734453",
+          "1950761",
+          "4721733"
+        ]
+      },
+      "Licence status": {
+        "null_count": 0,
+        "null_pct": "0.0%",
+        "non_null_count": 674,
+        "non_null_pct": "100.0%",
+        "distinct_count": 4,
+        "examples": [
+          "Appointed (Bailiff)",
+          "Appointed bailiff",
+          "Issued",
+          "Appointed Bailiff"
+        ]
+      },
+      "Expiry date": {
+        "null_count": 0,
+        "null_pct": "0.0%",
+        "non_null_count": 674,
+        "non_null_pct": "100.0%",
+        "distinct_count": 214,
+        "examples": [
+          "N/A",
+          "2027-04-22",
+          "2027-08-07",
+          "2026-09-13",
+          "2027-08-14"
+        ]
+      }
+    },
+    "field_map": {
+      "legal_name": "Legal Name",
+      "operating_name": "Operating name",
+      "licence_number": "Licence number",
+      "licence_type": "Licence type",
+      "status": "Licence status",
+      "expiry_date": "Expiry date",
+      "issue_date": null,
+      "street": "Address",
+      "city": "City",
+      "province": "Province",
+      "postal": "Postal code",
+      "phone": "Telephone",
+      "email": "Email",
+      "website": "Website",
+      "first_name": null,
+      "last_name": null,
+      "employer": null
+    },
+    "record_grain": {
+      "duplicate_legal_names": 329,
+      "duplicate_operating_names": 535,
+      "duplicate_licence_numbers": 305,
+      "unique_licence_numbers": 369,
+      "businesses_with_multiple_licence_types": 0,
+      "multi_type_examples": []
+    },
+    "licence_type_counts": {
+      "Payday Lender": 432,
+      "Collection Agency": 128,
+      "Bailiff (Business)": 76,
+      "Consumer Reporting Agency": 34,
+      "Bailiff": 2,
+      "Loan Broker": 1,
+      "Bailiff (Owner)": 1
+    },
+    "status_counts": {
+      "Issued": 600,
+      "Appointed (Bailiff)": 64,
+      "Appointed Bailiff": 9,
+      "Appointed bailiff": 1
+    },
+    "geography": {
+      "unique_cities": 119,
+      "top_cities": [
+        [
+          "Toronto",
+          110
+        ],
+        [
+          "Mississauga",
+          55
+        ],
+        [
+          "Brampton",
+          34
+        ],
+        [
+          "Ottawa",
+          33
+        ],
+        [
+          "Scarborough",
+          29
+        ],
+        [
+          "London",
+          22
+        ],
+        [
+          "Hamilton",
+          21
+        ],
+        [
+          "North York",
+          17
+        ],
+        [
+          "Etobicoke",
+          16
+        ],
+        [
+          "Barrie",
+          16
+        ],
+        [
+          "Oshawa",
+          14
+        ],
+        [
+          "Markham",
+          12
+        ],
+        [
+          "Windsor",
+          11
+        ],
+        [
+          "Cambridge",
+          10
+        ],
+        [
+          "St. Catharines",
+          10
+        ],
+        [
+          "Sudbury",
+          9
+        ],
+        [
+          "Vaughan",
+          9
+        ],
+        [
+          "Burlington",
+          9
+        ],
+        [
+          "Richmond Hill",
+          8
+        ],
+        [
+          "Kitchener",
+          8
+        ]
+      ],
+      "province_counts": {
+        "Ontario": 662,
+        "Quebec": 5,
+        "Florida": 1,
+        "Makati": 1,
+        "Pakistan": 1,
+        "British Columbia": 1,
+        "Arizona": 1,
+        "Mumbai": 1,
+        "Durban": 1
+      },
+      "postal_present": 674,
+      "postal_present_pct": "100.0%",
+      "postal_valid": 667,
+      "postal_valid_pct": "99.0%"
+    },
+    "contact": {
+      "phone_present": 674,
+      "phone_present_pct": "100.0%",
+      "phone_valid_format": 667,
+      "phone_valid_pct": "99.0%",
+      "email_present": 674,
+      "email_present_pct": "100.0%",
+      "email_valid_format": 547,
+      "email_valid_pct": "81.2%",
+      "website_present": 674,
+      "website_present_pct": "100.0%",
+      "website_valid_format": 68,
+      "website_valid_pct": "10.1%",
+      "all_three_present": 674,
+      "all_three_pct": "100.0%"
+    },
+    "address": {
+      "street_present": 674,
+      "street_present_pct": "100.0%"
+    },
+    "dates": {
+      "min": "2020-07-05",
+      "max": "N/A"
+    },
+    "person_biz_link_pct": null
+  },
+  "individual": {
+    "label": "individual",
+    "total_rows": 329,
+    "fields": [
+      "First name",
+      "Last name",
+      "Legal Name",
+      "Operating name",
+      "Address",
+      "City",
+      "Province",
+      "Postal code",
+      "Country",
+      "Telephone",
+      "Website",
+      "Email",
+      "Licence type",
+      "Licence number",
+      "Expiry date"
+    ],
+    "field_stats": {
+      "First name": {
+        "null_count": 0,
+        "null_pct": "0.0%",
+        "non_null_count": 329,
+        "non_null_pct": "100.0%",
+        "distinct_count": 316,
+        "examples": [
+          "Keith E.",
+          "Patrick Paul",
+          " Donna Marie",
+          "Michael Joseph",
+          "Chelsey Lana Maureen"
+        ]
+      },
+      "Last name": {
+        "null_count": 0,
+        "null_pct": "0.0%",
+        "non_null_count": 329,
+        "non_null_pct": "100.0%",
+        "distinct_count": 281,
+        "examples": [
+          "Murray",
+          "Warmington",
+          "Rostern",
+          "Ramsaran",
+          "Harrison"
+        ]
+      },
+      "Legal Name": {
+        "null_count": 0,
+        "null_pct": "0.0%",
+        "non_null_count": 329,
+        "non_null_pct": "100.0%",
+        "distinct_count": 66,
+        "examples": [
+          "Big Dog Solutions Limited",
+          "959350 Ontario Inc.",
+          "Bailiff Logistics Services Inc.",
+          "Moyles Peter Charles",
+          "Sterling Bailiffs Inc."
+        ]
+      },
+      "Operating name": {
+        "null_count": 0,
+        "null_pct": "0.0%",
+        "non_null_count": 329,
+        "non_null_pct": "100.0%",
+        "distinct_count": 11,
+        "examples": [
+          "N/A",
+          "Kent County Bailiffs Services",
+          "The Recovery Board",
+          "Prestige Bailiffs",
+          "Mckinley-bailiff"
+        ]
+      },
+      "Address": {
+        "null_count": 0,
+        "null_pct": "0.0%",
+        "non_null_count": 329,
+        "non_null_pct": "100.0%",
+        "distinct_count": 66,
+        "examples": [
+          "3550 Simcoe Street North",
+          "9656 Turk Road Rr # 1",
+          "10 New Street   ",
+          "84 Rosecliffe Crescent",
+          "2325 Hurontario Street, Suite 365"
+        ]
+      },
+      "City": {
+        "null_count": 0,
+        "null_pct": "0.0%",
+        "non_null_count": 329,
+        "non_null_pct": "100.0%",
+        "distinct_count": 44,
+        "examples": [
+          "Sudbury",
+          "St. Thomas",
+          "Manotick",
+          "Ashton",
+          "Kingston"
+        ]
+      },
+      "Province": {
+        "null_count": 0,
+        "null_pct": "0.0%",
+        "non_null_count": 329,
+        "non_null_pct": "100.0%",
+        "distinct_count": 1,
+        "examples": [
+          "Ontario"
+        ]
+      },
+      "Postal code": {
+        "null_count": 0,
+        "null_pct": "0.0%",
+        "non_null_count": 329,
+        "non_null_pct": "100.0%",
+        "distinct_count": 64,
+        "examples": [
+          "N2J 1Y2",
+          "N0P 1A0",
+          "L2W 1A5",
+          "K0A 1B0",
+          "K1P 5G4"
+        ]
+      },
+      "Country": {
+        "null_count": 0,
+        "null_pct": "0.0%",
+        "non_null_count": 329,
+        "non_null_pct": "100.0%",
+        "distinct_count": 1,
+        "examples": [
+          "Canada"
+        ]
+      },
+      "Telephone": {
+        "null_count": 0,
+        "null_pct": "0.0%",
+        "non_null_count": 329,
+        "non_null_pct": "100.0%",
+        "distinct_count": 64,
+        "examples": [
+          "N/A",
+          "4162922221",
+          "8075488133",
+          "4166651488",
+          "4166331416 x222"
+        ]
+      },
+      "Website": {
+        "null_count": 0,
+        "null_pct": "0.0%",
+        "non_null_count": 329,
+        "non_null_pct": "100.0%",
+        "distinct_count": 12,
+        "examples": [
+          "N/A",
+          "www.bailiffsale.com",
+          "www.g2cs.ca",
+          "www.premierbailiffs.com",
+          "www.firstfin.com"
+        ]
+      },
+      "Email": {
+        "null_count": 0,
+        "null_pct": "0.0%",
+        "non_null_count": 329,
+        "non_null_pct": "100.0%",
+        "distinct_count": 61,
+        "examples": [
+          "jmarlow@marlowbailiff.ca",
+          "N/A",
+          "kingswayrecovery@eastlink.ca",
+          "provincialbailiff@outlook.com",
+          "info@shinglerbailiffs.com"
+        ]
+      },
+      "Licence type": {
+        "null_count": 0,
+        "null_pct": "0.0%",
+        "non_null_count": 329,
+        "non_null_pct": "100.0%",
+        "distinct_count": 9,
+        "examples": [
+          "Bailiff (Assistant - Reg)",
+          "Appointment Bailiff",
+          "Bailiff (Assistant - Appt)",
+          "Appointed Bailiff",
+          "Bailiff"
+        ]
+      },
+      "Licence number": {
+        "null_count": 0,
+        "null_pct": "0.0%",
+        "non_null_count": 329,
+        "non_null_pct": "100.0%",
+        "distinct_count": 329,
+        "examples": [
+          "4736802",
+          "4741388",
+          "4741404",
+          "4705071",
+          "4741683"
+        ]
+      },
+      "Expiry date": {
+        "null_count": 0,
+        "null_pct": "0.0%",
+        "non_null_count": 329,
+        "non_null_pct": "100.0%",
+        "distinct_count": 164,
+        "examples": [
+          "N/A",
+          "2028-07-06",
+          "2027-08-14",
+          "2028-03-29",
+          "2026-09-30"
+        ]
+      }
+    },
+    "field_map": {
+      "legal_name": "Legal Name",
+      "operating_name": "Operating name",
+      "licence_number": "Licence number",
+      "licence_type": "Licence type",
+      "status": null,
+      "expiry_date": "Expiry date",
+      "issue_date": null,
+      "street": "Address",
+      "city": "City",
+      "province": "Province",
+      "postal": "Postal code",
+      "phone": "Telephone",
+      "email": "Email",
+      "website": "Website",
+      "first_name": "First name",
+      "last_name": "Last name",
+      "employer": null
+    },
+    "record_grain": {
+      "duplicate_legal_names": 263,
+      "duplicate_operating_names": 318,
+      "duplicate_licence_numbers": 0,
+      "unique_licence_numbers": 329,
+      "businesses_with_multiple_licence_types": 40,
+      "multi_type_examples": [
+        [
+          "S. Wilson & Co. Bailiffs Limited",
+          "{'Bailiff (Owner)', 'Bailiff (Assistant - Reg)', 'Bailiff (Employee)', 'Appointed Bailiff'}"
+        ],
+        [
+          "Sterling Bailiffs Inc.",
+          "{'Bailiff (Owner)', 'Bailiff (Assistant - Reg)', 'Bailiff (Assistant - Appt)'}"
+        ],
+        [
+          "James Herr & Co. Bailiffs Inc.",
+          "{'Bailiff (Owner)', 'Bailiff (Assistant - Appt)'}"
+        ],
+        [
+          "959350 Ontario Inc.",
+          "{'Bailiff (Owner)', 'Bailiff (Assistant - Reg)'}"
+        ],
+        [
+          "Diligent Bailiff Services Ltd.",
+          "{'Bailiff (Owner)', 'Bailiff (Assistant - Reg)'}"
+        ]
+      ]
+    },
+    "licence_type_counts": {
+      "Bailiff (Assistant - Reg)": 209,
+      "Bailiff (Owner)": 48,
+      "Bailiff (Assistant - Appt)": 26,
+      "Personal Information Investigator": 26,
+      "Bailiff (Employee)": 10,
+      "Appointed Bailiff": 4,
+      "Appointment Bailiff": 4,
+      "Bailiff (Assistant - Reg)v": 1,
+      "Bailiff": 1
+    },
+    "status_counts": {},
+    "geography": {
+      "unique_cities": 44,
+      "top_cities": [
+        [
+          "Toronto",
+          56
+        ],
+        [
+          "Newmarket",
+          24
+        ],
+        [
+          "Oshawa",
+          19
+        ],
+        [
+          "St. Catharines",
+          18
+        ],
+        [
+          "Mississauga",
+          17
+        ],
+        [
+          "Scarborough",
+          15
+        ],
+        [
+          "Garson",
+          15
+        ],
+        [
+          "Tecumseh",
+          13
+        ],
+        [
+          "Brampton",
+          13
+        ],
+        [
+          "Cambridge",
+          12
+        ],
+        [
+          "Minesing",
+          12
+        ],
+        [
+          "Sudbury",
+          10
+        ],
+        [
+          "Pickering",
+          8
+        ],
+        [
+          "Hamilton",
+          8
+        ],
+        [
+          "Innisfil",
+          8
+        ],
+        [
+          "Stoney Creek",
+          7
+        ],
+        [
+          "Porcupine",
+          6
+        ],
+        [
+          "Markham",
+          6
+        ],
+        [
+          "Halton Hills",
+          5
+        ],
+        [
+          "Waterloo",
+          5
+        ]
+      ],
+      "province_counts": {
+        "Ontario": 329
+      },
+      "postal_present": 329,
+      "postal_present_pct": "100.0%",
+      "postal_valid": 329,
+      "postal_valid_pct": "100.0%"
+    },
+    "contact": {
+      "phone_present": 329,
+      "phone_present_pct": "100.0%",
+      "phone_valid_format": 315,
+      "phone_valid_pct": "95.7%",
+      "email_present": 329,
+      "email_present_pct": "100.0%",
+      "email_valid_format": 297,
+      "email_valid_pct": "90.3%",
+      "website_present": 329,
+      "website_present_pct": "100.0%",
+      "website_valid_format": 103,
+      "website_valid_pct": "31.3%",
+      "all_three_present": 329,
+      "all_three_pct": "100.0%"
+    },
+    "address": {
+      "street_present": 329,
+      "street_present_pct": "100.0%"
+    },
+    "dates": {
+      "min": "2026-09-30",
+      "max": "N/A"
+    },
+    "person_biz_link_pct": null
+  },
+  "odbus_overlap": {
+    "skipped": true,
+    "reason": "ODBus file not found at data/raw/odbus.csv"
+  }
+}

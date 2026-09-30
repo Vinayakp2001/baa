@@ -1,0 +1,57 @@
+{
+  "generated_at": "2026-09-25T11:38:15.608103+00:00",
+  "dataset_page": "https://open.canada.ca/data/en/dataset/0032ce54-c5dd-4b66-99a0-320a7b5e99f2",
+  "data_services_page": "https://ised-isde.canada.ca/site/corporations-canada/en/data-services",
+  "datasets": {
+    "active_business_corporations": {
+      "description": "Federal business corporations created under the Canada Business Corporations Act (CBCA) that are currently active.",
+      "url": "https://d4bf66bykfyaf.cloudfront.net/corporations-active-cbca-en.csv"
+    },
+    "other_active_corporations": {
+      "description": "Other active federal corporations including not-for-profits, cooperatives, boards of trade and special-act corporations.",
+      "url": "https://d4bf66bykfyaf.cloudfront.net/corporations-active-non-cbca-en.csv"
+    },
+    "inactive_business_corporations": {
+      "description": "Federal business corporations created under the CBCA that are currently inactive.",
+      "url": "https://d4bf66bykfyaf.cloudfront.net/corporations-inactive-or-dissolved-cbca-en.csv"
+    },
+    "other_inactive_corporations": {
+      "description": "Other inactive federal corporations.",
+      "url": "https://d4bf66bykfyaf.cloudfront.net/corporations-inactive-or-dissolved-non-cbca-en.csv"
+    }
+  },
+  "results": {
+    "active_business_corporations": {
+      "ok": true,
+      "status": 200,
+      "content_type": "text/csv; charset=utf-8",
+      "content_length": "103603422",
+      "final_url": "https://d4bf66bykfyaf.cloudfront.net/corporations-active-cbca-en.csv",
+      "method": "HEAD"
+    },
+    "other_active_corporations": {
+      "ok": true,
+      "status": 200,
+      "content_type": "text/csv; charset=utf-8",
+      "content_length": "9196212",
+      "final_url": "https://d4bf66bykfyaf.cloudfront.net/corporations-active-non-cbca-en.csv",
+      "method": "HEAD"
+    },
+    "inactive_business_corporations": {
+      "ok": true,
+      "status": 200,
+      "content_type": "text/csv; charset=utf-8",
+      "content_length": "157252239",
+      "final_url": "https://d4bf66bykfyaf.cloudfront.net/corporations-inactive-or-dissolved-cbca-en.csv",
+      "method": "HEAD"
+    },
+    "other_inactive_corporations": {
+      "ok": true,
+      "status": 200,
+      "content_type": "text/csv; charset=utf-8",
+      "content_length": "8525450",
+      "final_url": "https://d4bf66bykfyaf.cloudfront.net/corporations-inactive-or-dissolved-non-cbca-en.csv",
+      "method": "HEAD"
+    }
+  }
+}
