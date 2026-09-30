@@ -1,6 +1,6 @@
 # Project Handoff — Canada Business Data Automation
 
-**Last updated:** 2026-09-30 — GitHub repository created; local Docker/PostgreSQL setup has not started. The implementation checkpoint below remains the prior project status.
+**Last updated:** 2026-09-30 — GitHub repository created. The local `baa` PostgreSQL database is healthy and migrations are at revision `005 (head)`. Starting the remaining services is pending a successful Docker Hub image pull. The existing `cpilot` Compose project has not been changed. The implementation checkpoint below remains the prior project status.
 **Project folder:** `C:\Users\LENOVO\Desktop\baa`
 **Venv:** `baa_env`
 
@@ -36,19 +36,25 @@ Do not redesign service boundaries or batch later tasks into the current one. If
 
 - Private repository: `https://github.com/Vinayakp2001/baa`, branch `main`.
 - `.kiro/` and `.vscode/` are local workspace configuration/specification folders. They are intentionally ignored and are not part of the GitHub project. Keep the local copies; do not force-add them.
-- `.env` is not created yet. Never commit local environment credentials. Use fresh local values for PostgreSQL and n8n; `.env.example` is the placeholder template.
+- `.env` has been created locally with fresh random PostgreSQL and n8n passwords. It is ignored by Git; never commit or record its credential values. `.env.example` remains the placeholder template.
 - GitHub Actions secrets are for workflows running on GitHub. They do not supply values to Docker Compose started on this Windows machine. Add GitHub secrets only when an Actions/deployment workflow is introduced.
 
-### Next steps — Docker/PostgreSQL
+### Docker/PostgreSQL checkpoint and next steps
 
-Do these in order and verify each step before continuing:
+Verified on 2026-09-30:
 
-1. Create `.env` from `.env.example`; set fresh `POSTGRES_PASSWORD` and `N8N_BASIC_AUTH_PASSWORD` values. Keep the same PostgreSQL password in `DATABASE_URL`. The container-side hostname is `postgres`.
-2. Before starting containers, publish PostgreSQL to the host in `docker-compose.yml` with `ports: ["5432:5432"]`. Port `5432` was available when checked on 2026-09-30. Port `80` was also available for nginx.
-3. Start Docker Desktop, wait until ready, then run `docker compose up -d`. Wait for the PostgreSQL health check to pass.
-4. Run migrations from `backend` using a host-side URL with `localhost:5432` and the same database credentials. Do not put the password in this handoff or commit it.
+- Docker Desktop's shared engine is running. The active Compose project is `cpilot`; its PostgreSQL container owns host port `5432`. Do not stop or modify that project as part of `baa` setup.
+- Host port `5433` is available and is mapped to the `baa` PostgreSQL container port `5432` in `docker-compose.yml`. Port `80` was available at the time of the check.
+- `.env` is ready and ignored. Its in-container `DATABASE_URL` uses host `postgres:5432`.
+- `baa-postgres-1` is healthy on host port `5433`; Alembic reports revision `005 (head)`.
+- The full `docker compose up -d` attempt failed while Docker Hub image retrieval timed out during the TLS handshake. No `baa` API, frontend, n8n, or nginx service is running.
+- The existing `cpilot` project remains untouched; its PostgreSQL continues to use host port `5432`.
 
-Current status: none of these four setup steps has been completed; Docker has not been started and no `.env` has been created.
+Remaining steps, in order:
+
+1. Once Docker Hub is reachable, rerun `docker compose up -d` from the `baa` project root and verify API, frontend, n8n, and nginx. Do not stop or modify `cpilot`.
+
+The local environment, PostgreSQL, and migrations are complete. Only startup/verification of the remaining application services is pending.
 
 ---
 

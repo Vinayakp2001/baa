@@ -4,6 +4,8 @@ services:
   postgres:
     image: postgres:16
     restart: unless-stopped
+    ports:
+      - "5433:5432"
     environment:
       POSTGRES_DB: ${POSTGRES_DB:-baa}
       POSTGRES_USER: ${POSTGRES_USER:-baa}
