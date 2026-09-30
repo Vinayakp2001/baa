@@ -1,6 +1,6 @@
 # Project Handoff — Canada Business Data Automation
 
-**Last updated:** 2026-09-30 — GitHub repository created. The local `baa` PostgreSQL database is healthy and migrations are at revision `005 (head)`. Starting the remaining services is pending a successful Docker Hub image pull. The existing `cpilot` Compose project has not been changed. The implementation checkpoint below remains the prior project status.
+**Last updated:** 2026-09-30 — GitHub repository created. All five `baa` Docker services are running; PostgreSQL is healthy and migrations are at `005 (head)`. Dashboard and proxied API/n8n routes returned successful responses. The existing `cpilot` Compose project has not been changed. The implementation checkpoint below remains the prior project status.
 **Project folder:** `C:\Users\LENOVO\Desktop\baa`
 **Venv:** `baa_env`
 
@@ -43,18 +43,14 @@ Do not redesign service boundaries or batch later tasks into the current one. If
 
 Verified on 2026-09-30:
 
-- Docker Desktop's shared engine is running. The active Compose project is `cpilot`; its PostgreSQL container owns host port `5432`. Do not stop or modify that project as part of `baa` setup.
-- Host port `5433` is available and is mapped to the `baa` PostgreSQL container port `5432` in `docker-compose.yml`. Port `80` was available at the time of the check.
-- `.env` is ready and ignored. Its in-container `DATABASE_URL` uses host `postgres:5432`.
-- `baa-postgres-1` is healthy on host port `5433`; Alembic reports revision `005 (head)`.
-- The full `docker compose up -d` attempt failed while Docker Hub image retrieval timed out during the TLS handshake. No `baa` API, frontend, n8n, or nginx service is running.
-- The existing `cpilot` project remains untouched; its PostgreSQL continues to use host port `5432`.
+- Docker Desktop's shared engine is running. The separate `cpilot` Compose project remains untouched; its PostgreSQL owns host port `5432`.
+- The `baa` PostgreSQL container is healthy on host port `5433`; Alembic reports revision `005 (head)`. The ignored local `.env` contains fresh PostgreSQL and n8n credentials; never commit or record them.
+- All five `baa` services are running: PostgreSQL, API, frontend, n8n, and nginx. `http://localhost/businesses`, `http://localhost/api/docs`, and `http://localhost/n8n/` returned HTTP 200; `/` redirects to `/businesses`.
+- Docker Hub access recovered after transient TLS timeouts. `nginx:1.27-alpine` and `n8nio/n8n:1.45.1` pulled successfully.
+- Startup required adding the missing frontend npm lockfile, fixing its root route and Docker build context, including migrations in the API image, and configuring the 204 DELETE response explicitly. Those fixes are committed with the project files.
+- npm reported 8 frontend dependency vulnerabilities (7 high, 1 critical) during the image build. Dependency upgrades were not part of this startup fix; review and update the frontend dependencies separately.
 
-Remaining steps, in order:
-
-1. Once Docker Hub is reachable, rerun `docker compose up -d` from the `baa` project root and verify API, frontend, n8n, and nginx. Do not stop or modify `cpilot`.
-
-The local environment, PostgreSQL, and migrations are complete. Only startup/verification of the remaining application services is pending.
+Setup is complete. For local use, open `http://localhost`; n8n is at `http://localhost/n8n/` and its login password is in the ignored `.env`.
 
 ---
 

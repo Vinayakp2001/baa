@@ -15,7 +15,7 @@ import io
 import uuid
 from datetime import date
 
-from fastapi import APIRouter, Depends, HTTPException, Query
+from fastapi import APIRouter, Depends, HTTPException, Query, Response
 from fastapi.responses import StreamingResponse
 from sqlalchemy import func, select
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -355,7 +355,12 @@ async def set_lead_flag(
 from fastapi import status as http_status
 
 
-@router.delete("/{entity_id}/flags/{flag_type}", status_code=http_status.HTTP_204_NO_CONTENT)
+@router.delete(
+    "/{entity_id}/flags/{flag_type}",
+    status_code=http_status.HTTP_204_NO_CONTENT,
+    response_model=None,
+    response_class=Response,
+)
 async def remove_lead_flag(
     entity_id: uuid.UUID,
     flag_type: str,
