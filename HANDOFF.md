@@ -1,6 +1,6 @@
 # Project Handoff — Canada Business Data Automation
 
-**Last updated:** 2026-09-28 — ALL implementation tasks complete. Full pipeline implemented: ingestion → normalisation → resolution → events → quality → public API → Next.js dashboard → DNC layer → compliance guards → n8n workflows. Run `scripts/validate_pipeline_e2e.py` to verify the wired pipeline. No outstanding tasks remain (optional test tasks marked with `*` skipped per spec).
+**Last updated:** 2026-09-30 — GitHub repository created; local Docker/PostgreSQL setup has not started. The implementation checkpoint below remains the prior project status.
 **Project folder:** `C:\Users\LENOVO\Desktop\baa`
 **Venv:** `baa_env`
 
@@ -27,6 +27,28 @@ Work through `.kiro/specs/canada-b2b-pipeline/tasks.md` serially, starting with 
 5. Update this handoff with the new verified checkpoint and exact next subtask.
 
 Do not redesign service boundaries or batch later tasks into the current one. If implementation and spec contracts conflict, document the concrete mismatch and resolve it before proceeding. Git is not required for handoff continuity; use it only when the task specifically needs history or repository-state inspection.
+
+---
+
+## Repository and Local Environment Setup
+
+### GitHub repository checkpoint — 2026-09-30
+
+- Private repository: `https://github.com/Vinayakp2001/baa`, branch `main`.
+- `.kiro/` and `.vscode/` are local workspace configuration/specification folders. They are intentionally ignored and are not part of the GitHub project. Keep the local copies; do not force-add them.
+- `.env` is not created yet. Never commit local environment credentials. Use fresh local values for PostgreSQL and n8n; `.env.example` is the placeholder template.
+- GitHub Actions secrets are for workflows running on GitHub. They do not supply values to Docker Compose started on this Windows machine. Add GitHub secrets only when an Actions/deployment workflow is introduced.
+
+### Next steps — Docker/PostgreSQL
+
+Do these in order and verify each step before continuing:
+
+1. Create `.env` from `.env.example`; set fresh `POSTGRES_PASSWORD` and `N8N_BASIC_AUTH_PASSWORD` values. Keep the same PostgreSQL password in `DATABASE_URL`. The container-side hostname is `postgres`.
+2. Before starting containers, publish PostgreSQL to the host in `docker-compose.yml` with `ports: ["5432:5432"]`. Port `5432` was available when checked on 2026-09-30. Port `80` was also available for nginx.
+3. Start Docker Desktop, wait until ready, then run `docker compose up -d`. Wait for the PostgreSQL health check to pass.
+4. Run migrations from `backend` using a host-side URL with `localhost:5432` and the same database credentials. Do not put the password in this handoff or commit it.
+
+Current status: none of these four setup steps has been completed; Docker has not been started and no `.env` has been created.
 
 ---
 

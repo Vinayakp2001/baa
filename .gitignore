@@ -2,6 +2,10 @@
 .env
 *.env
 
+# Local editor and agent configuration
+.vscode/
+.kiro/
+
 # Python
 __pycache__/
 *.py[cod]
