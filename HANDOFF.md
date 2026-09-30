@@ -48,7 +48,8 @@ Verified on 2026-09-30:
 - All five `baa` services are running: PostgreSQL, API, frontend, n8n, and nginx. `http://localhost/businesses`, `http://localhost/api/docs`, and `http://localhost/n8n/` returned HTTP 200; `/` redirects to `/businesses`.
 - Docker Hub access recovered after transient TLS timeouts. `nginx:1.27-alpine` and `n8nio/n8n:1.45.1` pulled successfully.
 - Startup required adding the missing frontend npm lockfile, fixing its root route and Docker build context, including migrations in the API image, and configuring the 204 DELETE response explicitly. Those fixes are committed with the project files.
-- npm reported 8 frontend dependency vulnerabilities (7 high, 1 critical) during the image build. Dependency upgrades were not part of this startup fix; review and update the frontend dependencies separately.
+- Frontend security update: Next.js and `eslint-config-next` are pinned to `15.5.24`; PostCSS is pinned and globally overridden to `8.5.23` so Next's nested copy is patched. On 2026-09-30, `npm audit` reported 0 vulnerabilities and the Linux Docker build's `npm ci` also reported 0 vulnerabilities.
+- Next 15 App Router pages must await `params` and `searchParams`; the business pages follow that contract. Regenerate the frontend lockfile in a Linux Node container when needed so platform-specific optional dependencies required by Docker's Linux build are represented.
 
 Setup is complete. For local use, open `http://localhost`; n8n is at `http://localhost/n8n/` and its login password is in the ignored `.env`.
 

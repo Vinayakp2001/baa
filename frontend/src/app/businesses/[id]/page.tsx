@@ -9,15 +9,16 @@ import { DncFlagButton } from "@/components/DncFlagButton";
 
 export const dynamic = "force-dynamic";
 
-interface Props { params: { id: string } }
+interface Props { params: Promise<{ id: string }> }
 
 export default async function BusinessDetailPage({ params }: Props) {
+  const { id } = await params;
   let business, history, events;
   try {
     [business, history, events] = await Promise.all([
-      api.businesses.get(params.id),
-      api.businesses.history(params.id),
-      api.events.list({ entity_id: params.id, page_size: 50 } as Record<string, string | number | undefined>),
+      api.businesses.get(id),
+      api.businesses.history(id),
+      api.events.list({ entity_id: id, page_size: 50 } as Record<string, string | number | undefined>),
     ]);
   } catch {
     notFound();

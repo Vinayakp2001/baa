@@ -6,10 +6,11 @@ import { FilterPanel } from "@/components/FilterPanel";
 export const dynamic = "force-dynamic";
 
 interface PageProps {
-  searchParams: Record<string, string | undefined>;
+  searchParams: Promise<Record<string, string | undefined>>;
 }
 
-export default async function BusinessesPage({ searchParams }: PageProps) {
+export default async function BusinessesPage({ searchParams: searchParamsPromise }: PageProps) {
+  const searchParams = await searchParamsPromise;
   const filters = {
     province: searchParams.province,
     city: searchParams.city,
