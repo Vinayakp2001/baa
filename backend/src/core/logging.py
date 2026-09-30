@@ -21,6 +21,7 @@ from .config import settings
 _request_id_var: ContextVar[str] = ContextVar("request_id", default="")
 _source_key_var: ContextVar[str] = ContextVar("source_key", default="")
 _run_id_var: ContextVar[str] = ContextVar("run_id", default="")
+_entity_id_var: ContextVar[str] = ContextVar("entity_id", default="")
 
 
 def _inject_context_vars(
@@ -30,6 +31,7 @@ def _inject_context_vars(
     request_id = _request_id_var.get()
     source_key = _source_key_var.get()
     run_id = _run_id_var.get()
+    entity_id = _entity_id_var.get()
 
     if request_id:
         event_dict["request_id"] = request_id
@@ -37,6 +39,8 @@ def _inject_context_vars(
         event_dict["source_key"] = source_key
     if run_id:
         event_dict["run_id"] = run_id
+    if entity_id:
+        event_dict["entity_id"] = entity_id
 
     return event_dict
 
@@ -80,6 +84,7 @@ def bind_pipeline_context(
     request_id: str | None = None,
     source_key: str | None = None,
     run_id: str | None = None,
+    entity_id: str | None = None,
 ) -> None:
     """Bind pipeline context values to the current async context.
 
@@ -96,6 +101,9 @@ def bind_pipeline_context(
     if run_id is not None:
         ctx["run_id"] = run_id
         _run_id_var.set(run_id)
+    if entity_id is not None:
+        ctx["entity_id"] = entity_id
+        _entity_id_var.set(entity_id)
     if ctx:
         structlog.contextvars.bind_contextvars(**ctx)
 
@@ -106,3 +114,4 @@ def clear_pipeline_context() -> None:
     _request_id_var.set("")
     _source_key_var.set("")
     _run_id_var.set("")
+    _entity_id_var.set("")

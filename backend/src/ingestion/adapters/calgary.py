@@ -24,7 +24,7 @@ from ..contracts import RawArtifact, RawRecord, SourceGrain, SourceMetadata, Val
 _SOURCE_KEY = "calgary"
 
 # Socrata OData/CSV export endpoint for Business Licences dataset
-_BASE_URL = "https://data.calgary.ca/resource/ineq-k8qb.csv"
+_BASE_URL = "https://data.calgary.ca/resource/vdjc-pybd.csv"
 
 _REQUIRED_FIELDS = {"tradename", "jobstatusdesc"}
 
@@ -46,10 +46,12 @@ class CalgaryAdapter(SourceAdapter):
     # SourceAdapter interface
     # ------------------------------------------------------------------
 
-    def fetch(self, since: datetime | None = None) -> RawArtifact:
+    def fetch(self, since: datetime | None = None, limit: int | None = None) -> RawArtifact:
         now = datetime.now(tz=timezone.utc)
 
-        params: dict[str, str | int] = {"$limit": self._page_size}
+        params: dict[str, str | int] = {
+            "$limit": min(limit, self._page_size) if limit is not None else self._page_size
+        }
         if since is not None:
             # Socrata date filter: ISO 8601 string
             params["$where"] = f"first_iss_dt >= '{since.strftime('%Y-%m-%dT%H:%M:%S')}'"

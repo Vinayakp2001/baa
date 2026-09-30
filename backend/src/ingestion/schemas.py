@@ -49,6 +49,7 @@ class IngestionFetchRequest(BaseModel):
 
     run_id: uuid.UUID
     source_key: str
+    limit: int | None = Field(default=None, ge=1, le=1000)
     records: list[RawRecord] | None = None
     # Metadata captured during fetch — stored on the ingestion_run
     retrieval_url: str | None = None

@@ -23,6 +23,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from ..core.logging import bind_pipeline_context, get_logger
 from ..db.session import get_db
 from ..ingestion.adapters.registry import AdapterNotAvailableError, create_ingestion_adapter
+from ..ingestion.adapters.calgary import CalgaryAdapter
 from ..ingestion.adapters.nni import NNIAdapter
 from ..ingestion.base_adapter import SourceFetchError, SourceParseError
 from ..ingestion.contracts import RawRecord
@@ -164,7 +165,18 @@ async def ingestion_fetch(
                 .limit(1)
             )
             since = last_run_result.scalar_one_or_none()
-            if isinstance(adapter, NNIAdapter):
+            if body.limit is not None:
+                since = None
+            if body.limit is not None and not isinstance(adapter, CalgaryAdapter):
+                raise HTTPException(
+                    status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+                    detail="The limit option is currently supported only for Calgary.",
+                )
+            if isinstance(adapter, CalgaryAdapter):
+                artifact = await asyncio.to_thread(
+                    adapter.fetch, since=since, limit=body.limit
+                )
+            elif isinstance(adapter, NNIAdapter):
                 artifact = await asyncio.to_thread(
                     adapter.fetch, since=since, terms_status=source.terms_status
                 )

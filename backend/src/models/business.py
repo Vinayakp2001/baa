@@ -10,7 +10,7 @@ from decimal import Decimal
 
 from sqlalchemy import Boolean, ForeignKey, Index, Integer, Numeric, SmallInteger
 from sqlalchemy import DateTime, String, Text
-from sqlalchemy.dialects.postgresql import UUID
+from sqlalchemy.dialects.postgresql import ENUM, UUID
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy.sql import func
 
@@ -29,7 +29,13 @@ class Business(Base):
     entity_type: Mapped[str | None] = mapped_column(String(100), nullable=True)
     province: Mapped[str | None] = mapped_column(String(2), nullable=True)
     status: Mapped[str | None] = mapped_column(
-        String(20), nullable=True, server_default="UNKNOWN"
+        ENUM(
+            "ACTIVE", "INACTIVE", "SUSPENDED", "DISSOLVED", "PENDING", "UNKNOWN",
+            name="business_status_enum",
+            create_type=False,
+        ),
+        nullable=True,
+        server_default="UNKNOWN",
     )
     sales_ready: Mapped[bool] = mapped_column(Boolean, nullable=False, server_default="false")
     lead_quality_score: Mapped[int | None] = mapped_column(SmallInteger, nullable=True)

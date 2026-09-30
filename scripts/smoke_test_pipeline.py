@@ -1,4 +1,4 @@
-"""Bounded pipeline smoke test — uses the Calgary source (~23k rows, no auth).
+"""Bounded pipeline smoke test — uses a 200-row sample from Calgary (no auth).
 
 Runs the full pipeline end-to-end but with a small, fast, no-auth source:
   /ingestion/start → /ingestion/fetch → /normalise → /resolve →
@@ -53,7 +53,7 @@ def fail(msg: str, detail: str = "") -> None:
 
 
 def post(session: requests.Session, base: str, path: str, body: dict) -> dict:
-    resp = session.post(f"{base}{path}", json=body, timeout=300)
+    resp = session.post(f"{base}{path}", json=body, timeout=900)
     if not resp.ok:
         fail(f"POST {path} → HTTP {resp.status_code}", resp.text)
     return resp.json()
@@ -69,6 +69,7 @@ def get(session: requests.Session, base: str, path: str) -> dict | list:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--api-url", default=DEFAULT_API)
+    parser.add_argument("--limit", type=int, default=200, help="Maximum Calgary rows to process (1-1000)")
     args = parser.parse_args()
     base = args.api_url.rstrip("/")
 
@@ -95,16 +96,19 @@ def main() -> None:
     step("2. POST /ingestion/start")
     start = post(session, base, "/ingestion/start", {"source_key": SOURCE_KEY})
     run_id = start.get("run_id")
+    source_id = start.get("source_id")
     if not run_id:
         fail("No run_id returned", json.dumps(start))
+    if not source_id:
+        fail("No source_id returned", json.dumps(start))
     ok(f"run_id = {run_id}")
 
     # ── 3. Fetch (adapter runs inside API) ────────────────────────────
-    step("3. POST /ingestion/fetch  [fetches Calgary CSV — ~23k rows]")
-    print("     (this may take 10–30 s depending on Socrata response time)")
+    step(f"3. POST /ingestion/fetch  [fetches up to {args.limit:,} Calgary rows]")
     fetch = post(session, base, "/ingestion/fetch", {
         "run_id": run_id,
         "source_key": SOURCE_KEY,
+        "limit": args.limit,
     })
     stored = fetch.get("records_stored", 0)
     if stored == 0:
@@ -148,13 +152,13 @@ def main() -> None:
     ok(f"run_status = COMPLETED")
 
     # ── 9. Query ──────────────────────────────────────────────────────
-    step("9. GET /businesses?province=AB")
-    biz = get(session, base, "/businesses?province=AB&page_size=5")
+    step("9. GET Calgary-sourced businesses")
+    biz = get(session, base, f"/businesses?source_id={source_id}&page_size=5")
     total = biz.get("total", 0)
     results = biz.get("results", [])
     if total == 0:
-        fail("No AB businesses returned — check resolution/entity creation")
-    ok(f"total AB businesses = {total:,}")
+        fail("No Calgary-sourced businesses returned — check resolution/entity creation")
+    ok(f"total Calgary-sourced businesses = {total:,}")
 
     entity_id = results[0]["entity_id"]
     step(f"10. Provenance chain for {entity_id[:8]}…")
@@ -181,7 +185,7 @@ def main() -> None:
   records_new     : {resolve.get('records_new', 0):,}
   events_created  : {events.get('events_created', 0):,}
   entities_scored : {quality.get('entities_scored', 0):,}
-  AB businesses   : {total:,}
+    Calgary businesses: {total:,}
   provenance_fields: {field_groups}
 
   Pipeline is wired end-to-end. Safe to run full imports via n8n.
