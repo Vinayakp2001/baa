@@ -1,181 +1,249 @@
 {
-  "name": "enrich-directors",
-  "nodes": [
-    {
-      "parameters": {
-        "rule": {
-          "interval": [
-            {
-              "field": "cronExpression",
-              "expression": "*/15 * * * *"
-            }
-          ]
-        }
-      },
-      "id": "cron-enrich-directors",
-      "name": "Poll Every 15 Min",
-      "type": "n8n-nodes-base.scheduleTrigger",
-      "typeVersion": 1.1,
-      "position": [240, 300]
-    },
-    {
-      "parameters": {
-        "operation": "executeQuery",
-        "query": "SELECT\n  be.event_id::text,\n  be.entity_id::text,\n  bi.id_value AS corp_number,\n  s.source_id::text\nFROM business_event be\nJOIN business_identifier bi\n  ON bi.entity_id = be.entity_id\n  AND bi.id_type = 'CORP_NUMBER'\nJOIN source s\n  ON s.source_key = 'corporations_canada_api'\nWHERE be.event_type = 'FEDERAL_INCORPORATION'\n  AND COALESCE(be.raw_value, '') != 'enrichment_attempted'\nLIMIT 50",
-        "options": {}
-      },
-      "id": "poll-federal-incorporations",
-      "name": "Poll FEDERAL_INCORPORATION Events",
-      "type": "n8n-nodes-base.postgres",
-      "typeVersion": 2.5,
-      "position": [460, 300],
-      "credentials": {
-        "postgres": {
-          "id": "pipeline-postgres",
-          "name": "Pipeline Postgres"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "options": {
-            "caseSensitive": true,
-            "leftValue": "",
-            "typeValidation": "strict"
-          },
-          "conditions": [
-            {
-              "id": "has-rows",
-              "leftValue": "={{ $json.corp_number }}",
-              "rightValue": "",
-              "operator": {
-                "type": "string",
-                "operation": "notEmpty"
-              }
-            }
-          ],
-          "combinator": "and"
-        },
-        "options": {}
-      },
-      "id": "has-pending-events",
-      "name": "Any Pending?",
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 2,
-      "position": [680, 300]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Collect all corp_numbers, event_ids, and source_id from the batch.\nconst items = $input.all();\nconst corpNumbers = items.map(i => i.json.corp_number).filter(Boolean);\nconst eventIds = items.map(i => i.json.event_id).filter(Boolean);\nconst sourceId = items[0]?.json?.source_id ?? null;\n// run_id is required by the schema; use a deterministic nil UUID for enrichment-triggered runs.\nconst runId = '00000000-0000-0000-0000-000000000000';\nreturn [{ json: { corp_numbers: corpNumbers, event_ids: eventIds, source_id: sourceId, run_id: runId } }];"
-      },
-      "id": "aggregate-corp-numbers",
-      "name": "Aggregate Batch",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [900, 220]
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "={{ $env.API_BASE_URL }}/enrich/directors",
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={{ JSON.stringify({ run_id: $json.run_id, source_id: $json.source_id, corp_numbers: $json.corp_numbers }) }}",
-        "options": {
-          "response": {
-            "response": {
-              "neverError": false
-            }
-          }
-        }
-      },
-      "id": "post-enrich-directors",
-      "name": "POST /enrich/directors",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [1120, 220]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Emit one item per event_id so the Postgres UPDATE node can process them individually.\nconst eventIds = $('Aggregate Batch').item.json.event_ids ?? [];\nreturn eventIds.map(id => ({ json: { event_id: id } }));"
-      },
-      "id": "split-event-ids",
-      "name": "Split Event IDs",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [1340, 220]
-    },
-    {
-      "parameters": {
-        "operation": "executeQuery",
-        "query": "UPDATE business_event SET raw_value = 'enrichment_attempted' WHERE event_id = '{{ $json.event_id }}'::uuid",
-        "options": {}
-      },
-      "id": "mark-enrichment-attempted",
-      "name": "Mark Event Attempted",
-      "type": "n8n-nodes-base.postgres",
-      "typeVersion": 2.5,
-      "position": [1560, 220],
-      "credentials": {
-        "postgres": {
-          "id": "pipeline-postgres",
-          "name": "Pipeline Postgres"
-        }
-      }
-    }
-  ],
-  "connections": {
-    "Poll Every 15 Min": {
-      "main": [
-        [{ "node": "Poll FEDERAL_INCORPORATION Events", "type": "main", "index": 0 }]
-      ]
-    },
-    "Poll FEDERAL_INCORPORATION Events": {
-      "main": [
-        [{ "node": "Any Pending?", "type": "main", "index": 0 }]
-      ]
-    },
-    "Any Pending?": {
-      "main": [
-        [{ "node": "Aggregate Batch", "type": "main", "index": 0 }]
-      ]
-    },
-    "Aggregate Batch": {
-      "main": [
-        [{ "node": "POST /enrich/directors", "type": "main", "index": 0 }]
-      ]
-    },
-    "POST /enrich/directors": {
-      "main": [
-        [{ "node": "Split Event IDs", "type": "main", "index": 0 }]
-      ]
-    },
-    "Split Event IDs": {
-      "main": [
-        [{ "node": "Mark Event Attempted", "type": "main", "index": 0 }]
-      ]
-    }
-  },
-  "settings": {
-    "executionOrder": "v1",
-    "saveManualExecutions": true,
-    "saveDataErrorExecution": "all",
-    "saveDataSuccessExecution": "all",
-    "saveExecutionProgress": true,
-    "maxConcurrency": 1
-  },
-  "staticData": null,
-  "meta": { "templateCredsSetupCompleted": true },
-  "pinData": {},
-  "versionId": "1",
-  "triggerCount": 0,
-  "tags": [
-    {
-      "createdAt": "2026-09-28T00:00:00.000Z",
-      "updatedAt": "2026-09-28T00:00:00.000Z",
-      "id": "enrichment",
-      "name": "enrichment"
-    }
-  ]
+    "name":  "enrich-directors",
+    "nodes":  [
+                  {
+                      "parameters":  {
+                                         "rule":  {
+                                                      "interval":  [
+                                                                       {
+                                                                           "field":  "cronExpression",
+                                                                           "expression":  "*/15 * * * *"
+                                                                       }
+                                                                   ]
+                                                  }
+                                     },
+                      "id":  "cron-enrich-directors",
+                      "name":  "Poll Every 15 Min",
+                      "type":  "n8n-nodes-base.scheduleTrigger",
+                      "typeVersion":  1,
+                      "position":  [
+                                       240,
+                                       300
+                                   ]
+                  },
+                  {
+                      "parameters":  {
+                                         "operation":  "executeQuery",
+                                         "query":  "SELECT\n  be.event_id::text,\n  be.entity_id::text,\n  bi.id_value AS corp_number,\n  s.source_id::text\nFROM business_event be\nJOIN business_identifier bi\n  ON bi.entity_id = be.entity_id\n  AND bi.id_type = \u0027CORP_NUMBER\u0027\nJOIN source s\n  ON s.source_key = \u0027corporations_canada_api\u0027\nWHERE be.event_type = \u0027FEDERAL_INCORPORATION\u0027\n  AND COALESCE(be.raw_value, \u0027\u0027) != \u0027enrichment_attempted\u0027\nLIMIT 50",
+                                         "options":  {
+
+                                                     }
+                                     },
+                      "id":  "poll-federal-incorporations",
+                      "name":  "Poll FEDERAL_INCORPORATION Events",
+                      "type":  "n8n-nodes-base.postgres",
+                      "typeVersion":  2.5,
+                      "position":  [
+                                       460,
+                                       300
+                                   ],
+                      "credentials":  {
+                                          "postgres":  {
+                                                           "id":  "pipeline-postgres",
+                                                           "name":  "Pipeline Postgres"
+                                                       }
+                                      }
+                  },
+                  {
+                      "parameters":  {
+                                         "conditions":  {
+                                                            "options":  {
+                                                                            "caseSensitive":  true,
+                                                                            "leftValue":  "",
+                                                                            "typeValidation":  "strict"
+                                                                        },
+                                                            "conditions":  [
+                                                                               {
+                                                                                   "id":  "has-rows",
+                                                                                   "leftValue":  "={{ $json.corp_number }}",
+                                                                                   "rightValue":  "",
+                                                                                   "operator":  {
+                                                                                                    "type":  "string",
+                                                                                                    "operation":  "notEmpty"
+                                                                                                }
+                                                                               }
+                                                                           ],
+                                                            "combinator":  "and"
+                                                        },
+                                         "options":  {
+
+                                                     }
+                                     },
+                      "id":  "has-pending-events",
+                      "name":  "Any Pending?",
+                      "type":  "n8n-nodes-base.if",
+                      "typeVersion":  2,
+                      "position":  [
+                                       680,
+                                       300
+                                   ]
+                  },
+                  {
+                      "parameters":  {
+                                         "jsCode":  "// Collect all corp_numbers, event_ids, and source_id from the batch.\nconst items = $input.all();\nconst corpNumbers = items.map(i =\u003e i.json.corp_number).filter(Boolean);\nconst eventIds = items.map(i =\u003e i.json.event_id).filter(Boolean);\nconst sourceId = items[0]?.json?.source_id ?? null;\n// run_id is required by the schema; use a deterministic nil UUID for enrichment-triggered runs.\nconst runId = \u002700000000-0000-0000-0000-000000000000\u0027;\nreturn [{ json: { corp_numbers: corpNumbers, event_ids: eventIds, source_id: sourceId, run_id: runId } }];"
+                                     },
+                      "id":  "aggregate-corp-numbers",
+                      "name":  "Aggregate Batch",
+                      "type":  "n8n-nodes-base.code",
+                      "typeVersion":  2,
+                      "position":  [
+                                       900,
+                                       220
+                                   ]
+                  },
+                  {
+                      "parameters":  {
+                                         "method":  "POST",
+                                         "url":  "={{ $env.API_BASE_URL }}/enrich/directors",
+                                         "sendBody":  true,
+                                         "specifyBody":  "json",
+                                         "jsonBody":  "={{ JSON.stringify({ run_id: $json.run_id, source_id: $json.source_id, corp_numbers: $json.corp_numbers }) }}",
+                                         "options":  {
+                                                         "response":  {
+                                                                          "response":  {
+                                                                                           "neverError":  false
+                                                                                       }
+                                                                      }
+                                                     }
+                                     },
+                      "id":  "post-enrich-directors",
+                      "name":  "POST /enrich/directors",
+                      "type":  "n8n-nodes-base.httpRequest",
+                      "typeVersion":  4.2,
+                      "position":  [
+                                       1120,
+                                       220
+                                   ]
+                  },
+                  {
+                      "parameters":  {
+                                         "jsCode":  "// Emit one item per event_id so the Postgres UPDATE node can process them individually.\nconst eventIds = $(\u0027Aggregate Batch\u0027).item.json.event_ids ?? [];\nreturn eventIds.map(id =\u003e ({ json: { event_id: id } }));"
+                                     },
+                      "id":  "split-event-ids",
+                      "name":  "Split Event IDs",
+                      "type":  "n8n-nodes-base.code",
+                      "typeVersion":  2,
+                      "position":  [
+                                       1340,
+                                       220
+                                   ]
+                  },
+                  {
+                      "parameters":  {
+                                         "operation":  "executeQuery",
+                                         "query":  "UPDATE business_event SET raw_value = \u0027enrichment_attempted\u0027 WHERE event_id = \u0027{{ $json.event_id }}\u0027::uuid",
+                                         "options":  {
+
+                                                     }
+                                     },
+                      "id":  "mark-enrichment-attempted",
+                      "name":  "Mark Event Attempted",
+                      "type":  "n8n-nodes-base.postgres",
+                      "typeVersion":  2.5,
+                      "position":  [
+                                       1560,
+                                       220
+                                   ],
+                      "credentials":  {
+                                          "postgres":  {
+                                                           "id":  "pipeline-postgres",
+                                                           "name":  "Pipeline Postgres"
+                                                       }
+                                      }
+                  }
+              ],
+    "connections":  {
+                        "Poll Every 15 Min":  {
+                                                  "main":  [
+                                                               [
+                                                                   {
+                                                                       "node":  "Poll FEDERAL_INCORPORATION Events",
+                                                                       "type":  "main",
+                                                                       "index":  0
+                                                                   }
+                                                               ]
+                                                           ]
+                                              },
+                        "Poll FEDERAL_INCORPORATION Events":  {
+                                                                  "main":  [
+                                                                               [
+                                                                                   {
+                                                                                       "node":  "Any Pending?",
+                                                                                       "type":  "main",
+                                                                                       "index":  0
+                                                                                   }
+                                                                               ]
+                                                                           ]
+                                                              },
+                        "Any Pending?":  {
+                                             "main":  [
+                                                          [
+                                                              {
+                                                                  "node":  "Aggregate Batch",
+                                                                  "type":  "main",
+                                                                  "index":  0
+                                                              }
+                                                          ]
+                                                      ]
+                                         },
+                        "Aggregate Batch":  {
+                                                "main":  [
+                                                             [
+                                                                 {
+                                                                     "node":  "POST /enrich/directors",
+                                                                     "type":  "main",
+                                                                     "index":  0
+                                                                 }
+                                                             ]
+                                                         ]
+                                            },
+                        "POST /enrich/directors":  {
+                                                       "main":  [
+                                                                    [
+                                                                        {
+                                                                            "node":  "Split Event IDs",
+                                                                            "type":  "main",
+                                                                            "index":  0
+                                                                        }
+                                                                    ]
+                                                                ]
+                                                   },
+                        "Split Event IDs":  {
+                                                "main":  [
+                                                             [
+                                                                 {
+                                                                     "node":  "Mark Event Attempted",
+                                                                     "type":  "main",
+                                                                     "index":  0
+                                                                 }
+                                                             ]
+                                                         ]
+                                            }
+                    },
+    "settings":  {
+                     "executionOrder":  "v1",
+                     "saveManualExecutions":  true,
+                     "saveDataErrorExecution":  "all",
+                     "saveDataSuccessExecution":  "all",
+                     "saveExecutionProgress":  true,
+                     "maxConcurrency":  1
+                 },
+    "staticData":  null,
+    "meta":  {
+                 "templateCredsSetupCompleted":  true
+             },
+    "pinData":  {
+
+                },
+    "versionId":  "1",
+    "triggerCount":  0,
+    "tags":  [
+                 {
+                     "createdAt":  "2026-09-28T00:00:00.000Z",
+                     "updatedAt":  "2026-09-28T00:00:00.000Z",
+                     "id":  "enrichment",
+                     "name":  "enrichment"
+                 }
+             ],
+    "active":  false
 }

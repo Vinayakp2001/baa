@@ -1,128 +1,167 @@
 {
-  "name": "enrich-orgbook",
-  "nodes": [
-    {
-      "parameters": {
-        "rule": {
-          "interval": [
-            {
-              "field": "cronExpression",
-              "expression": "*/20 * * * *"
-            }
-          ]
-        }
-      },
-      "id": "cron-enrich-orgbook",
-      "name": "Poll Every 20 Min",
-      "type": "n8n-nodes-base.scheduleTrigger",
-      "typeVersion": 1.1,
-      "position": [240, 300]
-    },
-    {
-      "parameters": {
-        "operation": "executeQuery",
-        "query": "SELECT\n  b.entity_id::text,\n  b.canonical_name AS business_name,\n  bi.id_value AS bc_reg_id,\n  s.source_id::text\nFROM business b\nJOIN source s ON s.source_key = 'bc_orgbook'\nLEFT JOIN business_identifier bi\n  ON bi.entity_id = b.entity_id\n  AND bi.id_type = 'BC_REG_ID'\nWHERE b.province = 'BC'\n  AND NOT EXISTS (\n    SELECT 1 FROM field_observation fo\n    WHERE fo.entity_id = b.entity_id\n      AND fo.field_name = 'legal_name'\n      AND fo.is_current = true\n      AND fo.enrichment_source = 'bc_orgbook'\n  )\n  AND (bi.id_value IS NOT NULL OR b.canonical_name IS NOT NULL)\nLIMIT 25",
-        "options": {}
-      },
-      "id": "poll-bc-entities",
-      "name": "Poll BC Entities (unenriched)",
-      "type": "n8n-nodes-base.postgres",
-      "typeVersion": 2.5,
-      "position": [460, 300],
-      "credentials": {
-        "postgres": {
-          "id": "pipeline-postgres",
-          "name": "Pipeline Postgres"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "options": {
-            "caseSensitive": true,
-            "leftValue": "",
-            "typeValidation": "strict"
-          },
-          "conditions": [
-            {
-              "id": "has-entity",
-              "leftValue": "={{ $json.entity_id }}",
-              "rightValue": "",
-              "operator": {
-                "type": "string",
-                "operation": "notEmpty"
-              }
-            }
-          ],
-          "combinator": "and"
-        },
-        "options": {}
-      },
-      "id": "has-pending",
-      "name": "Any Pending?",
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 2,
-      "position": [680, 300]
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "={{ $env.API_BASE_URL }}/enrich/orgbook",
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={{ JSON.stringify({\n  run_id: '00000000-0000-0000-0000-000000000000',\n  source_id: $json.source_id,\n  entity_id: $json.entity_id,\n  bc_reg_id: $json.bc_reg_id || null,\n  business_name: $json.bc_reg_id ? null : $json.business_name\n}) }}",
-        "options": {
-          "response": {
-            "response": {
-              "neverError": false
-            }
-          }
-        }
-      },
-      "id": "post-enrich-orgbook",
-      "name": "POST /enrich/orgbook",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [900, 220]
-    }
-  ],
-  "connections": {
-    "Poll Every 20 Min": {
-      "main": [
-        [{ "node": "Poll BC Entities (unenriched)", "type": "main", "index": 0 }]
-      ]
-    },
-    "Poll BC Entities (unenriched)": {
-      "main": [
-        [{ "node": "Any Pending?", "type": "main", "index": 0 }]
-      ]
-    },
-    "Any Pending?": {
-      "main": [
-        [{ "node": "POST /enrich/orgbook", "type": "main", "index": 0 }]
-      ]
-    }
-  },
-  "settings": {
-    "executionOrder": "v1",
-    "saveManualExecutions": true,
-    "saveDataErrorExecution": "all",
-    "saveDataSuccessExecution": "all",
-    "saveExecutionProgress": true,
-    "maxConcurrency": 1
-  },
-  "staticData": null,
-  "meta": { "templateCredsSetupCompleted": true },
-  "pinData": {},
-  "versionId": "1",
-  "triggerCount": 0,
-  "tags": [
-    {
-      "createdAt": "2026-09-28T00:00:00.000Z",
-      "updatedAt": "2026-09-28T00:00:00.000Z",
-      "id": "enrichment",
-      "name": "enrichment"
-    }
-  ]
+    "name":  "enrich-orgbook",
+    "nodes":  [
+                  {
+                      "parameters":  {
+                                         "rule":  {
+                                                      "interval":  [
+                                                                       {
+                                                                           "field":  "cronExpression",
+                                                                           "expression":  "*/20 * * * *"
+                                                                       }
+                                                                   ]
+                                                  }
+                                     },
+                      "id":  "cron-enrich-orgbook",
+                      "name":  "Poll Every 20 Min",
+                      "type":  "n8n-nodes-base.scheduleTrigger",
+                      "typeVersion":  1,
+                      "position":  [
+                                       240,
+                                       300
+                                   ]
+                  },
+                  {
+                      "parameters":  {
+                                         "operation":  "executeQuery",
+                                         "query":  "SELECT\n  b.entity_id::text,\n  b.canonical_name AS business_name,\n  bi.id_value AS bc_reg_id,\n  s.source_id::text\nFROM business b\nJOIN source s ON s.source_key = \u0027bc_orgbook\u0027\nLEFT JOIN business_identifier bi\n  ON bi.entity_id = b.entity_id\n  AND bi.id_type = \u0027BC_REG_ID\u0027\nWHERE b.province = \u0027BC\u0027\n  AND NOT EXISTS (\n    SELECT 1 FROM field_observation fo\n    WHERE fo.entity_id = b.entity_id\n      AND fo.field_name = \u0027legal_name\u0027\n      AND fo.is_current = true\n      AND fo.enrichment_source = \u0027bc_orgbook\u0027\n  )\n  AND (bi.id_value IS NOT NULL OR b.canonical_name IS NOT NULL)\nLIMIT 25",
+                                         "options":  {
+
+                                                     }
+                                     },
+                      "id":  "poll-bc-entities",
+                      "name":  "Poll BC Entities (unenriched)",
+                      "type":  "n8n-nodes-base.postgres",
+                      "typeVersion":  2.5,
+                      "position":  [
+                                       460,
+                                       300
+                                   ],
+                      "credentials":  {
+                                          "postgres":  {
+                                                           "id":  "pipeline-postgres",
+                                                           "name":  "Pipeline Postgres"
+                                                       }
+                                      }
+                  },
+                  {
+                      "parameters":  {
+                                         "conditions":  {
+                                                            "options":  {
+                                                                            "caseSensitive":  true,
+                                                                            "leftValue":  "",
+                                                                            "typeValidation":  "strict"
+                                                                        },
+                                                            "conditions":  [
+                                                                               {
+                                                                                   "id":  "has-entity",
+                                                                                   "leftValue":  "={{ $json.entity_id }}",
+                                                                                   "rightValue":  "",
+                                                                                   "operator":  {
+                                                                                                    "type":  "string",
+                                                                                                    "operation":  "notEmpty"
+                                                                                                }
+                                                                               }
+                                                                           ],
+                                                            "combinator":  "and"
+                                                        },
+                                         "options":  {
+
+                                                     }
+                                     },
+                      "id":  "has-pending",
+                      "name":  "Any Pending?",
+                      "type":  "n8n-nodes-base.if",
+                      "typeVersion":  2,
+                      "position":  [
+                                       680,
+                                       300
+                                   ]
+                  },
+                  {
+                      "parameters":  {
+                                         "method":  "POST",
+                                         "url":  "={{ $env.API_BASE_URL }}/enrich/orgbook",
+                                         "sendBody":  true,
+                                         "specifyBody":  "json",
+                                         "jsonBody":  "={{ JSON.stringify({\n  run_id: \u002700000000-0000-0000-0000-000000000000\u0027,\n  source_id: $json.source_id,\n  entity_id: $json.entity_id,\n  bc_reg_id: $json.bc_reg_id || null,\n  business_name: $json.bc_reg_id ? null : $json.business_name\n}) }}",
+                                         "options":  {
+                                                         "response":  {
+                                                                          "response":  {
+                                                                                           "neverError":  false
+                                                                                       }
+                                                                      }
+                                                     }
+                                     },
+                      "id":  "post-enrich-orgbook",
+                      "name":  "POST /enrich/orgbook",
+                      "type":  "n8n-nodes-base.httpRequest",
+                      "typeVersion":  4.2,
+                      "position":  [
+                                       900,
+                                       220
+                                   ]
+                  }
+              ],
+    "connections":  {
+                        "Poll Every 20 Min":  {
+                                                  "main":  [
+                                                               [
+                                                                   {
+                                                                       "node":  "Poll BC Entities (unenriched)",
+                                                                       "type":  "main",
+                                                                       "index":  0
+                                                                   }
+                                                               ]
+                                                           ]
+                                              },
+                        "Poll BC Entities (unenriched)":  {
+                                                              "main":  [
+                                                                           [
+                                                                               {
+                                                                                   "node":  "Any Pending?",
+                                                                                   "type":  "main",
+                                                                                   "index":  0
+                                                                               }
+                                                                           ]
+                                                                       ]
+                                                          },
+                        "Any Pending?":  {
+                                             "main":  [
+                                                          [
+                                                              {
+                                                                  "node":  "POST /enrich/orgbook",
+                                                                  "type":  "main",
+                                                                  "index":  0
+                                                              }
+                                                          ]
+                                                      ]
+                                         }
+                    },
+    "settings":  {
+                     "executionOrder":  "v1",
+                     "saveManualExecutions":  true,
+                     "saveDataErrorExecution":  "all",
+                     "saveDataSuccessExecution":  "all",
+                     "saveExecutionProgress":  true,
+                     "maxConcurrency":  1
+                 },
+    "staticData":  null,
+    "meta":  {
+                 "templateCredsSetupCompleted":  true
+             },
+    "pinData":  {
+
+                },
+    "versionId":  "1",
+    "triggerCount":  0,
+    "tags":  [
+                 {
+                     "createdAt":  "2026-09-28T00:00:00.000Z",
+                     "updatedAt":  "2026-09-28T00:00:00.000Z",
+                     "id":  "enrichment",
+                     "name":  "enrichment"
+                 }
+             ],
+    "active":  false
 }

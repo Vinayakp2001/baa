@@ -54,8 +54,9 @@ def normalise_record(record: RawRecord) -> NormalisedRecord:
 
     # --- Name ---
     legal_raw = _first(p, "corporate_name_form_1", "legal_name", "company_name", "name",
-                       "business_name", "canonical_name")
-    trade_raw = _first(p, "tradename", "trade_name", "dba", "operating_name")
+                       "business_name", "businessname", "canonical_name")
+    trade_raw = _first(p, "tradename", "trade_name", "dba", "operating_name",
+                       "businesstradename", "business_trade_name")
     name_r = normalise_business_name(legal_name=legal_raw, trade_name=trade_raw)
     name_out = NormalisedName(
         raw_legal_name=name_r.raw_legal_name,

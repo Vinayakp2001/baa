@@ -118,6 +118,7 @@ async def resolve(
                 source_id=source_id,
                 ingestion_run_id=body.run_id,
                 db=db,
+                source_record_row=source_record if run_only else None,
             )
         except Exception as exc:
             logger.error(
@@ -169,6 +170,7 @@ async def resolve(
             for source_record in source_records:
                 await process_record(NormalisedRecord.model_validate(source_record.normalised_payload))
             last_record_id = source_records[-1].record_id
+            await db.commit()
     else:
         for norm_record in body.records:
             await process_record(norm_record)
@@ -197,16 +199,17 @@ async def _resolve_single(
     source_id: uuid.UUID,
     ingestion_run_id: uuid.UUID,
     db: AsyncSession,
+    source_record_row: SourceRecord | None = None,
 ) -> ResolutionResult:
     """Resolve a single NormalisedRecord through the full pipeline."""
 
-    # Fetch the source_record DB row (must exist — ingestion stores it before normalise)
-    stmt = select(SourceRecord).where(
-        SourceRecord.source_record_id == record.source_record_id,
-        SourceRecord.ingestion_run_id == ingestion_run_id,
-    )
-    result = await db.execute(stmt)
-    source_record_row = result.scalar_one_or_none()
+    if source_record_row is None:
+        stmt = select(SourceRecord).where(
+            SourceRecord.source_record_id == record.source_record_id,
+            SourceRecord.ingestion_run_id == ingestion_run_id,
+        )
+        result = await db.execute(stmt)
+        source_record_row = result.scalars().first()
 
     if source_record_row is None:
         # Synthesise a minimal row so resolution can proceed without blocking

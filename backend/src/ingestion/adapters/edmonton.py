@@ -13,6 +13,7 @@ from __future__ import annotations
 import csv
 import hashlib
 import io
+import json
 import uuid
 from datetime import datetime, timezone
 from urllib.parse import urlencode
@@ -24,7 +25,7 @@ from ..contracts import RawArtifact, RawRecord, SourceGrain, SourceMetadata, Val
 _SOURCE_KEY = "edmonton"
 
 # Socrata CSV endpoint for Edmonton Business Licences
-_BASE_URL = "https://data.edmonton.ca/resource/etps-ieqb.csv"
+_BASE_URL = "https://data.edmonton.ca/resource/qhi4-bdpu.csv"
 
 _REQUIRED_FIELDS = {"business_name"}
 
@@ -51,7 +52,7 @@ class EdmontonAdapter(SourceAdapter):
 
         params: dict[str, str | int] = {"$limit": self._page_size}
         if since is not None:
-            params["$where"] = f"original_issue_date >= '{since.strftime('%Y-%m-%dT%H:%M:%S')}'"
+            params["$where"] = f"originalissuedate >= '{since.strftime('%Y-%m-%dT%H:%M:%S')}'"
 
         url = f"{self._base_url}?{urlencode(params)}"
         raw, http_status, content_type = fetch_bytes(url, source_key=_SOURCE_KEY)
@@ -76,15 +77,23 @@ class EdmontonAdapter(SourceAdapter):
             raise SourceParseError(_SOURCE_KEY, f"CSV parse failed: {exc}") from exc
 
         records: list[RawRecord] = []
+        row_occurrences: dict[str, int] = {}
         for row in rows:
             cleaned = {k.strip().lower(): (v.strip() if v else "") for k, v in row.items()}
 
-            record_id = (
-                cleaned.get("licence_number")
+            licence_id = (
+                cleaned.get("externalid")
+                or cleaned.get("external_id")
+                or cleaned.get("licence_number")
                 or cleaned.get("license_number")
                 or cleaned.get("licencenumber")
-                or hashlib.sha256(str(cleaned).encode()).hexdigest()[:32]
             )
+            row_hash = hashlib.sha256(
+                json.dumps(cleaned, sort_keys=True, separators=(",", ":")).encode("utf-8")
+            ).hexdigest()
+            occurrence = row_occurrences.get(row_hash, 0) + 1
+            row_occurrences[row_hash] = occurrence
+            record_id = f"{licence_id or 'row'}:{row_hash}:{occurrence}"
 
             records.append(
                 RawRecord(

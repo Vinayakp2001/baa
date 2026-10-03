@@ -110,6 +110,7 @@ async def _write_field_observations(
     ingestion_run_id: uuid.UUID,
     confidence: MatchConfidence | None,
     db: AsyncSession,
+    expire_current: bool = True,
 ) -> int:
     """Write a field_observation row for every non-null field in the record.
 
@@ -127,16 +128,16 @@ async def _write_field_observations(
         if raw_value is None and normalised_value is None:
             continue
 
-        # Expire prior current observations for this entity+field (Req 2.6)
-        await db.execute(
-            update(FieldObservation)
-            .where(
-                FieldObservation.entity_id == entity_id,
-                FieldObservation.field_name == field_name,
-                FieldObservation.is_current.is_(True),
+        if expire_current:
+            await db.execute(
+                update(FieldObservation)
+                .where(
+                    FieldObservation.entity_id == entity_id,
+                    FieldObservation.field_name == field_name,
+                    FieldObservation.is_current.is_(True),
+                )
+                .values(is_current=False)
             )
-            .values(is_current=False)
-        )
 
         obs = FieldObservation(
             entity_id=entity_id,
@@ -194,6 +195,14 @@ async def _add_identifiers(
     bn = extra.get("business_number_bn") or extra.get("bn") or extra.get("business_number")
     if bn:
         id_pairs.append(("BN", str(bn).strip()))
+
+    source_licence_id = (
+        extra.get("externalid") or extra.get("external_id")
+        if record.source_key == "edmonton"
+        else None
+    )
+    if source_licence_id:
+        id_pairs.append(("LICENCE_ID", str(source_licence_id).strip()))
 
     if record.source_record_id:
         id_pairs.append(("LICENCE_ID", str(record.source_record_id).strip()))
@@ -369,6 +378,7 @@ async def queue_medium_confidence(
         ingestion_run_id=ingestion_run_id,
         confidence=MatchConfidence.MEDIUM,
         db=db,
+        expire_current=False,
     )
 
     logger.info(
@@ -427,6 +437,7 @@ async def create_with_low_confidence_candidate(
         ingestion_run_id=ingestion_run_id,
         confidence=MatchConfidence.LOW,
         db=db,
+        expire_current=False,
     )
 
     logger.info(
@@ -471,6 +482,7 @@ async def create_new_entity(
         ingestion_run_id=ingestion_run_id,
         confidence=None,
         db=db,
+        expire_current=False,
     )
 
     logger.info("entity_created_new", entity_id=str(new_entity_id))

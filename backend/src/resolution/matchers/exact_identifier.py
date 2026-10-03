@@ -54,6 +54,18 @@ async def match_exact_identifier(
 
     # 5.1c — source licence ID within the same source
     # The source_record_id is the source-provided licence/record identifier
+    source_licence_id = (
+        extra.get("externalid") or extra.get("external_id")
+        if record.source_key == "edmonton"
+        else None
+    )
+    if source_licence_id:
+        candidates.append((
+            "LICENCE_ID",
+            str(source_licence_id).strip(),
+            "exact_licence_id_same_source",
+        ))
+
     if record.source_record_id:
         candidates.append((
             "LICENCE_ID",

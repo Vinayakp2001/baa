@@ -1,431 +1,480 @@
 {
-  "name": "ingest-source",
-  "nodes": [
-    {
-      "parameters": {},
-      "id": "execute-workflow-trigger",
-      "name": "When Executed by Another Workflow",
-      "type": "n8n-nodes-base.executeWorkflowTrigger",
-      "typeVersion": 1.1,
-      "position": [240, 300]
-    },
-    {
-      "parameters": {
-        "operation": "executeQuery",
-        "query": "SELECT source_id, source_key, source_name, adapter_class, schedule_cron, base_url, rate_limit_rpm, terms_status, is_enabled FROM source WHERE source_key = '{{ $json.source_key }}' AND is_enabled = true LIMIT 1",
-        "options": {}
-      },
-      "id": "read-source-config",
-      "name": "Read Source Config",
-      "type": "n8n-nodes-base.postgres",
-      "typeVersion": 2.5,
-      "position": [460, 300],
-      "credentials": {
-        "postgres": {
-          "id": "pipeline-postgres",
-          "name": "Pipeline Postgres"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "options": {
-            "caseSensitive": true,
-            "leftValue": "",
-            "typeValidation": "strict"
-          },
-          "conditions": [
-            {
-              "id": "check-enabled",
-              "leftValue": "={{ $json.is_enabled }}",
-              "rightValue": true,
-              "operator": {
-                "type": "boolean",
-                "operation": "equals"
-              }
-            }
-          ],
-          "combinator": "and"
-        },
-        "options": {}
-      },
-      "id": "check-source-enabled",
-      "name": "Source Enabled?",
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 2,
-      "position": [680, 300]
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "={{ $env.API_BASE_URL }}/ingestion/start",
-        "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "source_key",
-              "value": "={{ $('Read Source Config').item.json.source_key }}"
-            },
-            {
-              "name": "source_url",
-              "value": "={{ $('Read Source Config').item.json.base_url }}"
-            },
-            {
-              "name": "retrieval_timestamp",
-              "value": "={{ new Date().toISOString() }}"
-            }
-          ]
-        },
-        "options": {
-          "response": {
-            "response": {
-              "neverError": false
-            }
-          }
-        }
-      },
-      "id": "ingestion-start",
-      "name": "POST /ingestion/start",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [900, 220]
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "={{ $env.API_BASE_URL }}/ingestion/fetch",
-        "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "run_id",
-              "value": "={{ $('POST /ingestion/start').item.json.run_id }}"
-            },
-            {
-              "name": "source_key",
-              "value": "={{ $('Read Source Config').item.json.source_key }}"
-            }
-          ]
-        },
-        "options": {
-          "response": {
-            "response": {
-              "neverError": false
-            }
-          }
-        }
-      },
-      "id": "ingestion-fetch",
-      "name": "POST /ingestion/fetch",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [1120, 220]
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "={{ $env.API_BASE_URL }}/normalise",
-        "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "run_id",
-              "value": "={{ $('POST /ingestion/start').item.json.run_id }}"
-            },
-            {
-              "name": "source_key",
-              "value": "={{ $('Read Source Config').item.json.source_key }}"
-            }
-          ]
-        },
-        "options": {
-          "response": {
-            "response": {
-              "neverError": false
-            }
-          }
-        }
-      },
-      "id": "normalise",
-      "name": "POST /normalise",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [1340, 220]
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "={{ $env.API_BASE_URL }}/resolve",
-        "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "run_id",
-              "value": "={{ $('POST /ingestion/start').item.json.run_id }}"
-            },
-            {
-              "name": "source_key",
-              "value": "={{ $('Read Source Config').item.json.source_key }}"
-            }
-          ]
-        },
-        "options": {
-          "response": {
-            "response": {
-              "neverError": false
-            }
-          }
-        }
-      },
-      "id": "resolve",
-      "name": "POST /resolve",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [1560, 220]
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "={{ $env.API_BASE_URL }}/events/detect",
-        "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "ingestion_run_id",
-              "value": "={{ $('POST /ingestion/start').item.json.run_id }}"
-            }
-          ]
-        },
-        "options": {
-          "response": {
-            "response": {
-              "neverError": false
-            }
-          }
-        }
-      },
-      "id": "events-detect",
-      "name": "POST /events/detect",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [1780, 220]
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "={{ $env.API_BASE_URL }}/quality/score",
-        "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "ingestion_run_id",
-              "value": "={{ $('POST /ingestion/start').item.json.run_id }}"
-            }
-          ]
-        },
-        "options": {
-          "response": {
-            "response": {
-              "neverError": false
-            }
-          }
-        }
-      },
-      "id": "quality-score",
-      "name": "POST /quality/score",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [2000, 220]
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "={{ $env.API_BASE_URL }}/ingestion/complete",
-        "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "run_id",
-              "value": "={{ $('POST /ingestion/start').item.json.run_id }}"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "ingestion-complete",
-      "name": "POST /ingestion/complete",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [2220, 220]
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "={{ $env.API_BASE_URL }}/ingestion/fail",
-        "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "run_id",
-              "value": "={{ $('POST /ingestion/start').item.json.run_id }}"
-            },
-            {
-              "name": "error_message",
-              "value": "={{ $json.message ?? JSON.stringify($json) }}"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "ingestion-fail",
-      "name": "POST /ingestion/fail",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [1560, 480]
-    },
-    {
-      "parameters": {
-        "errorMessage": "Source not enabled or not found: {{ $json.source_key }}"
-      },
-      "id": "source-disabled-stop",
-      "name": "Source Disabled — Stop",
-      "type": "n8n-nodes-base.stopAndError",
-      "typeVersion": 1,
-      "position": [900, 420]
-    }
-  ],
-  "connections": {
-    "When Executed by Another Workflow": {
-      "main": [
-        [
-          {
-            "node": "Read Source Config",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Read Source Config": {
-      "main": [
-        [
-          {
-            "node": "Source Enabled?",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Source Enabled?": {
-      "main": [
-        [
-          {
-            "node": "POST /ingestion/start",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Source Disabled — Stop",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "POST /ingestion/start": {
-      "main": [
-        [
-          {
-            "node": "POST /ingestion/fetch",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "POST /ingestion/fetch": {
-      "main": [
-        [
-          {
-            "node": "POST /normalise",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "POST /normalise": {
-      "main": [
-        [
-          {
-            "node": "POST /resolve",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "POST /resolve": {
-      "main": [
-        [
-          {
-            "node": "POST /events/detect",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "POST /events/detect": {
-      "main": [
-        [
-          {
-            "node": "POST /quality/score",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "POST /quality/score": {
-      "main": [
-        [
-          {
-            "node": "POST /ingestion/complete",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    }
-  },
-  "settings": {
-    "executionOrder": "v1",
-    "saveManualExecutions": true,
-    "callerPolicy": "workflowsFromSameOwner",
-    "errorWorkflow": "ingest-source-error-handler",
-    "saveDataErrorExecution": "all",
-    "saveDataSuccessExecution": "all",
-    "saveExecutionProgress": true,
-    "maxConcurrency": 1
-  },
-  "staticData": null,
-  "meta": {
-    "templateCredsSetupCompleted": true
-  },
-  "pinData": {},
-  "versionId": "1",
-  "triggerCount": 0,
-  "tags": [
-    {
-      "createdAt": "2026-09-28T00:00:00.000Z",
-      "updatedAt": "2026-09-28T00:00:00.000Z",
-      "id": "ingestion",
-      "name": "ingestion"
-    }
-  ]
+    "name":  "ingest-source",
+    "nodes":  [
+                  {
+                      "parameters":  {
+
+                                     },
+                      "id":  "execute-workflow-trigger",
+                      "name":  "When Executed by Another Workflow",
+                      "type":  "n8n-nodes-base.executeWorkflowTrigger",
+                      "typeVersion":  1,
+                      "position":  [
+                                       240,
+                                       300
+                                   ]
+                  },
+                  {
+                      "parameters":  {
+                                         "operation":  "executeQuery",
+                                         "query":  "SELECT source_id, source_key, source_name, adapter_class, schedule_cron, base_url, rate_limit_rpm, terms_status, is_enabled FROM source WHERE source_key = \u0027{{ $json.source_key }}\u0027 AND is_enabled = true LIMIT 1",
+                                         "options":  {
+
+                                                     }
+                                     },
+                      "id":  "read-source-config",
+                      "name":  "Read Source Config",
+                      "type":  "n8n-nodes-base.postgres",
+                      "typeVersion":  2.5,
+                      "position":  [
+                                       460,
+                                       300
+                                   ],
+                      "credentials":  {
+                                          "postgres":  {
+                                                           "id":  "pipeline-postgres",
+                                                           "name":  "Pipeline Postgres"
+                                                       }
+                                      }
+                  },
+                  {
+                      "parameters":  {
+                                         "conditions":  {
+                                                            "options":  {
+                                                                            "caseSensitive":  true,
+                                                                            "leftValue":  "",
+                                                                            "typeValidation":  "strict"
+                                                                        },
+                                                            "conditions":  [
+                                                                               {
+                                                                                   "id":  "check-enabled",
+                                                                                   "leftValue":  "={{ $json.is_enabled }}",
+                                                                                   "rightValue":  true,
+                                                                                   "operator":  {
+                                                                                                    "type":  "boolean",
+                                                                                                    "operation":  "equals"
+                                                                                                }
+                                                                               }
+                                                                           ],
+                                                            "combinator":  "and"
+                                                        },
+                                         "options":  {
+
+                                                     }
+                                     },
+                      "id":  "check-source-enabled",
+                      "name":  "Source Enabled?",
+                      "type":  "n8n-nodes-base.if",
+                      "typeVersion":  2,
+                      "position":  [
+                                       680,
+                                       300
+                                   ]
+                  },
+                  {
+                      "parameters":  {
+                                         "method":  "POST",
+                                         "url":  "={{ $env.API_BASE_URL }}/ingestion/start",
+                                         "sendBody":  true,
+                                         "bodyParameters":  {
+                                                                "parameters":  [
+                                                                                   {
+                                                                                       "name":  "source_key",
+                                                                                       "value":  "={{ $(\u0027Read Source Config\u0027).item.json.source_key }}"
+                                                                                   },
+                                                                                   {
+                                                                                       "name":  "source_url",
+                                                                                       "value":  "={{ $(\u0027Read Source Config\u0027).item.json.base_url }}"
+                                                                                   },
+                                                                                   {
+                                                                                       "name":  "retrieval_timestamp",
+                                                                                       "value":  "={{ new Date().toISOString() }}"
+                                                                                   }
+                                                                               ]
+                                                            },
+                                         "options":  {
+                                                         "response":  {
+                                                                          "response":  {
+                                                                                           "neverError":  false
+                                                                                       }
+                                                                      }
+                                                     }
+                                     },
+                      "id":  "ingestion-start",
+                      "name":  "POST /ingestion/start",
+                      "type":  "n8n-nodes-base.httpRequest",
+                      "typeVersion":  4.2,
+                      "position":  [
+                                       900,
+                                       220
+                                   ]
+                  },
+                  {
+                      "parameters":  {
+                                         "method":  "POST",
+                                         "url":  "={{ $env.API_BASE_URL }}/ingestion/fetch",
+                                         "sendBody":  true,
+                                         "bodyParameters":  {
+                                                                "parameters":  [
+                                                                                   {
+                                                                                       "name":  "run_id",
+                                                                                       "value":  "={{ $(\u0027POST /ingestion/start\u0027).item.json.run_id }}"
+                                                                                   },
+                                                                                   {
+                                                                                       "name":  "source_key",
+                                                                                       "value":  "={{ $(\u0027Read Source Config\u0027).item.json.source_key }}"
+                                                                                   }
+                                                                               ]
+                                                            },
+                                         "options":  {
+                                                         "response":  {
+                                                                          "response":  {
+                                                                                           "neverError":  false
+                                                                                       }
+                                                                      }
+                                                     }
+                                     },
+                      "id":  "ingestion-fetch",
+                      "name":  "POST /ingestion/fetch",
+                      "type":  "n8n-nodes-base.httpRequest",
+                      "typeVersion":  4.2,
+                      "position":  [
+                                       1120,
+                                       220
+                                   ]
+                  },
+                  {
+                      "parameters":  {
+                                         "method":  "POST",
+                                         "url":  "={{ $env.API_BASE_URL }}/normalise",
+                                         "sendBody":  true,
+                                         "bodyParameters":  {
+                                                                "parameters":  [
+                                                                                   {
+                                                                                       "name":  "run_id",
+                                                                                       "value":  "={{ $(\u0027POST /ingestion/start\u0027).item.json.run_id }}"
+                                                                                   },
+                                                                                   {
+                                                                                       "name":  "source_key",
+                                                                                       "value":  "={{ $(\u0027Read Source Config\u0027).item.json.source_key }}"
+                                                                                   }
+                                                                               ]
+                                                            },
+                                         "options":  {
+                                                         "response":  {
+                                                                          "response":  {
+                                                                                           "neverError":  false
+                                                                                       }
+                                                                      }
+                                                     }
+                                     },
+                      "id":  "normalise",
+                      "name":  "POST /normalise",
+                      "type":  "n8n-nodes-base.httpRequest",
+                      "typeVersion":  4.2,
+                      "position":  [
+                                       1340,
+                                       220
+                                   ]
+                  },
+                  {
+                      "parameters":  {
+                                         "method":  "POST",
+                                         "url":  "={{ $env.API_BASE_URL }}/resolve",
+                                         "sendBody":  true,
+                                         "bodyParameters":  {
+                                                                "parameters":  [
+                                                                                   {
+                                                                                       "name":  "run_id",
+                                                                                       "value":  "={{ $(\u0027POST /ingestion/start\u0027).item.json.run_id }}"
+                                                                                   },
+                                                                                   {
+                                                                                       "name":  "source_key",
+                                                                                       "value":  "={{ $(\u0027Read Source Config\u0027).item.json.source_key }}"
+                                                                                   }
+                                                                               ]
+                                                            },
+                                         "options":  {
+                                                         "response":  {
+                                                                          "response":  {
+                                                                                           "neverError":  false
+                                                                                       }
+                                                                      }
+                                                     }
+                                     },
+                      "id":  "resolve",
+                      "name":  "POST /resolve",
+                      "type":  "n8n-nodes-base.httpRequest",
+                      "typeVersion":  4.2,
+                      "position":  [
+                                       1560,
+                                       220
+                                   ]
+                  },
+                  {
+                      "parameters":  {
+                                         "method":  "POST",
+                                         "url":  "={{ $env.API_BASE_URL }}/events/detect",
+                                         "sendBody":  true,
+                                         "bodyParameters":  {
+                                                                "parameters":  [
+                                                                                   {
+                                                                                       "name":  "ingestion_run_id",
+                                                                                       "value":  "={{ $(\u0027POST /ingestion/start\u0027).item.json.run_id }}"
+                                                                                   }
+                                                                               ]
+                                                            },
+                                         "options":  {
+                                                         "response":  {
+                                                                          "response":  {
+                                                                                           "neverError":  false
+                                                                                       }
+                                                                      }
+                                                     }
+                                     },
+                      "id":  "events-detect",
+                      "name":  "POST /events/detect",
+                      "type":  "n8n-nodes-base.httpRequest",
+                      "typeVersion":  4.2,
+                      "position":  [
+                                       1780,
+                                       220
+                                   ]
+                  },
+                  {
+                      "parameters":  {
+                                         "method":  "POST",
+                                         "url":  "={{ $env.API_BASE_URL }}/quality/score",
+                                         "sendBody":  true,
+                                         "bodyParameters":  {
+                                                                "parameters":  [
+                                                                                   {
+                                                                                       "name":  "ingestion_run_id",
+                                                                                       "value":  "={{ $(\u0027POST /ingestion/start\u0027).item.json.run_id }}"
+                                                                                   }
+                                                                               ]
+                                                            },
+                                         "options":  {
+                                                         "response":  {
+                                                                          "response":  {
+                                                                                           "neverError":  false
+                                                                                       }
+                                                                      }
+                                                     }
+                                     },
+                      "id":  "quality-score",
+                      "name":  "POST /quality/score",
+                      "type":  "n8n-nodes-base.httpRequest",
+                      "typeVersion":  4.2,
+                      "position":  [
+                                       2000,
+                                       220
+                                   ]
+                  },
+                  {
+                      "parameters":  {
+                                         "method":  "POST",
+                                         "url":  "={{ $env.API_BASE_URL }}/ingestion/complete",
+                                         "sendBody":  true,
+                                         "bodyParameters":  {
+                                                                "parameters":  [
+                                                                                   {
+                                                                                       "name":  "run_id",
+                                                                                       "value":  "={{ $(\u0027POST /ingestion/start\u0027).item.json.run_id }}"
+                                                                                   }
+                                                                               ]
+                                                            },
+                                         "options":  {
+
+                                                     }
+                                     },
+                      "id":  "ingestion-complete",
+                      "name":  "POST /ingestion/complete",
+                      "type":  "n8n-nodes-base.httpRequest",
+                      "typeVersion":  4.2,
+                      "position":  [
+                                       2220,
+                                       220
+                                   ]
+                  },
+                  {
+                      "parameters":  {
+                                         "method":  "POST",
+                                         "url":  "={{ $env.API_BASE_URL }}/ingestion/fail",
+                                         "sendBody":  true,
+                                         "bodyParameters":  {
+                                                                "parameters":  [
+                                                                                   {
+                                                                                       "name":  "run_id",
+                                                                                       "value":  "={{ $(\u0027POST /ingestion/start\u0027).item.json.run_id }}"
+                                                                                   },
+                                                                                   {
+                                                                                       "name":  "error_message",
+                                                                                       "value":  "={{ $json.message ?? JSON.stringify($json) }}"
+                                                                                   }
+                                                                               ]
+                                                            },
+                                         "options":  {
+
+                                                     }
+                                     },
+                      "id":  "ingestion-fail",
+                      "name":  "POST /ingestion/fail",
+                      "type":  "n8n-nodes-base.httpRequest",
+                      "typeVersion":  4.2,
+                      "position":  [
+                                       1560,
+                                       480
+                                   ]
+                  },
+                  {
+                      "parameters":  {
+                                         "errorMessage":  "Source not enabled or not found: {{ $json.source_key }}"
+                                     },
+                      "id":  "source-disabled-stop",
+                      "name":  "Source Disabled — Stop",
+                      "type":  "n8n-nodes-base.stopAndError",
+                      "typeVersion":  1,
+                      "position":  [
+                                       900,
+                                       420
+                                   ]
+                  }
+              ],
+    "connections":  {
+                        "When Executed by Another Workflow":  {
+                                                                  "main":  [
+                                                                               [
+                                                                                   {
+                                                                                       "node":  "Read Source Config",
+                                                                                       "type":  "main",
+                                                                                       "index":  0
+                                                                                   }
+                                                                               ]
+                                                                           ]
+                                                              },
+                        "Read Source Config":  {
+                                                   "main":  [
+                                                                [
+                                                                    {
+                                                                        "node":  "Source Enabled?",
+                                                                        "type":  "main",
+                                                                        "index":  0
+                                                                    }
+                                                                ]
+                                                            ]
+                                               },
+                        "Source Enabled?":  {
+                                                "main":  [
+                                                             [
+                                                                 {
+                                                                     "node":  "POST /ingestion/start",
+                                                                     "type":  "main",
+                                                                     "index":  0
+                                                                 }
+                                                             ],
+                                                             [
+                                                                 {
+                                                                     "node":  "Source Disabled — Stop",
+                                                                     "type":  "main",
+                                                                     "index":  0
+                                                                 }
+                                                             ]
+                                                         ]
+                                            },
+                        "POST /ingestion/start":  {
+                                                      "main":  [
+                                                                   [
+                                                                       {
+                                                                           "node":  "POST /ingestion/fetch",
+                                                                           "type":  "main",
+                                                                           "index":  0
+                                                                       }
+                                                                   ]
+                                                               ]
+                                                  },
+                        "POST /ingestion/fetch":  {
+                                                      "main":  [
+                                                                   [
+                                                                       {
+                                                                           "node":  "POST /normalise",
+                                                                           "type":  "main",
+                                                                           "index":  0
+                                                                       }
+                                                                   ]
+                                                               ]
+                                                  },
+                        "POST /normalise":  {
+                                                "main":  [
+                                                             [
+                                                                 {
+                                                                     "node":  "POST /resolve",
+                                                                     "type":  "main",
+                                                                     "index":  0
+                                                                 }
+                                                             ]
+                                                         ]
+                                            },
+                        "POST /resolve":  {
+                                              "main":  [
+                                                           [
+                                                               {
+                                                                   "node":  "POST /events/detect",
+                                                                   "type":  "main",
+                                                                   "index":  0
+                                                               }
+                                                           ]
+                                                       ]
+                                          },
+                        "POST /events/detect":  {
+                                                    "main":  [
+                                                                 [
+                                                                     {
+                                                                         "node":  "POST /quality/score",
+                                                                         "type":  "main",
+                                                                         "index":  0
+                                                                     }
+                                                                 ]
+                                                             ]
+                                                },
+                        "POST /quality/score":  {
+                                                    "main":  [
+                                                                 [
+                                                                     {
+                                                                         "node":  "POST /ingestion/complete",
+                                                                         "type":  "main",
+                                                                         "index":  0
+                                                                     }
+                                                                 ]
+                                                             ]
+                                                }
+                    },
+    "settings":  {
+                     "executionOrder":  "v1",
+                     "saveManualExecutions":  true,
+                     "callerPolicy":  "workflowsFromSameOwner",
+                     "errorWorkflow":  "ingest-source-error-handler",
+                     "saveDataErrorExecution":  "all",
+                     "saveDataSuccessExecution":  "all",
+                     "saveExecutionProgress":  true,
+                     "maxConcurrency":  1
+                 },
+    "staticData":  null,
+    "meta":  {
+                 "templateCredsSetupCompleted":  true
+             },
+    "pinData":  {
+
+                },
+    "versionId":  "1",
+    "triggerCount":  0,
+    "tags":  [
+                 {
+                     "createdAt":  "2026-09-28T00:00:00.000Z",
+                     "updatedAt":  "2026-09-28T00:00:00.000Z",
+                     "id":  "ingestion",
+                     "name":  "ingestion"
+                 }
+             ],
+    "active":  false
 }

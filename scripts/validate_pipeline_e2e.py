@@ -65,10 +65,12 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="BAA pipeline end-to-end validation")
     parser.add_argument("--api-url", default=DEFAULT_API, help="API base URL")
     parser.add_argument("--source-key", default=SOURCE_KEY, help="Source key to test")
+    parser.add_argument("--limit", type=int, default=None, help="Row limit (clears incremental since filter)")
     args = parser.parse_args()
 
     base = args.api_url.rstrip("/")
     source_key = args.source_key
+    limit = args.limit
     session = requests.Session()
     session.headers["Content-Type"] = "application/json"
 
@@ -104,13 +106,17 @@ def main() -> None:
     # 3. POST /ingestion/fetch  (adapter-driven — no records body)
     # ------------------------------------------------------------------
     step("3. POST /ingestion/fetch  (adapter runs inside API)")
-    fetch_resp = post(session, base, "/ingestion/fetch", {
-        "run_id": run_id,
-        "source_key": source_key,
-    })
+    fetch_body = {"run_id": run_id, "source_key": source_key}
+    if limit is not None:
+        fetch_body["limit"] = limit
+    fetch_resp = post(session, base, "/ingestion/fetch", fetch_body)
     records_stored = fetch_resp.get("records_stored", 0)
     if records_stored == 0:
-        fail("No records stored by /ingestion/fetch")
+        fail(
+            "No records stored by /ingestion/fetch",
+            "Hint: if this source was recently imported, incremental fetch returns 0 new records.\n"
+            "     Pass --limit 200 to bypass the since filter and force a sample fetch."
+        )
     ok(f"records_stored = {records_stored}")
 
     # ------------------------------------------------------------------

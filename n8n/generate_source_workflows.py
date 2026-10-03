@@ -60,7 +60,7 @@ def make_per_source_workflow(source_key: str, cron: str, display_name: str) -> d
                 "id": f"cron-{source_key}",
                 "name": "Cron Trigger",
                 "type": "n8n-nodes-base.scheduleTrigger",
-                "typeVersion": 1.1,
+                "typeVersion": 1,
                 "position": [240, 300],
             },
             {
@@ -80,12 +80,6 @@ def make_per_source_workflow(source_key: str, cron: str, display_name: str) -> d
                         "value": "ingest-source",
                         "mode": "name",
                     },
-                    "workflowInputs": {
-                        "mappingMode": "defineBelow",
-                        "value": {
-                            "source_key": "={{ $json.source_key }}",
-                        },
-                    },
                     "options": {
                         "waitForSubWorkflow": True,
                     },
@@ -93,7 +87,7 @@ def make_per_source_workflow(source_key: str, cron: str, display_name: str) -> d
                 "id": f"call-ingest-source-{source_key}",
                 "name": "Call ingest-source",
                 "type": "n8n-nodes-base.executeWorkflow",
-                "typeVersion": 1.1,
+                "typeVersion": 1,
                 "position": [680, 300],
             },
         ],
@@ -116,6 +110,7 @@ def make_per_source_workflow(source_key: str, cron: str, display_name: str) -> d
             "saveDataErrorExecution": "all",
             "saveDataSuccessExecution": "all",
         },
+        "active": False,
         "staticData": None,
         "meta": {"templateCredsSetupCompleted": True},
         "pinData": {},

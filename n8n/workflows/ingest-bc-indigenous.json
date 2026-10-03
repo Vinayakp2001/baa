@@ -15,7 +15,7 @@
       "id": "cron-bc_indigenous",
       "name": "Cron Trigger",
       "type": "n8n-nodes-base.scheduleTrigger",
-      "typeVersion": 1.1,
+      "typeVersion": 1,
       "position": [
         240,
         300
@@ -41,12 +41,6 @@
           "value": "ingest-source",
           "mode": "name"
         },
-        "workflowInputs": {
-          "mappingMode": "defineBelow",
-          "value": {
-            "source_key": "={{ $json.source_key }}"
-          }
-        },
         "options": {
           "waitForSubWorkflow": true
         }
@@ -54,7 +48,7 @@
       "id": "call-ingest-source-bc_indigenous",
       "name": "Call ingest-source",
       "type": "n8n-nodes-base.executeWorkflow",
-      "typeVersion": 1.1,
+      "typeVersion": 1,
       "position": [
         680,
         300
@@ -92,6 +86,7 @@
     "saveDataErrorExecution": "all",
     "saveDataSuccessExecution": "all"
   },
+  "active": false,
   "staticData": null,
   "meta": {
     "templateCredsSetupCompleted": true

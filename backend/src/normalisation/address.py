@@ -82,6 +82,21 @@ _UNIT_LABELS: dict[str, str] = {
 _VALID_PROVINCES = {
     "AB", "BC", "MB", "NB", "NL", "NS", "NT", "NU", "ON", "PE", "QC", "SK", "YT"
 }
+_PROVINCE_NAMES = {
+    "ALBERTA": "AB",
+    "BRITISH COLUMBIA": "BC",
+    "MANITOBA": "MB",
+    "NEW BRUNSWICK": "NB",
+    "NEWFOUNDLAND AND LABRADOR": "NL",
+    "NOVA SCOTIA": "NS",
+    "NORTHWEST TERRITORIES": "NT",
+    "NUNAVUT": "NU",
+    "ONTARIO": "ON",
+    "PRINCE EDWARD ISLAND": "PE",
+    "QUEBEC": "QC",
+    "SASKATCHEWAN": "SK",
+    "YUKON": "YT",
+}
 
 _WHITESPACE_RE = re.compile(r"\s+")
 
@@ -112,6 +127,8 @@ def _normalise_postal(raw: str | None) -> tuple[str | None, bool | None]:
     if m:
         formatted = f"{m.group(1).upper()} {m.group(2).upper()}"
         return formatted, True
+    if len(raw.strip()) > 7:
+        return None, False
     return raw.strip(), False
 
 
@@ -169,10 +186,10 @@ def normalise_address(
     # Province — uppercase 2-char code
     norm_province: str | None = None
     if province and province.strip():
-        norm_province = province.strip().upper()
+        province_value = province.strip().upper()
+        norm_province = _PROVINCE_NAMES.get(province_value, province_value)
         if norm_province not in _VALID_PROVINCES:
-            # Keep it but don't validate further — province field may be a full name
-            norm_province = province.strip().upper()
+            norm_province = None
 
     # Postal code
     norm_postal, postal_valid = _normalise_postal(postal_code)

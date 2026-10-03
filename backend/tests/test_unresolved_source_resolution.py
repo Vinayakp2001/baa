@@ -39,6 +39,10 @@ class FakeResult:
             return []
         return self.rows if isinstance(self.rows, list) else [self.rows]
 
+    def first(self):
+        rows = self.all()
+        return rows[0] if rows else None
+
 
 class FakeSession:
     def __init__(self, source_record: SourceRecord) -> None:
@@ -75,8 +79,11 @@ class FakeSession:
             )
         if "FROM source_record" in sql and "resolution_status IN" in sql:
             self.run_only_reads += 1
-            if self.run_only_reads == 1 and self.source_record.resolution_status == "UNRESOLVED":
-                return FakeResult([self.source_record])
+            if self.run_only_reads == 1:
+                return FakeResult([
+                    row for row in self.source_records
+                    if row.resolution_status in ("PENDING", "UNRESOLVED")
+                ])
             return FakeResult([])
         if "FROM source_record" in sql:
             return FakeResult(self.source_record)
@@ -299,6 +306,41 @@ async def test_later_run_only_resolution_retries_unresolved_record(monkeypatch) 
     assert source_record.entity_id == entity_id
     assert source_record.resolution_status == "MATCHED"
     assert source_record.ingestion_run_id == run_id
+
+
+@pytest.mark.asyncio
+async def test_run_only_resolution_uses_exact_rows_for_duplicate_source_ids(monkeypatch) -> None:
+    source_id = uuid.uuid4()
+    run_id = uuid.uuid4()
+    first_record = make_permit_record(run_id, business_name="First Business Ltd.")
+    second_record = make_permit_record(run_id, business_name="Second Business Ltd.")
+    second_record = second_record.model_copy(update={"source_record_id": first_record.source_record_id})
+    first_source_record = make_source_record(source_id, run_id, first_record)
+    second_source_record = make_source_record(source_id, run_id, second_record)
+    db = FakeSession(first_source_record)
+    db.source_records = [first_source_record, second_source_record]
+    created_rows: list[SourceRecord] = []
+
+    monkeypatch.setattr(resolution_routes, "match_exact_identifier", no_match)
+    monkeypatch.setattr(resolution_routes, "match_composite_deterministic", no_match)
+    monkeypatch.setattr(resolution_routes, "match_fuzzy", no_match)
+
+    async def create_entity(*, source_record_row: SourceRecord, **_kwargs):
+        created_rows.append(source_record_row)
+        entity_id = uuid.uuid4()
+        source_record_row.entity_id = entity_id
+        source_record_row.resolution_status = "NEW"
+        return entity_id, 0
+
+    monkeypatch.setattr(resolution_routes, "create_new_entity", create_entity)
+
+    response = await resolution_routes.resolve(ResolveRequest(run_id=run_id), db)
+
+    assert response.records_resolved == 2
+    assert created_rows == [first_source_record, second_source_record]
+    assert first_source_record.entity_id is not None
+    assert second_source_record.entity_id is not None
+    assert first_source_record.entity_id != second_source_record.entity_id
 
 
 @pytest.mark.asyncio
